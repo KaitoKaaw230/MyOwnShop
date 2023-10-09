@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age of Empires 2_Sin Up</title>
+    <link rel="stylesheet" href="MainBaseCss.css">
+    <link rel="shortcut icon" href="Images/FontPage_Images/aoe_logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body{overflow-x: hidden;}
+        .aoeSiginBase_container{width: 101%; height: 100%; transform: translate(-8px,-10px);}
+        
+        .aoeSiginBase_container{display: flex; flex-direction: column; align-items: center;}
+        .aoeSiginBase_MAINcontainer{width: 101%; height: auto; margin-top: 110px;}
+
+        .aoeSiginBase_MAINcontainer_imgbase{width: 100%; height: 100%; position: absolute; position: fixed;}
+        .aoeSiginBase_container_img{width: 1000px; height: 500px; position: absolute;}
+        /* .aoeSiginBase_container_img{position: sticky; position: -webkit-sticky;} */
+        .aoeSiginBase_container_img{z-index: 0; top: 230px; left: 290px; opacity: 0.08;}
+
+
+        .aoeSiginBase_MAINcontainer_itemsbase{width: 100%; height: auto; position: absolute;}
+
+        .aoe_midBase_common{width: 1100px; margin-top: 50px; display: flex; flex-direction: column;}
+        .choisen{box-shadow: var(--box-Shadow); background: var(--ligher-orange); color: #1B1B1B;}
+        .aoe_common_base{width: 100%; height: auto; margin-top: 120px; z-index: 5}
+        .aoe_common_base{display: flex; flex-direction: column; align-items: center; justify-content: center;}
+    </style>
+
+    <!-- signin_common -->
+    <style>
+        .aoeSiginBase_top{background: var(--main-color); width: 100%; height: 100px; position: fixed; align-items: center;}
+        .aoeSiginBase_top{box-shadow: var(--box-Shadow); display: flex; justify-content: space-between;}
+
+        .aoeSiginBase_top_Logo{width: 180px; height: 100px; transform: translateX(-105px); transition: transform 0.6s; user-select: none;}
+        .aoeSiginBase_top_Logo_img{width: 180px; height: 100px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;}
+        .aoeSiginBase_top_Logo:hover{transform: translateX(0);}
+
+        .aoeSiginBase_top_searchBase{width: 250px; height: 36px; background: rgb(255, 200, 97); border-radius: 50px;}
+        .aoeSiginBase_top_searchBase{display: flex; justify-content: start; align-items: center; user-select: none;}
+
+        .aoeSiginBase_top_searchBase_searchbar{width: 200px; height: 36px; background: transparent; border: rgb(170, 111, 0);}
+        .aoeSiginBase_top_searchBase_searchbar{padding-left: 10px; color: #1B1B1B; border: none; outline: none;}
+        .aoeSiginBase_top_searchBase_searchbar{border-top-left-radius: 50px; border-bottom-left-radius: 50px;}
+
+        .aoeSiginBase_top_searchBase_btn{width: 50px; height: 36px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;}
+        .aoeSiginBase_top_searchBase_btn{background: var(--heavier-orange); font-size: 11px; line-height: 33px;}
+        .aoeSiginBase_top_searchBase_btn{color: var(--text-color); cursor: pointer; font-weight: 550;}
+        .aoeSiginBase_top_searchBase_btn:hover{background: rgb(134, 87, 0); color: #fff;}
+
+        .aoeSiginBase_top_itemsBAse{width: 700px; height: 36px; display: flex; justify-content: start;}
+        .aoeSiginBase_items{width: fit-content; height: 36px; cursor: pointer; border-radius: 20px; user-select: none;}
+        .aoeSiginBase_items{transition-property: all; transition-duration: 0.2; text-decoration: none; margin-right: 40px;}
+        .aoeSiginBase_items:hover{background: var(--ligher-orange);}
+
+        /* .aoeSiginBase_items:hover{background: #fff;} */
+        .aoeSiginBase_items_txt{padding: 5px 20px; line-height: 32px; font-weight: 800; color: #1B1B1B; text-decoration: none;}
+        /* .aoeSiginBase_items:active{background: #1B1B1B;}
+        .aoeSiginBase_items:active .aoeSiginBase_items_txt{color: rgb(229, 149, 0);} */
+        
+        
+
+        .aoeSiginBase_top_signBase{width: 230px; height: 36px; margin-right: 30px; display: flex; justify-content: space-between;}
+        .signseperate{width: 5px; height: 36px; background: orange; user-select: none;}
+        .signCommon{width: auto; height: 36px; background: var(--ligher-orange); border-radius: 10px; cursor: pointer; user-select: none;}
+        .signCommon:hover{background: #fff; box-shadow: var(--box-Shadow);}
+
+        
+    </style>
+
+    <!-- aoe_bottom -->
+    <style>
+        .aoe_bottom{background: var(--main-color); transform: translateY(17px);}
+        .aoe_bottom{width: 100%; height: 500px; z-index: 5; position: relative;}
+        .aoe_bottom_img{width: 100%; height: 500px; position: absolute; top: 0; left: 0; z-index: 0; opacity: 0.1;}
+        .aoe_bottom_text_base{width: 90%; height: 400px; top: 45px; left: 80px; z-index: 5; position: absolute; display: flex; flex-direction: column;}
+        .aoe_bottom_text_base_link{color: #fff; font-size: 18px; font-weight: 600; text-decoration: none;}
+        .aoe_bottom_text_base_link{width: fit-content; margin: 5px 0;}
+        .aoe_bottom_text_base_link:hover{color: #1B1B1B;}
+    </style>
+
+<!-- SignIn_container -->
+<style>
+    .SignIn_container{display: none;}
+
+
+    .SignIn_container{width: 100%; height: 100%; position: fixed; top: 0; left: 0; }
+    .SignIn_container_bg{width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1;}
+    .SignIn_container_bg{background: black; opacity: 0.8;}
+    
+    .SignIn_container_bs{width: 500px; height: 320px; position: absolute; top: 30%; left: 35%; z-index: 3;}
+    .SignIn_container_bs{background: #fff; border-radius: 10px; border-top: 20px solid var(--main-color);}
+    .SignIn_container_bs{display: flex; flex-direction: column;}
+
+    .SignIn_container_bs_title_base{width: 100%; height: auto; margin: 15px 0 5px 15px;}
+    .SignIn_container_bs_title{font-size: var(--title-size); color: var(--heavier-orange); font-weight: 800; text-transform: uppercase;}
+
+    .SignIn_container_bs_info_base{width: 100%; height: auto; margin: 2px 0 5px 15px; display: flex; flex-direction: column;}
+    .SignIn_container_bs_info_text{font-size: var(--text-sise); color: orange; font-weight: 550;}
+
+    .SignIn_container_bs_info_type{width: 200px; height: 26px; border-radius: 5px; margin: 2px 0 10px 0;}
+    .SignIn_container_bs_info_type{border: none; outline: none; background: var(--ligher-orange); padding-left: 10px; color: #1B1B1B; user-select: none;}
+
+    .SignIn_container_bs_confirm_base{width: 95%; height: auto; margin: 100px 0 5px 15px; }
+    .SignIn_container_bs_confirm_base{display: flex; justify-content: space-between; align-items: center;}
+    .SignIn_container_bs_confirm_text{font-size: var(--text-sise); color: darkgreen;}
+    .SignIn_container_bs_confirm_Btn{width: fit-content; height: auto; background: var(--main-color); color: #fff;}
+    .SignIn_container_bs_confirm_Btn{border-radius: 5px; cursor: pointer; user-select: none;}
+    .SignIn_container_bs_confirm_Btn:hover{background: var(--ligher-orange);}
+    .SignIn_container_bs_confirm_Btn_Text{padding: 5px 10px; line-height: 30px;}
+</style>
+
+<!-- aoe_signup_base -->
+<style  >
+    .aoe_signup_base{border-top: 20px solid var(--main-color); border-radius: 20px;}
+    .aoe_signup_base{width: 600px; height: 700px; background: #fff; margin-top: 100px;}
+    .aoe_signup_base{color: #1B1B1B; box-shadow: var(--box-Shadow); display: flex; flex-direction: column;}
+    .marginSpecific{margin: 15px 0 20px 10px !important;}
+    .SignIn_container_bs_topic{font-size: 25px; color: orange; font-weight: bold; margin: 17px 0 0 10px; user-select: none;}
+
+    .aoe_signup_btnBase{width: 95%; height: 30px; margin-top: 100px; display: flex; justify-content: end;}
+
+    
+
+    /* .aoe_signup_info_base{border-top: 20px solid var(--main-color); border-radius: 20px;}
+    .aoe_signup_info_base{width: 600px; height: 630px; background: #fff; margin-top: 100px;}
+    .aoe_signup_info_base{color: #1B1B1B; box-shadow: var(--box-Shadow); display: flex; flex-direction: column;} */
+
+    /* .aoe_signup_base{display: none;} */
+    .aoe_signup_info_base{display: none;}
+
+    .SignIn_container_result_type{width: 210px; height: 26px; border-radius: 5px; margin: 2px 0 10px 0; cursor: pointer;}
+    .SignIn_container_result_type{border: none; outline: none; background: var(--ligher-orange); padding: 5px 0 5px 5px;}
+    .SignIn_container_result_type{color: #1B1B1B; user-select: none; font-weight: 550; font-size: 10px;}
+
+
+    .SignIn_infomation_base{width: 200px; height: 26px; margin-left: 10px; color: var(--heavier-orange);}
+</style>
+</head>
+
+    <!-- searchbar -->
+    <script type="text/javascript">
+        function seaRchBtn(){
+            let FeatureBase = document.getElementById('feature_base');
+            alert('Pressable')
+        }
+    </script>
+
+<!-- signCommon -->
+<script type="text/javascript">
+    function SupBtn(){
+        let SignUpBAse = document.getElementById('aoe_signup_base');
+        let SignUpInfoBAse = document.getElementById('aoe_signup_info_base');
+
+        let Result_infoBase = document.getElementById('Result_infoBase');
+        let gender_infoBase = document.getElementById('gender_infoBase');
+        let gmail_infoBase = document.getElementById('gmail_infoBase');
+        let phone_infoBase = document.getElementById('phone_infoBase');
+
+        var uSe = document.getElementById("uSename").value;
+        var Pas = document.getElementById("paSs").value;
+        var Gam = document.getElementById("GamIl").value;
+        var Pho = document.getElementById("PhonE").value;
+        var SignIn_resulttype = document.getElementById('SignIn_resulttype').value;
+        if(uSe == '' || Pas == '' || Gam == '' || Pho == ''){
+            alert('Some important function are empty!');
+        }
+        else{
+            SignUpBAse.style.display = 'none';
+            SignUpInfoBAse.style.display = 'flex';
+            // document.getElementById("aoe_signup_info_base").innerHTML = uSe;
+            // document.getElementById("aoe_signup_info_base").innerHTML = Pas;
+            // document.getElementById("aoe_signup_info_base").innerHTML = Gam;
+            // document.getElementById("aoe_signup_info_base").innerHTML = Pho;
+            Result_infoBase.innerHTML = uSe;
+            gender_infoBase.innerHTML = SignIn_resulttype;
+            gmail_infoBase.innerHTML = Gam;
+            phone_infoBase.innerHTML = Pho;
+        }
+    }
+    function quickopen(){
+        let SignUpBAse = document.getElementById('aoe_signup_base');
+        let SignUpInfoBAse = document.getElementById('aoe_signup_info_base');
+        SignUpBAse.style.display = 'none';
+        SignUpInfoBAse.style.display = 'flex';
+    }
+    function quickclose(){
+        let SignUpBAse = document.getElementById('aoe_signup_base');
+        let SignUpInfoBAse = document.getElementById('aoe_signup_info_base');
+        SignUpBAse.style.display = 'flex';
+        SignUpInfoBAse.style.display = 'none';
+    }
+</script>
+
+<!-- function Chatig(){
+    const ChatRoom_base = document.getElementsByClassName('ChatRoom_base');
+    var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+    var searchBar = document.getElementById('searchBar').value;
+    ChatRoom_base[0].innerHTML = "YoShiNori: " + ChatRoomSearch + "<br>";
+} -->
+<body>
+    <div class="aoeSiginBase_MAINcontainer_imgbase">
+        <img style="user-select: none;" src="Images/FontPage_Images/aoe_bg.png" alt="" class="aoeSiginBase_container_img">
+    </div>
+
+    <div class="aoeSiginBase_container">
+        <div class="aoeSiginBase_top">
+            <a href="aoe_homepage.html" class="aoeSiginBase_top_Logo">
+                <img src="Images/FontPage_Images/aoe_logo_link.jpg" alt="" class="aoeSiginBase_top_Logo_img">
+            </a>
+            <div class="aoeSiginBase_top_searchBase">
+                <input type="text" name="" id="" class="aoeSiginBase_top_searchBase_searchbar">
+                <div id="searchBase_btn" class="aoeSiginBase_top_searchBase_btn" onclick="seaRchBtn()"><span style="margin-left: 5px;">Search</span></div>
+            </div>
+            <div class="aoeSiginBase_top_itemsBAse">
+                
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_homepage.html" class="aoeSiginBase_items_txt">🏡 Home Page</a>
+                </div>
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_srtore.html" class="aoeSiginBase_items_txt">🛒 Store</a>
+                </div>
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_minigames.html" class="aoeSiginBase_items_txt">🎮 Minigames</a>
+                </div>
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_aboutus.html" class="aoeSiginBase_items_txt">ⓘ ABout us</a>
+                </div>
+            </div>
+            
+            <div class="aoeSiginBase_top_signBase">
+                <div class="signCommon signup">
+                    <a href="aoe_homepage.html" class="aoeSiginBase_items_txt">SIGN IN</a></div>
+                    <div class="signseperate"></div>
+                <div class="signCommon signin choisen"><a href="aoe_signUp.html" class="aoeSiginBase_items_txt">SIGN UP</a></div>
+            </div>
+        </div>
+
+        <div class="aoe_mid">
+            <div style="margin-bottom: 100px; margin-top: 200px;" id="aoe_signup_base" class="aoe_signup_base">
+                <span class="SignIn_container_bs_title marginSpecific">Be one of us!! We're waitting <span style="cursor: pointer;" onclick="quickopen()">!!</span></span>
+
+                <sapn class="SignIn_container_bs_topic">Who are you?</sapn>
+                <div style="display: flex;flex-direction: column; margin: 5px 0 0 10px">
+                    <span class="SignIn_container_bs_info_text">What should we call you:</span>
+                    <input type="text" name="" id="uSename" class="SignIn_container_bs_info_type"  placeholder="Set a User name...">
+                </div>
+
+                <div style="display: flex;flex-direction: column; margin: 5px 0 0 10px">
+                    <span class="SignIn_container_bs_info_text">You are a:</span>
+                    <select name="" id="SignIn_resulttype" class="SignIn_container_result_type">
+                        <option value="">Please choise your gender:</option>
+                        <option value="">Male</option>
+                        <option value="">Female</option>
+                        <option value="">Other</option>
+                    </select>
+                    <!-- <input type="password" name="" id="paSs" class="SignIn_container_bs_info_type"  placeholder="Set a password..."> -->
+                </div>
+                
+                <div style="display: flex;flex-direction: column; margin: 5px 0 0 10px">
+                    <span class="SignIn_container_bs_info_text">Create a password:</span>
+                    <input type="password" name="" id="paSs" class="SignIn_container_bs_info_type"  placeholder="Set a password...">
+                </div>
+
+                <div style="display: flex;flex-direction: column; margin: 5px 0 0 10px">
+                    <span class="SignIn_container_bs_info_text">Create a password:</span>
+                    <input type="file" name="" id="" class="SignIn_container_bs_info_type" required multiple placeholder="Set a password...">
+                </div>
+                
+
+
+                <sapn class="SignIn_container_bs_topic">How could we contact you?</sapn>
+                <div style="display: flex;flex-direction: column; margin: 5px 0 0 10px">
+                    <span class="SignIn_container_bs_info_text">Gmail:</span>
+                    <input type="text" name="" id="GamIl" class="SignIn_container_bs_info_type"  placeholder="Type your Gmail...">
+                </div>
+
+                <div style="display: flex;flex-direction: column; margin: 5px 0 0 10px">
+                    <span class="SignIn_container_bs_info_text">Phone:</span>
+                    <input type="text" name="" id="PhonE" class="SignIn_container_bs_info_type"  placeholder="Type your Phone Num...">
+                </div>
+
+                <div class="aoe_signup_btnBase">
+                    <dvi class="Maintheme_btn" onclick="SupBtn()">
+                        <span class="Maintheme_btn_Text">Im done</span>
+                    </dvi>
+                </div>
+            </div>
+
+            <div id="aoe_signup_info_base" style="margin-bottom: 100px; margin-top: 200px;" class="aoe_signup_base aoe_signup_info_base">
+                <span class="SignIn_container_bs_title marginSpecific">Check your info again<span style="cursor: pointer;" onclick="quickclose()">.</span></span>
+
+                <div style="display: flex; flex-direction: row; width: 550px; margin: 5px 0 0 10px;">
+                    <span class="SignIn_container_bs_info_text">Your Username is: </span>
+                    <div id="Result_infoBase" class="SignIn_infomation_base"></div>
+                </div>
+
+                <div style="display: flex; flex-direction: row; width: 550px; margin: 5px 0 0 10px;">
+                    <span class="SignIn_container_bs_info_text">Gender: </span>
+                    <div id="gender_infoBase" class="SignIn_infomation_base"></div>
+                </div>
+
+                <div style="display: flex; flex-direction: row; width: 550px; margin: 5px 0 0 10px;">
+                    <span class="SignIn_container_bs_info_text">Gmail: </span>
+                    <div id="gmail_infoBase" class="SignIn_infomation_base"></div>
+                </div>
+
+                <div style="display: flex; flex-direction: row; width: 550px; margin: 5px 0 0 10px;">
+                    <span class="SignIn_container_bs_info_text">Phone: </span>
+                    <div id="phone_infoBase" class="SignIn_infomation_base"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="aoe_bottom">
+            <img src="Images/FontPage_Images/aoe_bottom_bgImg.jpg" alt="" class="aoe_bottom_img">
+            <div class="aoe_bottom_text_base">
+                <a href="" class="aoe_bottom_text_base_link">Facebook</a>
+                <a href="" class="aoe_bottom_text_base_link">Twitter</a>
+                <a href="" class="aoe_bottom_text_base_link">Steam</a>
+                <a href="" class="aoe_bottom_text_base_link">Instagram</a>
+                <a href="" class="aoe_bottom_text_base_link">Youtube</a>
+                <a href="https://www.ageofempires.com/news/visual-look-at-aoe2de/" class="aoe_bottom_text_base_link">AOE Main Website</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="SignIn_container" class="SignIn_container">
+        <div class="SignIn_container_bg"></div>
+        <div class="SignIn_container_bs">
+            <div class="SignIn_container_bs_title_base">
+                <span class="SignIn_container_bs_title">Sign in to use our service</span>
+            </div>
+            <div class="SignIn_container_bs_info_base">
+                <span class="SignIn_container_bs_info_text">Password:</span>
+                <input type="password" name="" id="pas" class="SignIn_container_bs_info_type" placeholder="Type your password...">
+
+                <span class="SignIn_container_bs_info_text">User name:</span>
+                <input type="text" name="" id="use" class="SignIn_container_bs_info_type"  placeholder="Type your User name...">
+            </div>
+            <div class="SignIn_container_bs_confirm_base">
+                <div class="SignIn_container_bs_confirm_text">If u have not had an account yet! Sign up <a href="aoe_signUp.html" class="aoe_link">here</a>.</div>
+                <div class="SignIn_container_bs_confirm_Btn" onclick="SIn()">
+                    <span class="SignIn_container_bs_confirm_Btn_Text">Confirm</span></div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,3060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age of Empires_Minigames</title>
+    <link rel="stylesheet" href="MainBaseCss.css">
+    <link rel="shortcut icon" href="Images/FontPage_Images/aoe_logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ← ↑ → ↓ ↚ ↛ ↜ ↝ ↞ ↟  → ↑ ↓ ← ➷ ➥ ⇒ ⇄ ↻ ➤ -->
+    <style>
+        body{overflow-x: hidden;}
+        .aoeSiginBase_container{width: 101%; height: 100%; transform: translate(-8px,-10px);}
+        
+        .aoeSiginBase_container{display: flex; flex-direction: column;}
+        .aoeSiginBase_MAINcontainer{width: 101%; height: auto; margin-top: 110px;}
+
+        .aoeSiginBase_MAINcontainer_imgbase{width: 100%; height: 100%; position: absolute; position: fixed;}
+        .aoeSiginBase_container_img{width: 1000px; height: 500px; position: absolute;}
+        /* .aoeSiginBase_container_img{position: sticky; position: -webkit-sticky;} */
+        .aoeSiginBase_container_img{z-index: 0; top: 230px; left: 290px; opacity: 0.12;}
+
+
+        .aoeSiginBase_MAINcontainer_itemsbase{width: 100%; height: auto; position: absolute;}
+
+        .aoe_midBase_common{width: 1100px; margin-top: 50px; display: flex; flex-direction: column;}
+        .choisen{box-shadow: var(--box-Shadow); background: var(--ligher-orange); color: #1B1B1B;}
+        .aoe_common_base{width: 100%; height: auto; margin-top: 120px; z-index: 5}
+        .aoe_common_base{display: flex; flex-direction: column; align-items: center; justify-content: center;}
+    </style>
+
+    <!-- signin_common -->
+    <style>
+        .aoeSiginBase_top{background: var(--main-color); width: 100%; height: 100px; position: fixed; align-items: center;}
+        .aoeSiginBase_top{box-shadow: var(--box-Shadow); display: flex; justify-content: space-between;}
+
+        .aoeSiginBase_top_Logo{width: 180px; height: 100px; transform: translateX(-105px); transition: transform 0.6s; user-select: none;}
+        .aoeSiginBase_top_Logo_img{width: 180px; height: 100px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;}
+        .aoeSiginBase_top_Logo:hover{transform: translateX(0);}
+
+        .aoeSiginBase_top_searchBase{width: 250px; height: 36px; background: rgb(255, 200, 97); border-radius: 50px;}
+        .aoeSiginBase_top_searchBase{display: flex; justify-content: start; align-items: center; user-select: none;}
+
+        .aoeSiginBase_top_searchBase_searchbar{width: 200px; height: 36px; background: transparent; border: rgb(170, 111, 0);}
+        .aoeSiginBase_top_searchBase_searchbar{padding-left: 10px; color: #1B1B1B; border: none; outline: none;}
+        .aoeSiginBase_top_searchBase_searchbar{border-top-left-radius: 50px; border-bottom-left-radius: 50px;}
+
+        .aoeSiginBase_top_searchBase_btn{width: 50px; height: 36px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;}
+        .aoeSiginBase_top_searchBase_btn{background: var(--heavier-orange); font-size: 11px; line-height: 33px;}
+        .aoeSiginBase_top_searchBase_btn{color: var(--text-color); cursor: pointer; font-weight: 550;}
+        .aoeSiginBase_top_searchBase_btn:hover{background: rgb(134, 87, 0); color: #fff;}
+
+        .aoeSiginBase_top_itemsBAse{width: 700px; height: 36px; display: flex; justify-content: start;}
+        .aoeSiginBase_items{width: fit-content; height: 36px; cursor: pointer; border-radius: 20px; user-select: none;}
+        .aoeSiginBase_items{transition-property: all; transition-duration: 0.2; text-decoration: none; margin-right: 40px;}
+        .aoeSiginBase_items:hover{background: var(--ligher-orange);}
+        /* .aoeSiginBase_items:hover{background: #fff;} */
+        .aoeSiginBase_items_txt{padding: 5px 20px; line-height: 32px; font-weight: 800; color: #1B1B1B; text-decoration: none;}
+        /* .aoeSiginBase_items:active{background: #1B1B1B;}
+        .aoeSiginBase_items:active .aoeSiginBase_items_txt{color: rgb(229, 149, 0);} */
+        
+        
+
+        .aoeSiginBase_top_signBase{width: 230px; height: 36px; margin-right: 30px; display: flex; justify-content: space-between;}
+        .signseperate{width: 5px; height: 36px; background: orange; user-select: none;}
+        .signCommon{width: auto; height: 36px; background: var(--ligher-orange); border-radius: 10px; cursor: pointer; user-select: none;}
+        .signCommon:hover{background: #fff; box-shadow: var(--box-Shadow);}
+
+        
+    </style>
+
+    <!-- aoe_bottom -->
+    <style>
+        .aoe_bottom{background: var(--main-color); transform: translateY(17px);}
+        .aoe_bottom{width: 100%; height: 500px; z-index: 5; position: relative;}
+        .aoe_bottom_img{width: 100%; height: 500px; position: absolute; top: 0; left: 0; z-index: 0; opacity: 0.1;}
+        .aoe_bottom_text_base{width: 90%; height: 400px; top: 45px; left: 80px; z-index: 5; position: absolute; display: flex; flex-direction: column;}
+        .aoe_bottom_text_base_link{color: #fff; font-size: 18px; font-weight: 600; text-decoration: none;}
+        .aoe_bottom_text_base_link{width: fit-content; margin: 5px 0;}
+        .aoe_bottom_text_base_link:hover{color: #1B1B1B;}
+    </style>
+
+<!-- SignIn_container -->
+<style>
+    .SignIn_container{display: none;}
+
+
+    .SignIn_container{width: 100%; height: 100%; position: fixed; top: 0; left: 0;}
+    .SignIn_container_bg{width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1;}
+    .SignIn_container_bg{background: black; opacity: 0.8;}
+    .SignIn_container_bs{width: 500px; height: 320px; position: absolute; top: 30%; left: 35%; z-index: 3;}
+    .SignIn_container_bs{background: #fff; border-radius: 10px; border-top: 20px solid var(--main-color);}
+    .SignIn_container_bs{display: flex; flex-direction: column;}
+
+    .SignIn_container_bs_title_base{width: 100%; height: auto; margin: 15px 0 5px 15px;}
+    .SignIn_container_bs_title{font-size: var(--title-size); color: var(--heavier-orange); font-weight: 800; text-transform: uppercase;}
+
+    .SignIn_container_bs_info_base{width: 100%; height: auto; margin: 2px 0 5px 15px; display: flex; flex-direction: column;}
+    .SignIn_container_bs_info_text{font-size: var(--text-sise); color: orange; font-weight: 550;}
+    .SignIn_container_bs_info_type{width: 200px; height: 26px; border-radius: 5px; margin: 2px 0 10px 0;}
+    .SignIn_container_bs_info_type{border: none; outline: none; background: var(--ligher-orange); padding-left: 10px; color: #1B1B1B; user-select: none;}
+
+    .SignIn_container_bs_confirm_base{width: 95%; height: auto; margin: 100px 0 5px 15px; }
+    .SignIn_container_bs_confirm_base{display: flex; justify-content: space-between; align-items: center;}
+    .SignIn_container_bs_confirm_text{font-size: var(--text-sise); color: darkgreen;}
+
+</style>
+
+<!-- aoe_1st_item -->
+<style>
+    .matrixGame{height: 800px; margin-bottom: 50px;}
+    .matrixGame_container{box-shadow: var(--box-Shadow);}
+    .matrixGame_container{width: 100%; height: 700px; display: flex; flex-direction: row; margin-top: 15px;}
+    .matrixGame_container_left{width: 19%; height: 700px; background: var(--main-color);}
+    .matrixGame_container_right{width: 58%; height: 700px}
+    
+
+    .matrixGame_container_right{background: var(--ligher-orange);}
+    .matrixGame_container_right_bgImg{width: 50%; height: 50%; margin: 25% 25%;}
+
+    .matrixGame_container_left_items{width: 100%; transition: height 0.3s ease-in; height: 29px; overflow: hidden;}
+    .gamesBase{}
+    .aoe_common_base_title{font-size: 20px; color: var(--white-); padding: 2px 0; width: 100% !important;}
+    .aoe_common_base_title{border-top: 2px solid var(--white-); border-bottom: 2px solid var(--white-);}
+    .aoe_common_base_title{padding-left: 10px; cursor: pointer;}
+
+    .matrixGame_container_left_itemsContainer{width: 100%; height: auto; display: flex; flex-direction: column;}
+    .matrixGame_container_left_itemTopic{width: 100%; height: auto; font-size: var(--text-sise); color: var(--text-color);}
+    .matrixGame_container_left_itemTopic{padding: 2px 0; padding-left: 10px; cursor: pointer;}
+    .matrixGame_container_left_itemTopic:hover{background: var(--ligher-orange); color: var(--heavier-orange);}
+
+    .matrixGame_container_right{}
+    
+    .matrixGame_container_right_BASE_title{font-size: var(--title-size); color: var(--heavier-orange); font-weight: 700;}
+    .matrixGame_container_right_BASE_title{margin: 10px 0 0 10px}
+    .matrixGame_container_right_BASE{width: 100%; height: 100%; display: flex; flex-direction: column; background: var(--ligher-orange);}
+    .matrixGame_container_right_BASE_txt{ font-size: 18px; color: var(--heavier-orange); margin: 0 0 0 10px}
+
+    .matrix33{display: none;}
+    .matrix99{display: none;}
+    .Picturs66{display: none;}
+    .Quizz{display: none;}
+
+    .matrix99_container{width: 361px; height: 351px; margin: 50px 0 0 70px; display: flex; flex-direction: column;}
+
+    .matrix99_container_row{width: 100%; height: 50px; display: flex; flex-direction: row;}
+    .matrix99_container_row_item{width: 50px; height: 50px; border: 1px solid var(--heavier-orange); cursor: pointer;}
+    .matrix99_container_row_item{background-color: #ffa500;}
+    /* .matrix99_container_row_item:hover{background: rgb(255, 204, 108);} */
+
+    .topItem{background: var(--heavier-orange); cursor: default; border: 1px solid rgb(90, 58, 0)}
+    .topItem:hover{background: var(--heavier-orange);}
+    .itemHasText{display: flex; justify-content: center; align-items: center; font-weight: 900; }
+    .itemHasText{cursor: default; background: var(--heavier-orange); border: 1px solid rgb(90, 58, 0)}
+    .itemHasText:hover{background: var(--heavier-orange);}
+
+
+    .testing{background-color: #fff;}
+
+
+    .Picturs66_base{width: 100%; height: 600px; margin-top: 10px; display: flex; flex-direction: column;}
+    .Picturs66_Images_base{width: 330px; height: 330px; margin-left: 100px;}
+
+    .Picturs66_Images_Itemsbase{width: 100%; height: 260px; display: flex; flex-direction: column; align-items: center; margin-top: 20px;}
+    .Picturs66_Images_Itemsbase_row{width: 630px; height: 110px; display: flex; justify-content: start;}
+    .Picturs66_Images_Item{width: 110px; height: 110px; cursor: grab; margin-right: 10px; box-shadow: var(--box-Shadow);}
+    .Picturs66_Images_Item:hover{filter: brightness(1.2);}
+
+
+    
+    .Picturs66_base_topbase{width: 100%; display: flex; flex-direction: row;}
+    .Picturs66_base_Btn_base{width: auto; height: auto; display: flex; flex-direction: column; margin-right: 100px; align-items: center;}
+    .Picturs66_base_Btn_base{margin-top: 10px; margin-left: 30px;}
+    .Picturs66_base_Btn_base_images{width: 200px; height: 200px; margin-top: 20px; border: 5px solid saddlebrown;}
+
+    .Picturs66_Images_base{display: flex; flex-direction: column; border: 5px solid saddlebrown; margin-left: 10px;}
+    .Picturs66_Images_base_row{width: 100%; height: 110px; display: flex; flex-direction: row;}
+
+
+    .Picturs66_ImagesItem{width: 110px; height: 110px; border: 1px solid var(--heavier-orange)}
+
+    /* Quizz_container higher 10px */
+    .Quizz_container{width: 100%; height: 384px; margin-top: 5px; display: flex; flex-direction: c;}
+    .Quizz_question_container{width: 389px; height: 374px; border: 5px solid saddlebrown; display: flex; flex-direction: column;}
+    .Quizz_question_container_row{width: 100%; display: flex; flex-direction: row;}
+    .Quizz_question_container_item{width: 50px; height: 50px; border: 1px solid rgb(90, 58, 0)}
+    .Quizz_question_container_item{outline: none; text-align: center; background: orange;}
+    .Quizz_question_container_item{font-weight: 600; font-size: 25px; color: var(--white-);}
+
+    .Quizz_button_container{width: 120px; height: 100%; display: flex; flex-direction: column; margin-left: 10px;}
+    .Quizz_button_container{display: flex; align-items: center; flex-direction: column;}
+    .Quizz_question_btn{margin-top: 10px;}
+
+    .unwrittenable{background: brown; cursor: not-allowed; border: 1px solid brown;}
+    .mainword{background: rgb(196, 127, 0)}
+
+
+    .Question_container{width: 100%; height: 250px; margin-top: 16px;}
+    .Question_title{cursor: default; width: 140px !important; color: rgb(152, 1, 1); font-weight: 900;  border-top: 2px solid rgb(152, 1, 1); border-bottom: 2px solid rgb(152, 1, 1);}
+    .Question_text{color: rgb(141, 47, 47); margin-left: 10px;}
+    .Question_text{font-size: 15px; font-family: var(--special-font);}
+
+    .specialQuestion{color: rgb(118, 39, 39); margin-top: 10px; font-weight: 900;}
+
+
+    .matrixGame_container_comment_base{width: 23%; height: 700px; background: var(--main-color);}
+    .noborder{border: none;}
+    .matrixGameComment{margin: 10px 0 5px 10px;}
+    .ChatRoom_container{margin: 5px 0 5px 20px; background: var(--white-); height: 500px; width: 196px;}
+    .ChatRoom_container{border: 10px solid var(--heavier-orange); display: flex; flex-direction: column;}
+
+    /* .ChatRoom_base{background: blue;} */
+    .ChatRoom_base{width: 95%; height: 460px; margin: 5px 0 0 5px;}
+    
+    .ChatRoom_search_container{border-top: 10px solid var(--heavier-orange); width: 100%; height: 30px;}
+    .ChatRoom_search_container{display: flex; flex-direction: row;}
+    .ChatRoom_search{width: 100pxs; height: 28px; border: none; outline: none;}
+    .ChatRoom_search{padding-left: 5px; color: var(--black-)}
+    .ChatRoom_search_btn{width: 30px; height: 30px; background: var(--ligher-orange); cursor: pointer;}
+    .ChatRoom_search_btn{color: var(--heavier-orange); text-align: center; line-height: 30px;}
+    .ChatRoom_search_btn:hover{filter: brightness(1.1);}
+
+
+    .ChatRoom_Emoji_containee{height: 130px; width: 215px; margin: 15px 0 5px 20px; display: flex; flex-direction: column;}
+    .ChatRoom_Emoji_containee_row{width: 215px; height: 30px; display: flex; flex-direction: row; margin: 2px 0;}
+    .ChatRoom_Emoji_containee_btn{width: 30px; height: 30px; margin: 0 4px; cursor: pointer; border-radius: 5px;}
+    .ChatRoom_Emoji_containee_btn{background: var(--ligher-orange); display: flex; justify-content: center; align-items: center;}
+    .ChatRoom_Emoji_containee_btn:hover{filter: brightness(1.1); box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);}
+    .ChatRoom_Emoji_containee_btn_text{font-size: 20px;}
+    .smallsize{font-size: 14px;}
+    .smallersize{font-size: 10px;}
+
+    .Bstyle{font-weight: 900;}
+    .Istyle{font-weight: 700; font-style: italic;}
+    .Ustyle{font-weight: 700; text-decoration: underline;}
+</style>
+
+
+<!-- colorGame -->
+<style>
+    .colorGame{}
+    .colorGame{height: 800px; margin-bottom: 50px;}
+    .colorGame_container{background: brown; box-shadow: var(--box-Shadow);}
+    .colorGame_container{width: 100%; height: 700px; display: flex; flex-direction: row; margin-top: 15px;}
+    .colorGame_container{display: flex; flex-direction: column;}
+
+    .colorGame_container_top{width: 100%; height: 50px; display: flex; flex-direction: row;}
+    .colorGame_container_bottom{width: 100%; height: 650px; background: var(--main-color);}
+
+    .colorGame_container_top_contain{width: fit-content; height: 50px; background: var(--ligher-orange);}
+    .colorGame_container_top_contain{cursor: pointer;}
+    .colorGame_container_top_contain{}
+
+
+
+    .colorGame_container_top_contain:hover{filter: brightness(1.1);}
+    .colorGame_container_top_contain_title{width: auto; height: 50px; padding: 0 36px; font-size: 25px; color: rgb(227, 148, 0); font-weight: 700;}
+    .colorGame_container_top_contain_title{text-align: center; line-height: 50px; text-transform: uppercase;}
+
+    
+    .colorGame_container_top_contain_item{height: 20px; width: 100%; width: 100%; background: var(--ligher-orange); text-align: center;}
+    .colorGame_container_top_contain_item{padding: 10px 0;}
+
+    .colorGame_container_top_contain_itemtitle{font-size: 15px; color: orange; font-weight: 550; font-family: var(--special-font);}
+    .colorGame_container_top_contain_itemtitle{border: none;}
+
+    .colorGame_container_top_contain_item:hover{background: rgb(215, 194, 154);}
+    .colorGame_container_top_contain_item:hover .colorGame_container_top_contain_itemtitle{color: rgb(143, 93, 0);}
+
+    .gamescontain:hover{height: auto;}
+    .scorecontain:hover{height: auto;}
+    .playecontain:hover{height: auto;}
+
+    .colorGame_container_bottom{display: flex;}
+    
+    
+    .colorGame_container_bottom_item_base_right{background: green;}
+    .colorGame_container_bottom_item_base_right_result_base{background: yellowgreen;}
+    .colorGame_container_bottom_item_base_right_decrption_base{background: yellow;}
+
+    .pathG{transition: background 0.4s;}
+    
+    .colorGame_container_bottom_item{width: 100%; height: 100%; display: flex; flex-direction: column;}
+
+    .pathG{background: lightyellow;}
+    .colorGame_container_bottom_item_top{width: 100%; height: 30px; display: flex; justify-content: end;}
+    .colorGame_bottom_itemtop_colorBase{height: 20px; width: 40px; margin: 5px 5px 0 0; border-radius: 50px;}
+    .colorGame_bottom_itemtop_colorBase{display: flex; align-items: center; cursor: pointer;}
+    .colorGame_bottom_itemtop_colorBase{background: var(--heavier-orange)}
+
+    .colorGame_bottom_itemtop_colorBtn{background: lightyellow;}
+    .colorGame_bottom_itemtop_colorBtn{width: 13px; height: 13px; border-radius: 50px;}
+    .colorGame_bottom_itemtop_colorBtn{margin-left: 6px; transition-property: all; transition-duration: 0.4s;}
+    /* .colorGame_bottom_itemtop_colorBtn:hover{transform: translateX(23px);} */
+
+    .colorGame_container_bottom_item_base{width: 100%; height: 610px; display: flex; flex-direction: row;}
+
+    .colorGame_container_bottom_item_base_left{width: 80%; height: 100%; display: flex; justify-content: center; align-items: center;}
+    .colorGame_container_bottom_item_base_left_base{width: 805px; height: 500px; display: flex; flex-direction: column;}
+
+    .colorGame_container_bottom_item_base_right{width: 20%; height: 100%;  display: flex; flex-direction: column; align-items: center;}
+    .colorGame_container_bottom_item_base_right_result_base{ width: 200px; height: 100px; margin: 5px 0;}
+    .colorGame_container_bottom_item_base_right_decrption_base{width: 200px; height: 400px; margin: 5px 0;}
+
+
+    .colorGamebottom_itembaseleft_row{width: 100%; height: 50px; display: flex; flex-direction: row;}
+    .colorGamebottom_itembaseleft_items{width: 50px; height: 50px; background: var(--heavier-orange); cursor: pointer;}
+    .colorGamebottom_itembaseleft_items{border: 1px solid lightyellow;}
+    .colorGamebottom_itembaseleft_items:hover{filter: brightness(1.5);}
+
+
+    /* .pathG{display: none;} */
+    .pathG2{display: none;}
+
+    .pathG2{background: lightyellow;}
+    /* .pathG2{cursor: url("https://cdn-icons-png.flaticon.com/128/3119/3119214.png"), auto;} */
+    .pathG2{cursor: url(Images/FontPage_Images/aoe_aboutUs_characters_img1.jpg);}
+
+    .pathG2{flex-direction: row !important; justify-content: center; align-items: center;}
+    .pathG2_base{width: 650px; height: 85%; border-radius: 10px; border: 10px solid var(--main-color)}
+
+    .pathG2_middle_base{width: 100px; height: 85%; background: var(--main-color);}
+    .pathG2_middle_base{display: flex; flex-direction: column; justify-content: space-between;}
+    .pathG2_middle_base_corner{width: 100px; height: 40px; background: lightyellow;}
+    .topcorner{border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;}
+    .botcorner{border-top-left-radius: 50px; border-top-right-radius: 50px;}
+
+    .pathG2_sideBase{width: 240px; height: 85%; border-radius: 10px;}
+    .pathG2_sideBase{border: 10px solid var(--main-color);}
+</style>
+
+
+<!-- _example_Grab -->
+<style>
+    .container{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.left, .right{
+    width:50%;
+    padding-left: 5%;
+    position: relative;
+}
+.left .item {
+    width:300px;
+    height:100px;
+    background-color: #18142f;
+    margin:30px auto;
+    padding:10px;
+    border-radius: 40px;
+    transition:0.5s;
+    text-align: center;
+}
+.left .item img{
+    height:100%;
+}
+.left .item:hover{
+    background-color:#5838D1;
+}
+.mockup{
+    width:500px;
+    height:600px;
+    background-image: url(Images/BigImgesToCut/aoe_bidImgaes_1.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-top:30px;
+    filter:drop-shadow(0 0 40px #121212);
+    position: relative;
+}
+.graphic{
+    width:200px;
+    height: 200px;
+    position: absolute;
+    top:200px;
+    left:50%;
+    transform: translate(-50%);
+    transition: 0.3s;
+}
+.graphic.drag{
+    border:5px dotted #232020;
+}
+.graphic img{
+    width:100%;
+}
+</style>
+
+
+<script type="text/javascript">
+    function games(){
+        let gamesBase = document.getElementById('gamesBase');
+        if(gamesBase.style.height == '29px'){gamesBase.style.height = '130px'}
+        else{gamesBase.style.height = '29px'}
+    }
+    function games2(){
+        let gamesBase = document.getElementById('Tips');
+        if(gamesBase.style.height == '29px'){gamesBase.style.height = '107px'}
+        else{gamesBase.style.height = '29px'}
+    }
+
+
+
+
+    function matrix33(){
+        let matrix33 = document.getElementById('matrix33');
+        let matrix99 = document.getElementById('matrix99');
+        let Picturs66 = document.getElementById('Picturs66');
+        let Quizz = document.getElementById('Quizz');
+
+        let matrix33btn = document.getElementById('matrix33btn');
+        let matrix99btn = document.getElementById('matrix99btn');
+
+        let containerbgImg = document.getElementById('container_right_bgImg');
+        
+        matrix33.style.display = "flex";
+        matrix99.style.display = "none";
+        Picturs66.style.display = "none";
+        Quizz.style.display = "none";
+
+        containerbgImg.style.display = "none";
+    }
+
+    function matrix99(){
+        let matrix33 = document.getElementById('matrix33');
+        let matrix99 = document.getElementById('matrix99');
+        let Picturs66 = document.getElementById('Picturs66');
+        let Quizz = document.getElementById('Quizz');
+
+        let matrix33btn = document.getElementById('matrix33btn');
+        let matrix99btn = document.getElementById('matrix99btn');
+
+        let containerbgImg = document.getElementById('container_right_bgImg');
+
+        matrix99.style.display = "flex";
+        matrix33.style.display = "none";
+        Picturs66.style.display = "none";
+        Quizz.style.display = "none";
+        containerbgImg.style.display = "none";
+    }
+
+    function Picturs66(){
+        let matrix33 = document.getElementById('matrix33');
+        let matrix99 = document.getElementById('matrix99');
+        let Picturs66 = document.getElementById('Picturs66');
+        let Quizz = document.getElementById('Quizz');
+
+        let matrix33btn = document.getElementById('matrix33btn');
+        let matrix99btn = document.getElementById('matrix99btn');
+
+        let containerbgImg = document.getElementById('container_right_bgImg');
+
+
+        Picturs66.style.display = "flex";
+        matrix99.style.display = "none";
+        matrix33.style.display = "none";
+        Quizz.style.display = "none";
+        containerbgImg.style.display = "none";
+    }
+
+    function Quizz(){
+        let matrix33 = document.getElementById('matrix33');
+        let matrix99 = document.getElementById('matrix99');
+        let Picturs66 = document.getElementById('Picturs66');
+        let Quizz = document.getElementById('Quizz');
+
+        let matrix33btn = document.getElementById('matrix33btn');
+        let matrix99btn = document.getElementById('matrix99btn');
+
+        let containerbgImg = document.getElementById('container_right_bgImg');
+        
+        matrix33.style.display = "none";
+        matrix99.style.display = "none";
+        Picturs66.style.display = "none";
+        Quizz.style.display = "flex";
+
+        containerbgImg.style.display = "none";
+    }
+    
+</script>
+
+<!-- A1__A2 -->
+<script type="text/javascript">
+    function A1(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        if(A1.style.background == "red"){A1.style.background = "orange"}
+        else{A1.style.background = "red"}
+
+
+        if(A2.style.background == "red"){A2.style.background = "orange"}
+        else{A2.style.background = "red"}
+
+        if(B1.style.background == "red"){B1.style.background = "orange"}
+        else{B1.style.background = "red"}
+        //B1.style.background = 'red';
+        //A2.style.background = 'red';
+
+        // if(A2.style.backgroundColor == '#red'){A2.style.background = 'red';}
+        // else{A2.style.background = 'orange';}
+
+        // if(B1.style.backgroundColor == '#red'){B1.style.background = 'red';}
+        // else{B1.style.background = 'orange';}
+    }
+    function B1(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        //A1.style.background = 'red';
+        //B2.style.background = 'red';
+        //C1.style.background = 'red';
+        if(B1.style.background == "red"){B1.style.background = "orange"}
+        else{B1.style.background = "red"}
+
+
+        if(A1.style.background == "red"){A1.style.background = "orange"}
+        else{A1.style.background = "red"}
+
+        if(B2.style.background == "red"){B2.style.background = "orange"}
+        else{B2.style.background = "red"}
+
+        if(C1.style.background == "red"){C1.style.background = "orange"}
+        else{C1.style.background = "red"}
+
+    }
+    function C1(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        //D1.style.background = 'red';
+        //B1.style.background = 'red';
+        //C2.style.background = 'red';
+        if(C1.style.background == "red"){C1.style.background = "orange"}
+        else{C1.style.background = "red"}
+
+        if(D1.style.background == "red"){D1.style.background = "orange"}
+        else{D1.style.background = "red"}
+
+        if(B1.style.background == "red"){B1.style.background = "orange"}
+        else{B1.style.background = "red"}
+
+        if(C2.style.background == "red"){C2.style.background = "orange"}
+        else{C2.style.background = "red"}
+
+    }
+    function D1(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        //E1.style.background = 'red';
+        //D2.style.background = 'red';
+        //C2.style.background = 'red';
+
+        if(D1.style.background == "red"){D1.style.background = "orange"}
+        else{D1.style.background = "red"}
+
+        if(E1.style.background == "red"){E1.style.background = "orange"}
+        else{E1.style.background = "red"}
+
+        if(D2.style.background == "red"){D2.style.background = "orange"}
+        else{D2.style.background = "red"}
+
+        if(C1.style.background == "red"){C1.style.background = "orange"}
+        else{C1.style.background = "red"}
+
+    }
+    function E1(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        //D1.style.background = 'red';
+        //E2.style.background = 'red';
+        //F1.style.background = 'red';
+
+        if(E1.style.background == "red"){E1.style.background = "orange"}
+        else{E1.style.background = "red"}
+
+        if(D1.style.background == "red"){D1.style.background = "orange"}
+        else{D1.style.background = "red"}
+
+        if(E2.style.background == "red"){E2.style.background = "orange"}
+        else{E2.style.background = "red"}
+
+        if(F1.style.background == "red"){F1.style.background = "orange"}
+        else{F1.style.background = "red"}
+
+    }
+    function F1(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        if(F1.style.background == "red"){F1.style.background = "orange"}
+        else{F1.style.background = "red"}
+
+        //E1.style.background = 'red';
+        //F2.style.background = 'red';
+
+        if(E1.style.background == "red"){E1.style.background = "orange"}
+        else{E1.style.background = "red"}
+
+        if(F2.style.background == "red"){F2.style.background = "orange"}
+        else{F2.style.background = "red"}
+    }
+
+    function A2(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //A1.style.background = 'red';
+        //B2.style.background = 'red';
+        //A3.style.background = 'red';
+        if(A2.style.background == "red"){A2.style.background = "orange"}
+        else{A2.style.background = "red"}
+
+        if(A1.style.background == "red"){A1.style.background = "orange"}
+        else{A1.style.background = "red"}
+
+        if(B2.style.background == "red"){B2.style.background = "orange"}
+        else{B2.style.background = "red"}
+
+        if(A3.style.background == "red"){A3.style.background = "orange"}
+        else{A3.style.background = "red"}
+    }
+    function B2(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //B1.style.background = 'red';
+        //B3.style.background = 'red';
+        //A2.style.background = 'red';
+        //C2.style.background = 'red';
+        if(B2.style.background == "red"){B2.style.background = "orange"}
+        else{B2.style.background = "red"}
+
+        if(B1.style.background == "red"){B1.style.background = "orange"}
+        else{B1.style.background = "red"}
+
+        if(B3.style.background == "red"){B3.style.background = "orange"}
+        else{B3.style.background = "red"}
+
+        if(A2.style.background == "red"){A2.style.background = "orange"}
+        else{A2.style.background = "red"}
+
+        if(C2.style.background == "red"){C2.style.background = "orange"}
+        else{C2.style.background = "red"}
+    }
+    function C2(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //C1.style.background = 'red';
+        //C3.style.background = 'red';
+        //B2.style.background = 'red';
+        //D2.style.background = 'red';
+        if(C2.style.background == "red"){C2.style.background = "orange"}
+        else{C2.style.background = "red"}
+
+        if(C1.style.background == "red"){C1.style.background = "orange"}
+        else{C1.style.background = "red"}
+
+        if(C3.style.background == "red"){C3.style.background = "orange"}
+        else{C3.style.background = "red"}
+
+        if(B2.style.background == "red"){B2.style.background = "orange"}
+        else{B2.style.background = "red"}
+
+        if(D2.style.background == "red"){D2.style.background = "orange"}
+        else{D2.style.background = "red"}
+    }
+    function D2(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //D3.style.background = 'red';
+        //D1.style.background = 'red';
+        //E2.style.background = 'red';
+        //C2.style.background = 'red';
+        if(D2.style.background == "red"){D2.style.background = "orange"}
+        else{D2.style.background = "red"}
+
+        if(D3.style.background == "red"){D3.style.background = "orange"}
+        else{D3.style.background = "red"}
+
+        if(D1.style.background == "red"){D1.style.background = "orange"}
+        else{D1.style.background = "red"}
+
+        if(E2.style.background == "red"){E2.style.background = "orange"}
+        else{E2.style.background = "red"}
+
+        if(C2.style.background == "red"){C2.style.background = "orange"}
+        else{C2.style.background = "red"}
+    }
+    function E2(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //E1.style.background = 'red';
+        //E3.style.background = 'red';
+        //D2.style.background = 'red';
+        //F2.style.background = 'red';
+        if(E2.style.background == "red"){E2.style.background = "orange"}
+        else{E2.style.background = "red"}
+
+        if(E1.style.background == "red"){E1.style.background = "orange"}
+        else{E1.style.background = "red"}
+
+        if(D2.style.background == "red"){D2.style.background = "orange"}
+        else{D2.style.background = "red"}
+
+        if(E3.style.background == "red"){E3.style.background = "orange"}
+        else{E3.style.background = "red"}
+
+        if(F2.style.background == "red"){F2.style.background = "orange"}
+        else{F2.style.background = "red"}
+    }
+    function F2(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //F1.style.background = 'red';
+        //E2.style.background = 'red';
+        //F3.style.background = 'red';
+        if(F2.style.background == "red"){F2.style.background = "orange"}
+        else{F2.style.background = "red"}
+
+        if(E2.style.background == "red"){E2.style.background = "orange"}
+        else{E2.style.background = "red"}
+
+        if(F1.style.background == "red"){F1.style.background = "orange"}
+        else{F1.style.background = "red"}
+
+        if(F3.style.background == "red"){F3.style.background = "orange"}
+        else{F3.style.background = "red"}
+    }
+</script>
+
+<!-- A3__A4 -->
+<script type="text/javascript">
+    function A3(){
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //A2.style.background = 'red';
+        //B3.style.background = 'red';
+        //A4.style.background = 'red';
+
+        if(A2.style.background == "red"){A2.style.background = "orange"}
+        else{A2.style.background = "red"}
+        if(A3.style.background == "red"){A3.style.background = "orange"}
+        else{A3.style.background = "red"}
+        if(A4.style.background == "red"){A4.style.background = "orange"}
+        else{A4.style.background = "red"}
+
+        if(B3.style.background == "red"){B3.style.background = "orange"}
+        else{B3.style.background = "red"}
+    }
+    function B3(){
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //B2.style.background = 'red';
+        //B4.style.background = 'red';
+        //A3.style.background = 'red';
+        //C3.style.background = 'red';
+        if(B2.style.background == "red"){B2.style.background = "orange"}
+        else{B2.style.background = "red"}
+        if(B4.style.background == "red"){B4.style.background = "orange"}
+        else{B4.style.background = "red"}
+        if(B3.style.background == "red"){B3.style.background = "orange"}
+        else{B3.style.background = "red"}
+        if(A3.style.background == "red"){A3.style.background = "orange"}
+        else{A3.style.background = "red"}
+        if(C3.style.background == "red"){C3.style.background = "orange"}
+        else{C3.style.background = "red"}
+    }
+    function C3(){
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //C2.style.background = 'red';
+        //C4.style.background = 'red';
+        //B3.style.background = 'red';
+        //D3.style.background = 'red';
+        if(C2.style.background == "red"){C2.style.background = "orange"}
+        else{C2.style.background = "red"}
+        if(C4.style.background == "red"){C4.style.background = "orange"}
+        else{C4.style.background = "red"}
+        if(C3.style.background == "red"){C3.style.background = "orange"}
+        else{C3.style.background = "red"}
+        if(B3.style.background == "red"){B3.style.background = "orange"}
+        else{B3.style.background = "red"}
+        if(D3.style.background == "red"){D3.style.background = "orange"}
+        else{D3.style.background = "red"}
+    }
+    function D3(){
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //D2.style.background = 'red';
+        //D4.style.background = 'red';
+        //E3.style.background = 'red';
+        //C3.style.background = 'red';
+        if(D2.style.background == "red"){D2.style.background = "orange"}
+        else{D2.style.background = "red"}
+        if(D3.style.background == "red"){D3.style.background = "orange"}
+        else{D3.style.background = "red"}
+        if(D4.style.background == "red"){D4.style.background = "orange"}
+        else{D4.style.background = "red"}
+        if(C3.style.background == "red"){C3.style.background = "orange"}
+        else{C3.style.background = "red"}
+        if(E3.style.background == "red"){E3.style.background = "orange"}
+        else{E3.style.background = "red"}
+    }
+    function E3(){
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //E2.style.background = 'red';
+        //E4.style.background = 'red';
+        //D3.style.background = 'red';
+        //F3.style.background = 'red';
+        if(E2.style.background == "red"){E2.style.background = "orange"}
+        else{E2.style.background = "red"}
+        if(E3.style.background == "red"){E3.style.background = "orange"}
+        else{E3.style.background = "red"}
+        if(E4.style.background == "red"){E4.style.background = "orange"}
+        else{E4.style.background = "red"}
+        if(D3.style.background == "red"){D3.style.background = "orange"}
+        else{D3.style.background = "red"}
+        if(F3.style.background == "red"){F3.style.background = "orange"}
+        else{F3.style.background = "red"}
+
+    }
+    function F3(){
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //F2.style.background = 'red';
+        //E3.style.background = 'red';
+        //F4.style.background = 'red';
+        if(F2.style.background == "red"){F2.style.background = "orange"}
+        else{F2.style.background = "red"}
+        if(F3.style.background == "red"){F3.style.background = "orange"}
+        else{F3.style.background = "red"}
+        if(F4.style.background == "red"){F4.style.background = "orange"}
+        else{F4.style.background = "red"}
+        if(E3.style.background == "red"){E3.style.background = "orange"}
+        else{E3.style.background = "red"}
+    }
+    
+    function A4(){
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //A3.style.background = 'red';
+        //B4.style.background = 'red';
+        //A5.style.background = 'red';
+        if(A3.style.background == "red"){A3.style.background = "orange"}
+        else{A3.style.background = "red"}
+        if(A4.style.background == "red"){A4.style.background = "orange"}
+        else{A4.style.background = "red"}
+        if(A5.style.background == "red"){A5.style.background = "orange"}
+        else{A5.style.background = "red"}
+        if(B4.style.background == "red"){B4.style.background = "orange"}
+        else{B4.style.background = "red"}
+    }
+    function B4(){
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //B3.style.background = 'red';
+        //B5.style.background = 'red';
+        //A4.style.background = 'red';
+        //C4.style.background = 'red';
+        if(B3.style.background == "red"){B3.style.background = "orange"}
+        else{B3.style.background = "red"}
+        if(B5.style.background == "red"){B5.style.background = "orange"}
+        else{B5.style.background = "red"}
+        if(B4.style.background == "red"){B4.style.background = "orange"}
+        else{B4.style.background = "red"}
+        if(C4.style.background == "red"){C4.style.background = "orange"}
+        else{C4.style.background = "red"}
+        if(A4.style.background == "red"){A4.style.background = "orange"}
+        else{A4.style.background = "red"}
+    }
+    function C4(){
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //C3.style.background = 'red';
+        //C5.style.background = 'red';
+        //B4.style.background = 'red';
+        //D4.style.background = 'red';
+        if(C3.style.background == "red"){C3.style.background = "orange"}
+        else{C3.style.background = "red"}
+        if(C4.style.background == "red"){C4.style.background = "orange"}
+        else{C4.style.background = "red"}
+        if(C5.style.background == "red"){C5.style.background = "orange"}
+        else{C5.style.background = "red"}
+        if(B4.style.background == "red"){B4.style.background = "orange"}
+        else{B4.style.background = "red"}
+        if(D4.style.background == "red"){D4.style.background = "orange"}
+        else{D4.style.background = "red"}
+    }
+    function D4(){
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //D3.style.background = 'red';
+        //D5.style.background = 'red';
+        //E4.style.background = 'red';
+        //C4.style.background = 'red';
+        if(D3.style.background == "red"){D3.style.background = "orange"}
+        else{D3.style.background = "red"}
+        if(D4.style.background == "red"){D4.style.background = "orange"}
+        else{D4.style.background = "red"}
+        if(D5.style.background == "red"){D5.style.background = "orange"}
+        else{D5.style.background = "red"}
+        if(E4.style.background == "red"){E4.style.background = "orange"}
+        else{E4.style.background = "red"}
+        if(C4.style.background == "red"){C4.style.background = "orange"}
+        else{C4.style.background = "red"}
+    }
+    function E4(){
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //E3.style.background = 'red';
+        //E5.style.background = 'red';
+        //D4.style.background = 'red';
+        //F4.style.background = 'red';
+        if(E3.style.background == "red"){E3.style.background = "orange"}
+        else{E3.style.background = "red"}
+        if(E4.style.background == "red"){E4.style.background = "orange"}
+        else{E4.style.background = "red"}
+        if(E5.style.background == "red"){E5.style.background = "orange"}
+        else{E5.style.background = "red"}
+        if(D4.style.background == "red"){D4.style.background = "orange"}
+        else{D4.style.background = "red"}
+        if(F4.style.background == "red"){F4.style.background = "orange"}
+        else{F4.style.background = "red"}
+    }
+    function F4(){
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        //F3.style.background = 'red';
+        //E4.style.background = 'red';
+        //F5.style.background = 'red';
+        if(F3.style.background == "red"){F3.style.background = "orange"}
+        else{F3.style.background = "red"}
+        if(F4.style.background == "red"){F4.style.background = "orange"}
+        else{F4.style.background = "red"}
+        if(F5.style.background == "red"){F5.style.background = "orange"}
+        else{F5.style.background = "red"}
+        if(E4.style.background == "red"){E4.style.background = "orange"}
+        else{E4.style.background = "red"}
+    }
+
+</script>
+   
+<!-- A5__A6 -->
+<script type="text/javascript">
+    function A5(){
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        //A4.style.background = 'red';
+        //B5.style.background = 'red';
+        //A6.style.background = 'red';
+        if(A4.style.background == "red"){A4.style.background = "orange"}
+        else{A4.style.background = "red"}
+        if(A5.style.background == "red"){A5.style.background = "orange"}
+        else{A5.style.background = "red"}
+        if(A6.style.background == "red"){A6.style.background = "orange"}
+        else{A6.style.background = "red"}
+        if(B5.style.background == "red"){B5.style.background = "orange"}
+        else{B5.style.background = "red"}
+    }
+    function B5(){
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        //B4.style.background = 'red';
+        //B6.style.background = 'red';
+        //A5.style.background = 'red';
+        //C5.style.background = 'red';
+        if(B5.style.background == "red"){B5.style.background = "orange"}
+        else{B5.style.background = "red"}
+        if(B4.style.background == "red"){B4.style.background = "orange"}
+        else{B4.style.background = "red"}
+        if(B6.style.background == "red"){B6.style.background = "orange"}
+        else{B6.style.background = "red"}
+        if(A5.style.background == "red"){A5.style.background = "orange"}
+        else{A5.style.background = "red"}
+        if(C5.style.background == "red"){C5.style.background = "orange"}
+        else{C5.style.background = "red"}
+    }
+    function C5(){
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        //C4.style.background = 'red';
+        //C6.style.background = 'red';
+        //B5.style.background = 'red';
+        //D5.style.background = 'red';
+        if(C4.style.background == "red"){C4.style.background = "orange"}
+        else{C4.style.background = "red"}
+        if(C5.style.background == "red"){C5.style.background = "orange"}
+        else{C5.style.background = "red"}
+        if(C6.style.background == "red"){C6.style.background = "orange"}
+        else{C6.style.background = "red"}
+        if(B5.style.background == "red"){B5.style.background = "orange"}
+        else{B5.style.background = "red"}
+        if(D5.style.background == "red"){D5.style.background = "orange"}
+        else{D5.style.background = "red"}
+    }
+    function D5(){
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        //D4.style.background = 'red';
+        //D6.style.background = 'red';
+        //E5.style.background = 'red';
+        //C5.style.background = 'red';
+        if(D4.style.background == "red"){D4.style.background = "orange"}
+        else{D4.style.background = "red"}
+        if(D5.style.background == "red"){D5.style.background = "orange"}
+        else{D5.style.background = "red"}
+        if(D6.style.background == "red"){D6.style.background = "orange"}
+        else{D6.style.background = "red"}
+        if(C5.style.background == "red"){C5.style.background = "orange"}
+        else{C5.style.background = "red"}
+        if(E5.style.background == "red"){E5.style.background = "orange"}
+        else{E5.style.background = "red"}
+    }
+    function E5(){
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        //E4.style.background = 'red';
+        //E6.style.background = 'red';
+        //D5.style.background = 'red';
+        //F5.style.background = 'red';
+        if(E4.style.background == "red"){E4.style.background = "orange"}
+        else{E4.style.background = "red"}
+        if(E5.style.background == "red"){E5.style.background = "orange"}
+        else{E5.style.background = "red"}
+        if(E6.style.background == "red"){E6.style.background = "orange"}
+        else{E6.style.background = "red"}
+        if(D5.style.background == "red"){D5.style.background = "orange"}
+        else{D5.style.background = "red"}
+        if(F5.style.background == "red"){F5.style.background = "orange"}
+        else{F5.style.background = "red"}
+    }
+    function F5(){
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        //F4.style.background = 'red';
+        //E5.style.background = 'red';
+        //F6.style.background = 'red';
+        if(F4.style.background == "red"){F4.style.background = "orange"}
+        else{F4.style.background = "red"}
+        if(F5.style.background == "red"){F5.style.background = "orange"}
+        else{F5.style.background = "red"}
+        if(F6.style.background == "red"){F6.style.background = "orange"}
+        else{F6.style.background = "red"}
+        if(E5.style.background == "red"){E5.style.background = "orange"}
+        else{E5.style.background = "red"}
+    }
+    
+    function A6(){
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        //A5.style.background = 'red';
+        //B6.style.background = 'red';
+        if(A5.style.background == "red"){A5.style.background = "orange"}
+        else{A5.style.background = "red"}
+        if(A6.style.background == "red"){A6.style.background = "orange"}
+        else{A6.style.background = "red"}
+        if(B6.style.background == "red"){B6.style.background = "orange"}
+        else{B6.style.background = "red"}
+    }
+    function B6(){
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        //B5.style.background = 'red';
+        //A6.style.background = 'red';
+        //C6.style.background = 'red';
+        if(B5.style.background == "red"){B5.style.background = "orange"}
+        else{B5.style.background = "red"}
+        if(B6.style.background == "red"){B6.style.background = "orange"}
+        else{B6.style.background = "red"}
+        if(A6.style.background == "red"){A6.style.background = "orange"}
+        else{A6.style.background = "red"}
+        if(C6.style.background == "red"){C6.style.background = "orange"}
+        else{C6.style.background = "red"}
+    }
+    function C6(){
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        //C5.style.background = 'red';
+        //B6.style.background = 'red';
+        //D6.style.background = 'red';
+        if(C5.style.background == "red"){C5.style.background = "orange"}
+        else{C5.style.background = "red"}
+        if(C6.style.background == "red"){C6.style.background = "orange"}
+        else{C6.style.background = "red"}
+        if(B6.style.background == "red"){B6.style.background = "orange"}
+        else{B6.style.background = "red"}
+        if(D6.style.background == "red"){D6.style.background = "orange"}
+        else{D6.style.background = "red"}
+    }
+    function D6(){
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        //D5.style.background = 'red';
+        //E6.style.background = 'red';
+        //C6.style.background = 'red';
+        if(D5.style.background == "red"){D5.style.background = "orange"}
+        else{D5.style.background = "red"}
+        if(D6.style.background == "red"){D6.style.background = "orange"}
+        else{D6.style.background = "red"}
+        if(C6.style.background == "red"){C6.style.background = "orange"}
+        else{C6.style.background = "red"}
+        if(E6.style.background == "red"){E6.style.background = "orange"}
+        else{E6.style.background = "red"}
+        
+    }
+    function E6(){
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        //E5.style.background = 'red';
+        //D6.style.background = 'red';
+        //F6.style.background = 'red';
+        if(E5.style.background == "red"){E5.style.background = "orange"}
+        else{E5.style.background = "red"}
+        if(E6.style.background == "red"){E6.style.background = "orange"}
+        else{E6.style.background = "red"}
+        if(D6.style.background == "red"){D6.style.background = "orange"}
+        else{D6.style.background = "red"}
+        if(F6.style.background == "red"){F6.style.background = "orange"}
+        else{F6.style.background = "red"}
+    }
+    function F6(){
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        //F5.style.background = 'red';
+        //E6.style.background = 'red';
+        if(F5.style.background == "red"){F5.style.background = "orange"}
+        else{F5.style.background = "red"}
+        if(F6.style.background == "red"){F6.style.background = "orange"}
+        else{F6.style.background = "red"}
+        if(E6.style.background == "red"){E6.style.background = "orange"}
+        else{E6.style.background = "red"}
+    }
+    
+    function checkResult(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+
+        if(A1.style.background == "red" && B1.style.background == "red" && C1.style.background == "red" && D1.style.background == "red" && E1.style.background == "red" && F1.style.background == "red" 
+            && A2.style.background == "red" && B2.style.background == "red" && C2.style.background == "red" && D2.style.background == "red" && E2.style.background == "red" && F2.style.background == "red"
+                && A3.style.background == "red" && B3.style.background == "red" && C3.style.background == "red" && D3.style.background == "red" && E3.style.background == "red" && F3.style.background == "red"
+                    && A4.style.background == "red" && B4.style.background == "red" && C4.style.background == "red" && D4.style.background == "red" && E4.style.background == "red" && F4.style.background == "red" 
+                        && A5.style.background == "red" && B5.style.background == "red" && C5.style.background == "red" && D5.style.background == "red" && E5.style.background == "red" && F5.style.background == "red"
+                            && A6.style.background == "red" && B6.style.background == "red" && C6.style.background == "red" && D6.style.background == "red" && E6.style.background == "red" && F6.style.background == "red"){
+            alert('YOU WON!!! CONGRATULATION!!!! 🏅🏅🏅');
+        }
+        else(alert('Oppp, theres still some block have not colored yet'))
+    }
+
+    function cLEARaLL(){
+        let A1 = document.getElementById('A1');
+        let B1 = document.getElementById('B1');
+        let C1 = document.getElementById('C1');
+        let D1 = document.getElementById('D1');
+        let E1 = document.getElementById('E1');
+        let F1 = document.getElementById('F1');
+        let A2 = document.getElementById('A2');
+        let B2 = document.getElementById('B2');
+        let C2 = document.getElementById('C2');
+        let D2 = document.getElementById('D2');
+        let E2 = document.getElementById('E2');
+        let F2 = document.getElementById('F2');
+        let A3 = document.getElementById('A3');
+        let B3 = document.getElementById('B3');
+        let C3 = document.getElementById('C3');
+        let D3 = document.getElementById('D3');
+        let E3 = document.getElementById('E3');
+        let F3 = document.getElementById('F3');
+        let A4 = document.getElementById('A4');
+        let B4 = document.getElementById('B4');
+        let C4 = document.getElementById('C4');
+        let D4 = document.getElementById('D4');
+        let E4 = document.getElementById('E4');
+        let F4 = document.getElementById('F4');
+        let A5 = document.getElementById('A5');
+        let B5 = document.getElementById('B5');
+        let C5 = document.getElementById('C5');
+        let D5 = document.getElementById('D5');
+        let E5 = document.getElementById('E5');
+        let F5 = document.getElementById('F5');
+        let A6 = document.getElementById('A6');
+        let B6 = document.getElementById('B6');
+        let C6 = document.getElementById('C6');
+        let D6 = document.getElementById('D6');
+        let E6 = document.getElementById('E6');
+        let F6 = document.getElementById('F6');
+        A1.style.background = "orange";
+        B1.style.background = "orange";
+        C1.style.background = "orange";
+        D1.style.background = "orange";
+        E1.style.background = "orange";
+        F1.style.background = "orange";
+        A2.style.background = "orange";
+        B2.style.background = "orange";
+        C2.style.background = "orange";
+        D2.style.background = "orange";
+        E2.style.background = "orange";
+        F2.style.background = "orange";
+        A3.style.background = "orange";
+        B3.style.background = "orange";
+        C3.style.background = "orange";
+        D3.style.background = "orange";
+        E3.style.background = "orange";
+        F3.style.background = "orange";
+        A4.style.background = "orange";
+        B4.style.background = "orange";
+        C4.style.background = "orange";
+        D4.style.background = "orange";
+        E4.style.background = "orange";
+        F4.style.background = "orange";
+        A5.style.background = "orange";
+        B5.style.background = "orange";
+        C5.style.background = "orange";
+        D5.style.background = "orange";
+        E5.style.background = "orange";
+        F5.style.background = "orange";
+        A6.style.background = "orange";
+        B6.style.background = "orange";
+        C6.style.background = "orange";
+        D6.style.background = "orange";
+        E6.style.background = "orange";
+        F6.style.background = "orange";
+    }
+    
+</script>
+
+
+<!-- 3*3 -->
+<script>
+    function a1(){
+        let a1 = document.getElementById('a1');
+        let b1 = document.getElementById('b1');
+        let c1 = document.getElementById('c1');
+        let a2 = document.getElementById('a2');
+        let b2 = document.getElementById('b2');
+        let c2 = document.getElementById('c2');
+        let a3 = document.getElementById('a3');
+        let b3 = document.getElementById('b3');
+        let c3 = document.getElementById('c3');
+
+        if(a1.style.background == "red"){a1.style.background = "orange"}
+        else{a1.style.background = "red"}
+
+        if(a2.style.background == "red"){a2.style.background = "orange"}
+        else{a2.style.background = "red"}
+
+        if(b1.style.background == "red"){b1.style.background = "orange"}
+        else{b1.style.background = "red"}
+    }
+    function b1(){
+        let a1 = document.getElementById('a1');
+        let b1 = document.getElementById('b1');
+        let c1 = document.getElementById('c1');
+        let a2 = document.getElementById('a2');
+        let b2 = document.getElementById('b2');
+        let c2 = document.getElementById('c2');
+        let a3 = document.getElementById('a3');
+        let b3 = document.getElementById('b3');
+        let c3 = document.getElementById('c3');
+        if(b1.style.background == "red"){b1.style.background = "orange"}
+        else{b1.style.background = "red"}
+        if(b2.style.background == "red"){b2.style.background = "orange"}
+        else{b2.style.background = "red"}
+        if(a1.style.background == "red"){a1.style.background = "orange"}
+        else{a1.style.background = "red"}
+        if(c1.style.background == "red"){c1.style.background = "orange"}
+        else{c1.style.background = "red"}
+    }
+    function c1(){
+        let a1 = document.getElementById('a1');
+        let b1 = document.getElementById('b1');
+        let c1 = document.getElementById('c1');
+        let a2 = document.getElementById('a2');
+        let b2 = document.getElementById('b2');
+        let c2 = document.getElementById('c2');
+        let a3 = document.getElementById('a3');
+        let b3 = document.getElementById('b3');
+        let c3 = document.getElementById('c3');
+        if(c1.style.background == "red"){c1.style.background = "orange"}
+        else{c1.style.background = "red"}
+        if(c2.style.background == "red"){c2.style.background = "orange"}
+        else{c2.style.background = "red"}
+        if(b1.style.background == "red"){b1.style.background = "orange"}
+        else{b1.style.background = "red"}
+    }
+    function a2(){
+        let a1 = document.getElementById('a1');
+        let b1 = document.getElementById('b1');
+        let c1 = document.getElementById('c1');
+        let a2 = document.getElementById('a2');
+        let b2 = document.getElementById('b2');
+        let c2 = document.getElementById('c2');
+        let a3 = document.getElementById('a3');
+        let b3 = document.getElementById('b3');
+        let c3 = document.getElementById('c3');
+
+        if(a1.style.background == "red"){a1.style.background = "orange"}
+        else{a1.style.background = "red"}
+
+        if(a2.style.background == "red"){a2.style.background = "orange"}
+        else{a2.style.background = "red"}
+        if(a3.style.background == "red"){a3.style.background = "orange"}
+        else{a3.style.background = "red"}
+    }
+    function b2(){
+        let a1 = document.getElementById('a1');
+        let b1 = document.getElementById('b1');
+        let c1 = document.getElementById('c1');
+        let a2 = document.getElementById('a2');
+        let b2 = document.getElementById('b2');
+        let c2 = document.getElementById('c2');
+        let a3 = document.getElementById('a3');
+        let b3 = document.getElementById('b3');
+        let c3 = document.getElementById('c3');
+        if(b1.style.background == "red"){b1.style.background = "orange"}
+        else{b1.style.background = "red"}
+        if(b2.style.background == "red"){b2.style.background = "orange"}
+        else{b2.style.background = "red"}
+        if(b3.style.background == "red"){b3.style.background = "orange"}
+        else{b3.style.background = "red"}
+
+        if(a2.style.background == "red"){a2.style.background = "orange"}
+        else{a2.style.background = "red"}
+        if(c2.style.background == "red"){c2.style.background = "orange"}
+        else{c2.style.background = "red"}
+    }
+    function c2(){
+        let a1 = document.getElementById('a1');
+        let b1 = document.getElementById('b1');
+        let c1 = document.getElementById('c1');
+        let a2 = document.getElementById('a2');
+        let b2 = document.getElementById('b2');
+        let c2 = document.getElementById('c2');
+        let a3 = document.getElementById('a3');
+        let b3 = document.getElementById('b3');
+        let c3 = document.getElementById('c3');
+        if(c1.style.background == "red"){c1.style.background = "orange"}
+        else{c1.style.background = "red"}
+        if(c2.style.background == "red"){c2.style.background = "orange"}
+        else{c2.style.background = "red"}
+        if(c3.style.background == "red"){c3.style.background = "orange"}
+        else{c3.style.background = "red"}
+        if(b2.style.background == "red"){b2.style.background = "orange"}
+        else{b2.style.background = "red"}
+    }
+    function a3(){
+        let a1 = document.getElementById('a1');
+        let b1 = document.getElementById('b1');
+        let c1 = document.getElementById('c1');
+        let a2 = document.getElementById('a2');
+        let b2 = document.getElementById('b2');
+        let c2 = document.getElementById('c2');
+        let a3 = document.getElementById('a3');
+        let b3 = document.getElementById('b3');
+        let c3 = document.getElementById('c3');
+        if(a2.style.background == "red"){a2.style.background = "orange"}
+        else{a2.style.background = "red"}
+        if(a3.style.background == "red"){a3.style.background = "orange"}
+        else{a3.style.background = "red"}
+
+        if(b3.style.background == "red"){b3.style.background = "orange"}
+        else{b3.style.background = "red"}
+    }
+    function b3(){
+        let a1 = document.getElementById('a1');
+        let b1 = document.getElementById('b1');
+        let c1 = document.getElementById('c1');
+        let a2 = document.getElementById('a2');
+        let b2 = document.getElementById('b2');
+        let c2 = document.getElementById('c2');
+        let a3 = document.getElementById('a3');
+        let b3 = document.getElementById('b3');
+        let c3 = document.getElementById('c3');
+        if(b2.style.background == "red"){b2.style.background = "orange"}
+        else{b2.style.background = "red"}
+        if(b3.style.background == "red"){b3.style.background = "orange"}
+        else{b3.style.background = "red"}
+        if(a3.style.background == "red"){a3.style.background = "orange"}
+        else{a3.style.background = "red"}
+        if(c3.style.background == "red"){c3.style.background = "orange"}
+        else{c3.style.background = "red"}
+    }
+    function c3(){
+        let a1 = document.getElementById('a1');
+        let b1 = document.getElementById('b1');
+        let c1 = document.getElementById('c1');
+        let a2 = document.getElementById('a2');
+        let b2 = document.getElementById('b2');
+        let c2 = document.getElementById('c2');
+        let a3 = document.getElementById('a3');
+        let b3 = document.getElementById('b3');
+        let c3 = document.getElementById('c3');
+        if(c2.style.background == "red"){c2.style.background = "orange"}
+        else{c2.style.background = "red"}
+        if(c3.style.background == "red"){c3.style.background = "orange"}
+        else{c3.style.background = "red"}
+        if(b3.style.background == "red"){b3.style.background = "orange"}
+        else{b3.style.background = "red"}
+    }
+    function checkResult2(){
+        let a1 = document.getElementById('a1');
+        let b1 = document.getElementById('b1');
+        let c1 = document.getElementById('c1');
+        let a2 = document.getElementById('a2');
+        let b2 = document.getElementById('b2');
+        let c2 = document.getElementById('c2');
+        let a3 = document.getElementById('a3');
+        let b3 = document.getElementById('b3');
+        let c3 = document.getElementById('c3');
+
+        if(a1.style.background == "red" && b1.style.background == "red" && c1.style.background == "red" 
+            && a2.style.background == "red" && b2.style.background == "red" && c2.style.background == "red" 
+                && a3.style.background == "red" && b3.style.background == "red" && c3.style.background == "red"){
+            alert('YOU WON!!! CONGRATULATION!!!! 🏅🏅🏅');
+        }
+        else(alert('Oppp, theres still some block have not colored yet'))
+    }
+
+    function cLEARaLL2(){
+        let a1 = document.getElementById('a1');
+        let b1 = document.getElementById('b1');
+        let c1 = document.getElementById('c1');
+        let a2 = document.getElementById('a2');
+        let b2 = document.getElementById('b2');
+        let c2 = document.getElementById('c2');
+        let a3 = document.getElementById('a3');
+        let b3 = document.getElementById('b3');
+        let c3 = document.getElementById('c3');
+        a1.style.background = "orange";
+        b1.style.background = "orange";
+        c1.style.background = "orange";
+        a2.style.background = "orange";
+        b2.style.background = "orange";
+        c2.style.background = "orange";
+        a3.style.background = "orange";
+        b3.style.background = "orange";
+        c3.style.background = "orange";
+    }
+</script>
+
+<!-- quizz -->
+<script type="text/javascript">
+    function clearData(){
+        var unwrittenable = document.getElementById('unwrittenable').value;
+        //alert('YOU WON!!! CONGRATULATION!!!! 🏅🏅🏅');
+
+        if(unwrittenable != ''){
+            alert('it not empty');
+            let newstrs = unwrittenable.replace(unwrittenable,'');
+        }
+        else{alert('its empty');}
+    }
+    
+    function checlResult(){
+        var m_txt = document.getElementById('m_txt').value;
+        var e_txt = document.getElementById('e_txt').value;
+        var l_txt = document.getElementById('l_txt').value;
+        var i_txt = document.getElementById('i_txt').value;
+        var c_txt = document.getElementById('c_txt').value;
+        var a_txt = document.getElementById('a_txt').value;
+        var p_txt = document.getElementById('p_txt').value;
+        var n_txt = document.getElementById('n_txt').value;
+        var g_txt = document.getElementById('g_txt').value;
+        var b_txt = document.getElementById('b_txt').value;
+        var r_txt = document.getElementById('r_txt').value;
+        var k_txt = document.getElementById('k_txt').value;
+        var t_txt = document.getElementById('t_txt').value;
+        var s_txt = document.getElementById('s_txt').value;
+
+        let mtxtBg = document.getElementById('m_txt');
+        let etxtBg = document.getElementById('e_txt');
+        let ltxtBg = document.getElementById('l_txt');
+        let itxtBg = document.getElementById('i_txt');
+        let ctxtBg = document.getElementById('c_txt');
+        let atxtBg = document.getElementById('a_txt');
+        let ptxtBg = document.getElementById('p_txt');
+        let ntxtBg = document.getElementById('n_txt');
+        let gtxtBg = document.getElementById('g_txt');
+        let btxtBg = document.getElementById('b_txt');
+        let rtxtBg = document.getElementById('r_txt');
+        let ktxtBg = document.getElementById('k_txt');
+        let ttxtBg = document.getElementById('t_txt');
+        let stxtBg = document.getElementById('s_txt');
+
+        if(m_txt == 'm' || m_txt == 'M'){
+            if(e_txt == 'e' || e_txt == 'E'){
+                if(l_txt == 'l' || l_txt == 'L'){
+                    if(i_txt == 'i' || i_txt == 'I'){
+                        if(c_txt == 'c' || c_txt == 'C'){
+                            if(a_txt == 'a' || a_txt == 'A'){
+                                if(p_txt == 'p' || p_txt == 'P'){
+                                    if(n_txt == 'n' || n_txt == 'N'){
+                                        if(g_txt == 'g' || g_txt == 'G'){
+                                            if(b_txt == 'b' || b_txt == 'B'){
+                                                if(r_txt == 'r' || r_txt == 'R'){
+                                                    if(k_txt == 'k' || k_txt == 'K'){
+                                                        if(t_txt == 't' || t_txt == 'T'){
+                                                            if(s_txt == 's' || s_txt == 'S'){
+                                                                alert('YOU WON!!! CONGRATULATION!!!! 🏅🏅🏅');
+                                                                mtxtBg.style.background = "orange";
+                                                                etxtBg.style.background = "orange";
+                                                                ltxtBg.style.background = "orange";
+                                                                itxtBg.style.background = "orange";
+                                                                ctxtBg.style.background = "orange";
+                                                                atxtBg.style.background = "orange";
+                                                                ptxtBg.style.background = "orange";
+                                                                ntxtBg.style.background = "orange";
+                                                                gtxtBg.style.background = "orange";
+                                                                btxtBg.style.background = "orange";
+                                                                rtxtBg.style.background = "orange";
+                                                                ktxtBg.style.background = "orange";
+                                                                ttxtBg.style.background = "orange";
+                                                                stxtBg.style.background = "orange";
+                                                            }
+                                                            else{
+                                                                alert('Oh oh! some answers seem like incorrect! Check them please!')
+                                                                stxtBg.style.background = "red";
+                                                            }
+                                                        }
+                                                        else{
+                                                            alert('Oh oh! some answers seem like incorrect! Check them please!')
+                                                            ttxtBg.style.background = "red";
+                                                        }
+                                                    }
+                                                    else{
+                                                        alert('Oh oh! some answers seem like incorrect! Check them please!')
+                                                        ktxtBg.style.background = "red";
+                                                    }
+                                                }
+                                                else{
+                                                    alert('Oh oh! some answers seem like incorrect! Check them please!')
+                                                    rtxtBg.style.background = "red";
+                                                }
+                                            }
+                                            else{
+                                                alert('Oh oh! some answers seem like incorrect! Check them please!')
+                                                btxtBg.style.background = "red";
+                                            }
+                                        }
+                                        else{
+                                            alert('Oh oh! some answers seem like incorrect! Check them please!')
+                                            gtxtBg.style.background = "red";
+                                        }
+                                    }
+                                    else{
+                                        alert('Oh oh! some answers seem like incorrect! Check them please!')
+                                        ntxtBg.style.background = "red";
+                                    }
+                                }
+                                else{
+                                    alert('Oh oh! some answers seem like incorrect! Check them please!')
+                                    ptxtBg.style.background = "red";
+                                }
+                            }
+                            else{
+                                alert('Oh oh! some answers seem like incorrect! Check them please!')
+                                atxtBg.style.background = "red";
+                            }
+                        }
+                        else{
+                            alert('Oh oh! some answers seem like incorrect! Check them please!')
+                            ctxtBg.style.background = "red";
+                        }
+                    }
+                    else{
+                        alert('Oh oh! some answers seem like incorrect! Check them please!')
+                        itxtBg.style.background = "red";
+                    }
+                }
+                else{
+                    alert('Oh oh! some answers seem like incorrect! Check them please!')
+                    ltxtBg.style.background = "red";
+                }
+            }
+            else{
+                alert('Oh oh! some answers seem like incorrect! Check them please!')
+                etxtBg.style.background = "red";
+            }
+        }
+        else{
+            alert('Oh oh! some answers seem like incorrect! Check them please!')
+            mtxtBg.style.background = "red";
+        }
+    }
+</script>
+
+
+<!-- chat -->
+<script>
+    function Chatig(){
+        const ChatRoom_base = document.getElementsByClassName('ChatRoom_base');
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var searchBar = document.getElementById('searchBar').value;
+        ChatRoom_base[0].innerHTML = "YoShiNori: " + ChatRoomSearch + "<br>";
+        // for (let i = 0; i<100 ;i++){
+            
+        // }
+        
+
+        // emoji 👌 🤣 😭 😡 😱 ¯\_(ツ)_/¯    (͡o‿O͡)   ٩꒰ʘʚʘ๑꒱۶  (˵¯͒〰¯͒˵)  ♨
+    }
+    function emolaugh(){
+        const ChatRoom_base = document.getElementsByClassName('ChatRoom_base');
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var emolaugh = document.getElementById('emo_laugh').innerHTML;
+        
+        ChatRoom_base[0].innerHTML = "YoShiNori: 🤣" + "<br>";
+        //ChatRoom_base.innerHTML = "YoShiNori: " + emolaugh;
+        
+        //ChatRoomSearch = emolaugh;
+    }
+    function emocry(){
+        const ChatRoom_base = document.getElementsByClassName('ChatRoom_base');
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var emocry = document.getElementById('emo_cry').innerHTML;
+        ChatRoom_base[0].innerHTML = "YoShiNori: 😭" + "<br>";
+    }
+    function emoshock(){
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var emoshock = document.getElementById('emo_shock').innerHTML;
+        ChatRoom_base.innerHTML = "YoShiNori: 😱" + "<br>";
+    }
+    function emoangry(){
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var emoangry = document.getElementById('emo_angry').innerHTML;
+        ChatRoom_base.innerHTML = "YoShiNori: 😡" + "<br>";
+    }
+    function emowhat(){
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var emowhat = document.getElementById('emo_what').innerHTML;
+        ChatRoom_base.innerHTML = "YoShiNori: 🙃" + "<br>";
+    }
+    function emonice(){
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var emonice = document.getElementById('emo_nice').innerHTML;
+        ChatRoom_base.innerHTML = "YoShiNori: 👌" + "<br>";
+    }
+
+    function emo1(){
+        let ChatRoom_base = document.getElementById('ChatRoom_base');
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var emo1 = document.getElementById('emo1').innerHTML;
+        ChatRoom_base.innerHTML = "YoShiNori: ¯\_(ツ)_/¯" + "<br>";
+    }
+    function emo2(){
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var emo2 = document.getElementById('emo2').innerHTML;
+        ChatRoom_base.innerHTML = "YoShiNori: (͡o‿O͡)" + "<br>";
+    }
+    function emo3(){
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var emo3 = document.getElementById('emo3').innerHTML;
+        ChatRoom_base.innerHTML = "YoShiNori: ٩꒰ʘʚʘ๑꒱۶" + "<br>";
+    }
+    function emo4(){
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var emo4 = document.getElementById('emo4').innerHTML;
+        ChatRoom_base.innerHTML = "YoShiNori: (˵¯͒〰¯͒˵)" + "<br>";
+    }
+    function emo5(){
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var emo5 = document.getElementById('emo5').innerHTML;
+        ChatRoom_base.innerHTML = "YoShiNori: ♨" + "<br>";
+    }
+    function emo6(){
+        var ChatRoomSearch = document.getElementById('ChatRoomSearch').value;
+        var emo6 = document.getElementById('emo6').innerHTML;
+        ChatRoom_base.innerHTML = "YoShiNori: LOLol" + "<br>";
+    }
+</script>
+
+
+<!-- colorgame -->
+<script>
+    function Fpath1(){
+        let pathbtn1 = document.getElementById('pathbtn1');
+        let pathbtn2 = document.getElementById('pathbtn2');
+
+        let pathG = document.getElementById('pathG');
+        let pathG2 = document.getElementById('pathG2');
+
+        pathG.style.display = 'flex';
+        pathG2.style.display = 'none';
+    }
+    function Fpath2(){
+        let pathG = document.getElementById('pathG');
+        let pathG2 = document.getElementById('pathG2');
+
+            pathG2.style.display = 'flex';
+            pathG.style.display = 'none';
+    }
+
+    function pathGChangeColor(){
+        
+        let coloritems = document.getElementsByClassName('coloritems');
+        let coloritems2 =document.getElementById('coloritems');
+        //transform: translateX(23px)
+        
+        let colorBase =document.getElementById('colorBase');
+        let colorBtn = document.getElementById('colorBtn');
+        let pathG = document.getElementById('pathG');
+
+        if(colorBtn.style.transform == 'translateX(0px)'){
+            colorBtn.style.transform = 'translateX(15px)';
+            colorBtn.style.background = "var(--heavier-orange)";
+            pathG.style.background = "var(--heavier-orange)";
+            colorBase.style.background = "lightyellow";
+
+            coloritems2.style.background = "lightyellow";
+            coloritems2.style.border = "1px solid var(--heavier-orange)";
+            
+            coloritems.style.background = "lightyellow";
+            coloritems.style.border = "1px solid var(--heavier-orange)";
+            
+        }
+        else{
+            colorBtn.style.transform = 'translateX(0px)';
+            colorBtn.style.background = "lightyellow";
+            pathG.style.background = "lightyellow";
+            colorBase.style.background = "var(--heavier-orange)";
+
+            coloritems2.style.background = "var(--heavier-orange)";
+            coloritems2.style.border = "1px solid lightyellow";
+
+            coloritems.style.background = "var(--heavier-orange)";
+            coloritems.style.border = "1px solid lightyellow";
+        }
+    }
+
+    // function pathGChangeColor(){
+    //     //transform: translateX(23px)
+    //     let colorBase =document.getElementById('colorBase');
+    //     let colorBtn = document.getElementById('colorBtn');
+    //     let pathG = document.getElementById('pathG');
+    //     var coloritems = document.getElementsByClassName('coloritems');
+
+    //     if(colorBtn.style.transform == 'translateX(0px)'){
+    //         colorBtn.style.transform = 'translateX(15px)';
+    //         colorBtn.style.background = "var(--heavier-orange)";
+    //         pathG.style.background = "var(--heavier-orange)";
+    //         colorBase.style.background = "lightyellow";
+    //         coloritems.style.background = "lightyellow";
+    //         coloritems.style.border = "1px solid var(--heavier-orange)";
+            
+    //     }
+    //     else{
+    //         colorBtn.style.transform = 'translateX(0px)';
+    //         colorBtn.style.background = "lightyellow";
+    //         pathG.style.background = "lightyellow";
+    //         colorBase.style.background = "var(--heavier-orange)";
+    //         coloritems.style.background = "var(--heavier-orange)";
+    //         coloritems.style.border = "1px solid lightyellow";
+    //     }
+    // }
+</script>
+<body>
+    <div class="aoeSiginBase_MAINcontainer_imgbase">
+        <img style="user-select: none;" src="Images/FontPage_Images/aoe_bg.png" alt="" class="aoeSiginBase_container_img">
+    </div>
+
+    <div class="aoeSiginBase_container">
+        <div class="aoeSiginBase_top">
+            <a href="aoe_homepage.html" class="aoeSiginBase_top_Logo">
+                <img src="Images/FontPage_Images/aoe_logo_link.jpg" alt="" class="aoeSiginBase_top_Logo_img">
+            </a>
+            <div class="aoeSiginBase_top_searchBase">
+                <input type="text" name="" id="searchBar" class="aoeSiginBase_top_searchBase_searchbar">
+                <div id="searchBase_btn" class="aoeSiginBase_top_searchBase_btn" onclick="seaRchBtn()"><span style="margin-left: 5px;">Search</span></div>
+            </div>
+            <div class="aoeSiginBase_top_itemsBAse">
+                
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_homepage.html" class="aoeSiginBase_items_txt">🏡  Home Page</a>
+                </div>
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_srtore.html" class="aoeSiginBase_items_txt">🛒 Store</a>
+                </div>
+                <div class="aoeSiginBase_items choisen">
+                    <a href="aoe_minigames.html" class="aoeSiginBase_items_txt">🎮 Minigames</a>
+                </div>
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_aboutus.html" class="aoeSiginBase_items_txt">ⓘ ABout us</a>
+                </div>
+            </div>
+            <div class="aoeSiginBase_top_signBase">
+                <div class="signCommon signup">
+                    <a href="" class="aoeSiginBase_items_txt">SIGN IN</a></div>
+                    <div class="signseperate"></div>
+                <div class="signCommon signin"><a href="aoe_signUp.html" class="aoeSiginBase_items_txt">SIGN UP</a></div>
+            </div>
+        </div>
+
+        <div class="aoe_common_base">
+            <div class="selectNone aoe_midBase_common matrixGame">
+                <div class="aoe_Bigtitle">Matrix_Games</div>
+                <script type="text/javascript" src="aoe_minigames_puzzleQuez.js"></script>
+                <div class="matrixGame_container">
+                    <div class="matrixGame_container_left">
+                        <div id="gamesBase" class="matrixGame_container_left_items gamesBase">
+                            <div class="aoe_common_base_title" onclick="games()">Games</div>
+                            <div class="matrixGame_container_left_itemsContainer">
+                                <div class="matrixGame_container_left_itemTopic matrix33btn" onclick="matrix33()">Matrix 3*3</div>
+                                <div class="matrixGame_container_left_itemTopic matrix99btn" onclick="matrix99()">Matrix 6*6</div>
+                                <div class="matrixGame_container_left_itemTopic matrix99btn" onclick="Picturs66()">Picture 3*3</div>
+                                <div class="matrixGame_container_left_itemTopic matrix99btn" onclick="Quizz()">Quiz</div>
+                            </div>
+                        </div>
+
+
+                        <div id="Tips" style="margin-top: -1px;" class="matrixGame_container_left_items">
+                            <div class="aoe_common_base_title" onclick="games2()">Tips</div>
+                            <div class="matrixGame_container_left_itemsContainer">
+                                <div class="matrixGame_container_left_itemTopic">Matrix</div>
+                                <div class="matrixGame_container_left_itemTopic">(game 2)</div>
+                                <div class="matrixGame_container_left_itemTopic">(game 3)</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="matrixGame_container_right">
+                        <img id="container_right_bgImg" src="Images/FontPage_Images/Puzzle_bgImg.png" alt="" class="matrixGame_container_right_bgImg">
+                        <div id="matrix33" class="matrixGame_container_right_BASE matrix33">
+                            <div class="matrixGame_container_right_BASE_title">Matrix 3*3</div>
+                            <div class="matrixGame_container_right_BASE_txt">The rule is simple: make all of the squares become colorful. Good Luck!!!!</div>
+                            <div class="matrix33_container">
+                                <div class="matrix99_container">
+                                    <div class="matrix99_container_row">
+                                        <div class="matrix99_container_row_item topItem"></div>
+    
+                                        <div class="matrix99_container_row_item itemHasText">A</div>
+                                        <div class="matrix99_container_row_item itemHasText">B</div>
+                                        <div class="matrix99_container_row_item itemHasText">C</div>
+                                    </div>
+                                    <div class="matrix99_container_row">
+                                        <div class="matrix99_container_row_item itemHasText">1</div>
+    
+                                        <div id="a1" class="matrix99_container_row_item" onclick="a1()"></div>
+                                        <div id="b1" class="matrix99_container_row_item" onclick="b1()"></div>
+                                        <div id="c1" class="matrix99_container_row_item" onclick="c1()"></div>
+                                    </div>
+                                    <div class="matrix99_container_row">
+                                        <div class="matrix99_container_row_item itemHasText">2</div>
+    
+                                        <div id="a2" class="matrix99_container_row_item" onclick="a2()"></div>
+                                        <div id="b2" class="matrix99_container_row_item" onclick="b2()"></div>
+                                        <div id="c2" class="matrix99_container_row_item" onclick="c2()"></div>
+                                    </div>
+                                    <div class="matrix99_container_row">
+                                        <div class="matrix99_container_row_item itemHasText">3</div>
+    
+                                        <div id="a3" class="matrix99_container_row_item" onclick="a3()"></div>
+                                        <div id="b3" class="matrix99_container_row_item" onclick="b3()"></div>
+                                        <div id="c3" class="matrix99_container_row_item" onclick="c3()"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; height: auto; width: 150px; margin-left: 170px; margin-top: 40px;">
+                                <div class="Maintheme_btn"onclick="checkResult2()">
+                                    <span class="Maintheme_btn_Text">Check</span>
+                                </div>
+    
+                                <div class="Maintheme_btn" onclick="cLEARaLL2()">
+                                    <span class="Maintheme_btn_Text">Refresh</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="matrix99" class="matrixGame_container_right_BASE matrix99">
+                            <div  class="matrixGame_container_right_BASE_title">Matrix 6*6</div>
+                            <div class="matrixGame_container_right_BASE_txt">The rule is simple: make all of the squares become colorful. Good Luck!!!!</div>
+                            <div class="matrix99_container">
+                                <div class="matrix99_container_row">
+                                    <div class="matrix99_container_row_item topItem"></div>
+
+                                    <div class="matrix99_container_row_item itemHasText">A</div>
+                                    <div class="matrix99_container_row_item itemHasText">B</div>
+                                    <div class="matrix99_container_row_item itemHasText">C</div>
+
+                                    <div class="matrix99_container_row_item itemHasText">D</div>
+                                    <div class="matrix99_container_row_item itemHasText">E</div>
+                                    <div class="matrix99_container_row_item itemHasText">F</div>
+                                </div>
+
+
+                                <div class="matrix99_container_row">
+                                    <div class="matrix99_container_row_item itemHasText">1</div>
+
+                                    <div id="A1" class="matrix99_container_row_item" onclick="A1()"></div>
+                                    <div id="B1" class="matrix99_container_row_item" onclick="B1()"></div>
+                                    <div id="C1" class="matrix99_container_row_item" onclick="C1()"></div>
+                                    <div id="D1" class="matrix99_container_row_item" onclick="D1()"></div>
+                                    <div id="E1" class="matrix99_container_row_item" onclick="E1()"></div>
+                                    <div id="F1" class="matrix99_container_row_item" onclick="F1()"></div>
+                                </div>
+                                <div class="matrix99_container_row">
+                                    <div class="matrix99_container_row_item itemHasText">2</div>
+
+                                    <div id="A2" class="matrix99_container_row_item" onclick="A2()"></div>
+                                    <div id="B2" class="matrix99_container_row_item" onclick="B2()"></div>
+                                    <div id="C2" class="matrix99_container_row_item" onclick="C2()"></div>
+                                    <div id="D2" class="matrix99_container_row_item" onclick="D2()"></div>
+                                    <div id="E2" class="matrix99_container_row_item" onclick="E2()"></div>
+                                    <div id="F2" class="matrix99_container_row_item" onclick="F2()"></div>
+                                </div>
+                                <div class="matrix99_container_row">
+                                    <div class="matrix99_container_row_item itemHasText">3</div>
+
+                                    <div id="A3" class="matrix99_container_row_item" onclick="A3()"></div>
+                                    <div id="B3" class="matrix99_container_row_item" onclick="B3()"></div>
+                                    <div id="C3" class="matrix99_container_row_item" onclick="C3()"></div>
+                                    <div id="D3" class="matrix99_container_row_item" onclick="D3()"></div>
+                                    <div id="E3" class="matrix99_container_row_item" onclick="E3()"></div>
+                                    <div id="F3" class="matrix99_container_row_item" onclick="F3()"></div>
+                                </div>
+
+
+                                <div class="matrix99_container_row">
+                                    <div class="matrix99_container_row_item itemHasText">4</div>
+
+                                    <div id="A4" class="matrix99_container_row_item" onclick="A4()"></div>
+                                    <div id="B4" class="matrix99_container_row_item" onclick="B4()"></div>
+                                    <div id="C4" class="matrix99_container_row_item" onclick="C4()"></div>
+                                    <div id="D4" class="matrix99_container_row_item" onclick="D4()"></div>
+                                    <div id="E4" class="matrix99_container_row_item" onclick="E4()"></div>
+                                    <div id="F4" class="matrix99_container_row_item" onclick="F4()"></div>
+                                </div>
+                                <div class="matrix99_container_row">
+                                    <div class="matrix99_container_row_item itemHasText">5</div>
+
+                                    <div id="A5" class="matrix99_container_row_item" onclick="A5()"></div>
+                                    <div id="B5" class="matrix99_container_row_item" onclick="B5()"></div>
+                                    <div id="C5" class="matrix99_container_row_item" onclick="C5()"></div>
+                                    <div id="D5" class="matrix99_container_row_item" onclick="D5()"></div>
+                                    <div id="E5" class="matrix99_container_row_item" onclick="E5()"></div>
+                                    <div id="F5" class="matrix99_container_row_item" onclick="F5()"></div>
+                                </div>
+                                <div class="matrix99_container_row">
+                                    <div class="matrix99_container_row_item itemHasText">6</div>
+
+                                    <div id="A6" class="matrix99_container_row_item" onclick="A6()"></div>
+                                    <div id="B6" class="matrix99_container_row_item" onclick="B6()"></div>
+                                    <div id="C6" class="matrix99_container_row_item" onclick="C6()"></div>
+                                    <div id="D6" class="matrix99_container_row_item" onclick="D6()"></div>
+                                    <div id="E6" class="matrix99_container_row_item" onclick="E6()"></div>
+                                    <div id="F6" class="matrix99_container_row_item" onclick="F6()"></div>
+                                </div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; height: auto; width: 150px; margin-left: 170px; margin-top: 40px;">
+                                <div class="Maintheme_btn"onclick="checkResult()">
+                                    <span class="Maintheme_btn_Text">Check</span>
+                                </div>
+    
+                                <div class="Maintheme_btn" onclick="cLEARaLL()">
+                                    <span class="Maintheme_btn_Text">Refresh</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Picturs66" class="matrixGame_container_right_BASE Picturs66">
+                            <div  class="matrixGame_container_right_BASE_title">Picture 3*3</div>
+                            <div style="font-size: 15px;" class="matrixGame_container_right_BASE_txt">Well this time let's test your luck with this piture!!! What is this btw</div>
+                            <div style="font-size: 13px;" class="matrixGame_container_right_BASE_txt">(Sorry rn the 'refresh' as well as 'Check' button are now unfunctional u have to refresh the page to refresh the puzzle)</div>
+                            <div class="Picturs66_base">
+                                <div class="Picturs66_base_topbase">
+                                    <div class="Picturs66_Images_base">
+                                        <div class="Picturs66_Images_base_row">
+                                            <div class="Picturs66_ImagesItem PicFrames1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                                            <div class="Picturs66_ImagesItem PicFrames2" ondrop="drop2(event)" ondragover="allowDrop2(event)"></div>
+                                            <div class="Picturs66_ImagesItem PicFrames3" ondrop="drop3(event)" ondragover="allowDrop3(event)"></div>
+                                        </div>
+                                        <div class="Picturs66_Images_base_row">
+                                            <div class="Picturs66_ImagesItem PicFrames4" ondrop="drop4(event)" ondragover="allowDrop4(event)"></div>
+                                            <div class="Picturs66_ImagesItem PicFrames5" ondrop="drop5(event)" ondragover="allowDrop5(event)"></div>
+                                            <div class="Picturs66_ImagesItem PicFrames6" ondrop="drop6(event)" ondragover="allowDrop6(event)"></div>
+                                        </div>
+                                        <div class="Picturs66_Images_base_row">
+                                            <div class="Picturs66_ImagesItem PicFrames7" ondrop="drop7(event)" ondragover="allowDrop7(event)"></div>
+                                            <div class="Picturs66_ImagesItem PicFrames8" ondrop="drop8(event)" ondragover="allowDrop8(event)"></div>
+                                            <div class="Picturs66_ImagesItem PicFrames9" ondrop="drop9(event)" ondragover="allowDrop9(event)"></div>
+                                        </div>
+                                    </div>
+                                    <div class="Picturs66_base_Btn_base">
+                                        <div class="Maintheme_btn"onclick="">
+                                            <span class="Maintheme_btn_Text">Check</span>
+                                        </div>
+            
+                                        <div style="margin-top: 10px;" class="Maintheme_btn" onclick="">
+                                            <span class="Maintheme_btn_Text">Refresh</span>
+                                        </div>
+
+                                        <img src="Images/Minigame_images/aoe_minigame_bigImage.png" alt="" class="Picturs66_base_Btn_base_images">
+                                    </div>
+                                </div>
+                                
+                                <div class="Picturs66_Images_Itemsbase">
+                                    <div class="Picturs66_Images_Itemsbase_row">
+                                        <img src="Images/Minigame_images/aoe_minigame_piece_8.png" draggable="true" ondragstart="drag(event)" alt="" class="Picturs66_Images_Item picture_1">
+                                        <img src="Images/Minigame_images/aoe_minigame_piece_5.png" draggable="true" ondragstart="drag(event)" alt="" class="Picturs66_Images_Item">
+                                        <img src="Images/Minigame_images/aoe_minigame_piece_4.png" draggable="true" ondragstart="drag(event)" alt="" class="Picturs66_Images_Item">
+                                        <img src="Images/Minigame_images/aoe_minigame_piece_1.png" alt="" draggable="true" ondragstart="drag(event)" class="Picturs66_Images_Item">
+                                        <img src="Images/Minigame_images/aoe_minigame_piece_6.png" alt="" draggable="true" ondragstart="drag(event)" class="Picturs66_Images_Item">
+                                    </div>
+                                    <div style="margin-top: 10px;" class="Picturs66_Images_Itemsbase_row">
+                                        <img src="Images/Minigame_images/aoe_minigame_piece_3.png" alt="" draggable="true" ondragstart="drag(event)" class="Picturs66_Images_Item">
+                                        <img src="Images/Minigame_images/aoe_minigame_piece_7.png" alt="" draggable="true" ondragstart="drag(event)" class="Picturs66_Images_Item">
+                                        <img src="Images/Minigame_images/aoe_minigame_piece_2.png" alt="" draggable="true" ondragstart="drag(event)" class="Picturs66_Images_Item">
+
+                                        <img src="Images/Minigame_images/aoe_minigame_piece_9.png" alt="" draggable="true" ondragstart="drag(event)" class="Picturs66_Images_Item">
+                                    </div>
+                                    <script src="aoe_minigames_picture.js"></script>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Quizz" class="matrixGame_container_right_BASE Quizz">
+                            <div  class="matrixGame_container_right_BASE_title">Quizz</div>
+                            <div class="Quizz_container">
+                                <!-- * m e E l e * -->
+                                <!-- * * * M i l l -->
+
+                                <!-- c a m P * * * -->
+                                <!-- m i n I n g * -->
+
+                                <!-- b a r R a c k -->
+                                <!-- * * t E n t * -->
+
+                                <!-- * c a S t l e -->
+                                <div class="Quizz_question_container">
+                                    <div class="Quizz_question_container_row">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                        <input id="m_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="e_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="e_txt" type="text" name="" id="" class="Quizz_question_container_item mainword">
+                                        <input id="l_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="e_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                    </div>
+                                    <div class="Quizz_question_container_row">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                        <input id="m_txt" type="text" name="" id="" class="Quizz_question_container_item mainword">
+                                        <input id="i_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="l_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="l_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                    </div>
+
+                                    <div class="Quizz_question_container_row">
+                                        <input id="c_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="a_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="m_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="p_txt" type="text" name="" id="" class="Quizz_question_container_item mainword">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                    </div>
+                                    <div class="Quizz_question_container_row">
+                                        <input id="m_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="i_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="n_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="i_txt" type="text" name="" id="" class="Quizz_question_container_item mainword">
+                                        <input id="n_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="g_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                    </div>
+
+                                    <div class="Quizz_question_container_row">
+                                        <input id="b_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="a_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="r_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="r_txt" type="text" name="" id="" class="Quizz_question_container_item mainword">
+                                        <input id="a_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="c_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="k_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                    </div>
+                                    <div class="Quizz_question_container_row">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                        <input id="t_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="e_txt" type="text" name="" id="" class="Quizz_question_container_item mainword">
+                                        <input id="n_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="t_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                    </div>
+
+                                    <div class="Quizz_question_container_row">
+                                        <input id="unwrittenable" type="text" name="" id="" class="Quizz_question_container_item unwrittenable">
+                                        <input id="c_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="a_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="s_txt" type="text" name="" id="" class="Quizz_question_container_item mainword">
+                                        <input id="t_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="l_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                        <input id="e_txt" type="text" name="" id="" class="Quizz_question_container_item">
+                                    </div>
+                                </div>
+                                <div class="Quizz_button_container">
+                                    <div class="Quizz_question_btn Maintheme_btn"onclick="checlResult()">
+                                        <span class="Maintheme_btn_Text">Check</span>
+                                    </div>
+        
+                                    <div class="Quizz_question_btn Maintheme_btn" onclick="clearData()">
+                                        <span class="Maintheme_btn_Text">Refresh</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Question_container">
+                                <div class="Question_title aoe_common_base_title">Questions</div>
+                                <!-- * m e E l e * -->
+                                <!-- * * * M i l l -->
+
+                                <!-- c a m P * * * -->
+                                <!-- m i n I n g * -->
+
+                                <!-- b a r R a c k -->
+                                <!-- * * t E n t * -->
+
+                                <!-- * c a S t l e -->
+                                <div class="Question_text">1_What kind of weapen that you have to stat close to the enemies to deal damage? <br> (Ex: long range, meele, canon .etc.)</div>
+                                <div class="Question_text">2_What liquid do cows produce?</div>
+                                <div class="Question_text">3_Where do all scoutmasters in Camp Buddy work?</div>
+                                <div class="Question_text">4_What activities do miner do underground?</div>
+                                <div class="Question_text">5_Which building produce meele uinits in Aoe2 ?</div>
+                                <div class="Question_text">6_What do campers sleep in throught the night when go on camping?</div>
+                                <div class="Question_text">7_Where is the king live?</div>
+                                <div class="Question_text specialQuestion">❓❓❓ So what is the word in the main column ? ❓❓❓</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="matrixGame_container_comment_base">
+                       <div class="selectNone noborder aoe_common_base_title matrixGameComment">Chat room</div>
+                       <div class="ChatRoom_container">
+                            <div id="ChatRoom_base" class="ChatRoom_base">
+                                <!-- I have enough -->
+                            </div>
+                            <div class="ChatRoom_search_container">
+                                <input type="text" name="" id="ChatRoomSearch" class="ChatRoom_search" placeholder="Type sth...">
+                                <div class="ChatRoom_search_btn" onclick="Chatig()">➤</div>
+                            </div>
+                       </div>
+                       <div class="ChatRoom_Emoji_containee">
+                            <div class="ChatRoom_Emoji_containee_row">
+                                <div id="emo_laugh" class="ChatRoom_Emoji_containee_btn" onclick="emolaugh()"><span class="ChatRoom_Emoji_containee_btn_text">🤣</span></div>
+                                <div id="emo_cry" class="ChatRoom_Emoji_containee_btn" onclick="emocry()"><span class="ChatRoom_Emoji_containee_btn_text">😭</span></div>
+                                <div id="emo_shock" class="ChatRoom_Emoji_containee_btn" onclick="emoshock()"><span class="ChatRoom_Emoji_containee_btn_text">😱</span></div>
+                                <div id="emo_angry" class="ChatRoom_Emoji_containee_btn" onclick="emoangry()"><span class="ChatRoom_Emoji_containee_btn_text">😡</span></div>
+                                <div id="emo_what" class="ChatRoom_Emoji_containee_btn" onclick="emowhat()"><span class="ChatRoom_Emoji_containee_btn_text">🙃</span></div>
+                                <div id="emo_nice" class="ChatRoom_Emoji_containee_btn" onclick="emonice()"><span class="ChatRoom_Emoji_containee_btn_text">👌</span></div>
+                            </div>
+                            <div class="ChatRoom_Emoji_containee_row">
+                                <div id="emo1" class="ChatRoom_Emoji_containee_btn" onclick="emo1()"><span class="smallsize ChatRoom_Emoji_containee_btn_text">(ツ)</span></div>
+                                <div id="emo2" class="ChatRoom_Emoji_containee_btn" onclick="emo2()"><span class="smallersize ChatRoom_Emoji_containee_btn_text">o‿O͡</span></div>
+                                <div id="emo3" class="ChatRoom_Emoji_containee_btn" onclick="emo3()"><span class="smallsize ChatRoom_Emoji_containee_btn_text">ʘʚʘ</span></div>
+                                <div id="emo4" class="ChatRoom_Emoji_containee_btn" onclick="emo4()"><span class="smallsize ChatRoom_Emoji_containee_btn_text">〰¯͒˵</span></div>
+                                <div id="emo5" class="ChatRoom_Emoji_containee_btn" onclick="emo5()"><span class="ChatRoom_Emoji_containee_btn_text">♨</span></div>
+                                <div id="emo6" class="ChatRoom_Emoji_containee_btn" onclick="emo6()"><span class="smallsize ChatRoom_Emoji_containee_btn_text">Lol</span></div>
+                            </div>
+                            <div class="ChatRoom_Emoji_containee_row">
+                                <div class="ChatRoom_Emoji_containee_btn" onclick=""><span class="Bstyle ChatRoom_Emoji_containee_btn_text">B</span></div>
+                                <div class="ChatRoom_Emoji_containee_btn" onclick=""><span class="Istyle ChatRoom_Emoji_containee_btn_text">I</span></div>
+                                <div class="ChatRoom_Emoji_containee_btn" onclick=""><span class="Ustyle ChatRoom_Emoji_containee_btn_text">U</span></div>
+                                <div class="ChatRoom_Emoji_containee_btn" onclick=""><span class="ChatRoom_Emoji_containee_btn_text">⎵</span></div>
+                                <div class="ChatRoom_Emoji_containee_btn" onclick=""><span class="smallsize ChatRoom_Emoji_containee_btn_text">Del</span></div>
+                                <div class="ChatRoom_Emoji_containee_btn" onclick=""><span class="ChatRoom_Emoji_containee_btn_text">↩</span></div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="selectNone aoe_midBase_common colorGame">
+                <div class="aoe_Bigtitle">Color_Games</div>
+                <div class="colorGame_container">
+                    <div class="colorGame_container_top">
+                        <div class="colorGame_container_top_contain gamescontain">
+                            <div class="colorGame_container_top_contain_title">Games</div>
+                            <div id="pathbtn1" class="colorGame_container_top_contain_item" onclick="Fpath1()"><span class="colorGame_container_top_contain_itemtitle">Finding path</span></div>
+                            <div id="pathbtn2" class="colorGame_container_top_contain_item" onclick="Fpath2()"><span class="colorGame_container_top_contain_itemtitle">Finding path 2</span></div>
+                            <div class="colorGame_container_top_contain_item"><span class="colorGame_container_top_contain_itemtitle">(unknow)</span></div>
+                        </div>
+                        <div class="colorGame_container_top_contain scorecontain">
+                            <div class="colorGame_container_top_contain_title">High scores</div>
+                            <div class="colorGame_container_top_contain_item"><span class="colorGame_container_top_contain_itemtitle">(unknow)</span></div>
+                            <div class="colorGame_container_top_contain_item"><span class="colorGame_container_top_contain_itemtitle">(unknow)</span></div></div>
+                        <div class="colorGame_container_top_contain playecontain">
+                            <div class="colorGame_container_top_contain_title">Top player</div>
+                            <div class="colorGame_container_top_contain_item"><span class="colorGame_container_top_contain_itemtitle">(unknow)</span></div>
+                            <div class="colorGame_container_top_contain_item"><span class="colorGame_container_top_contain_itemtitle">(unknow)</span></div></div>
+                    </div>
+                    <div class="colorGame_container_bottom">
+                        <div id="pathG" class="colorGame_container_bottom_item pathG">
+                            <div class="colorGame_container_bottom_item_top">
+                                <div id="colorBase" class="colorGame_bottom_itemtop_colorBase" onclick="pathGChangeColor()">
+                                    <div id="colorBtn" class="colorGame_bottom_itemtop_colorBtn"></div>
+                                </div>
+                            </div>
+                            <div class="colorGame_container_bottom_item_base">
+                                <div class="colorGame_container_bottom_item_base_left">
+                                    <div class="colorGame_container_bottom_item_base_left_base">
+                                        <div class="colorGamebottom_itembaseleft_row">
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                        </div>
+                                        <div class="colorGamebottom_itembaseleft_row">
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                        </div>
+                                        <div class="colorGamebottom_itembaseleft_row">
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                        </div>
+                                        <div class="colorGamebottom_itembaseleft_row">
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                        </div>
+                                        <div class="colorGamebottom_itembaseleft_row">
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                        </div>
+                                        <div class="colorGamebottom_itembaseleft_row">
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                        </div>
+                                        <div class="colorGamebottom_itembaseleft_row">
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                        </div>
+                                        <div class="colorGamebottom_itembaseleft_row">
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                        </div>
+                                        <div class="colorGamebottom_itembaseleft_row">
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                        </div>
+                                        <div class="colorGamebottom_itembaseleft_row">
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                            <div id="coloritems" class="colorGamebottom_itembaseleft_items coloritems"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="colorGame_container_bottom_item_base_right">
+                                    <div class="colorGame_container_bottom_item_base_right_result_base"></div>
+                                    <div class="colorGame_container_bottom_item_base_right_decrption_base"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="pathG2" class="colorGame_container_bottom_item pathG2">
+                            <div class="pathG2_base"></div>
+
+                            <div class="pathG2_middle_base">
+                                <div class="pathG2_middle_base_corner topcorner"></div>
+                                <div class="pathG2_middle_base_corner botcorner"></div>
+                            </div>
+                            <div class="pathG2_sideBase"></div>
+                        </div>
+                        <!-- <div id="" class="colorGame_container_bottom_item"></div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="container">
+                <div class="left">
+                    <div class="item"><img src="Images/Minigame_images/aoe_minigame_piece_1.png" alt="" ondragstart="drag(event)"></div>
+                    <div class="item"><img src="Images/Minigame_images/aoe_minigame_piece_4.png" alt="" ondragstart="drag(event)"></div>
+                    <div class="item"><img src="Images/Minigame_images/aoe_minigame_piece_6.png" alt="" ondragstart="drag(event)"></div>
+                    <div class="item"><img src="Images/Minigame_images/aoe_minigame_piece_8.png" alt="" ondragstart="drag(event)"></div>
+                </div>
+                <div class="right">
+                    <div class="mockup">
+                        <div class="graphic" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    </div>
+                </div>
+            </div> -->
+            
+            <div class="aoe_bottom">
+                <img src="Images/FontPage_Images/aoe_bottom_bgImg.jpg" alt="" class="aoe_bottom_img">
+                <div class="aoe_bottom_text_base">
+                    <a href="" class="aoe_bottom_text_base_link">Facebook</a>
+                    <a href="" class="aoe_bottom_text_base_link">Twitter</a>
+                    <a href="" class="aoe_bottom_text_base_link">Steam</a>
+                    <a href="" class="aoe_bottom_text_base_link">Instagram</a>
+                    <a href="" class="aoe_bottom_text_base_link">Youtube</a>
+                    <a href="https://www.ageofempires.com/news/visual-look-at-aoe2de/" class="aoe_bottom_text_base_link">AOE Main Website</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

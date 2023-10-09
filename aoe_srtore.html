@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age of Empires 2_Store</title>
+    <link rel="stylesheet" href="MainBaseCss.css">
+    <link rel="shortcut icon" href="Images/FontPage_Images/aoe_logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="Cart.js"></script>
+    <style>
+        body{overflow-x: hidden;}
+        .aoeSiginBase_container{width: 101%; height: 100%; transform: translate(-8px,-10px);}
+        
+        .aoeSiginBase_container{display: flex; flex-direction: column;}
+        .aoeSiginBase_MAINcontainer{width: 101%; height: auto; margin-top: 110px;}
+
+        .aoeSiginBase_MAINcontainer_imgbase{width: 100%; height: 100%; position: absolute; position: fixed;}
+        .aoeSiginBase_container_img{width: 1000px; height: 500px; position: absolute;}
+        /* .aoeSiginBase_container_img{position: sticky; position: -webkit-sticky;} */
+        .aoeSiginBase_container_img{z-index: 0; top: 230px; left: 290px; opacity: 0.12;}
+
+
+        .aoeSiginBase_MAINcontainer_itemsbase{width: 100%; height: auto; position: absolute;}
+
+        .aoe_midBase_common{width: 1100px; margin-top: 50px; display: flex; flex-direction: column;}
+        .choisen{box-shadow: var(--box-Shadow); background: var(--ligher-orange); color: #1B1B1B;}
+        .aoe_common_base{width: 100%; height: auto; margin-top: 120px; z-index: 5}
+        .aoe_common_base{display: flex; flex-direction: column; align-items: center; justify-content: center;}
+    </style>
+
+    <!-- signin_common -->
+    <style>
+        .aoeSiginBase_top{background: var(--main-color); width: 100%; height: 100px; position: fixed; align-items: center;}
+        .aoeSiginBase_top{box-shadow: var(--box-Shadow); display: flex; justify-content: space-between;}
+
+        .aoeSiginBase_top_Logo{width: 180px; height: 100px; transform: translateX(-105px); transition: transform 0.6s; user-select: none;}
+        .aoeSiginBase_top_Logo_img{width: 180px; height: 100px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;}
+        .aoeSiginBase_top_Logo:hover{transform: translateX(0);}
+
+        .aoeSiginBase_top_searchBase{width: 250px; height: 36px; background: rgb(255, 200, 97); border-radius: 50px;}
+        .aoeSiginBase_top_searchBase{display: flex; justify-content: start; align-items: center; user-select: none;}
+
+        .aoeSiginBase_top_searchBase_searchbar{width: 200px; height: 36px; background: transparent; border: rgb(170, 111, 0);}
+        .aoeSiginBase_top_searchBase_searchbar{padding-left: 10px; color: #1B1B1B; border: none; outline: none;}
+        .aoeSiginBase_top_searchBase_searchbar{border-top-left-radius: 50px; border-bottom-left-radius: 50px;}
+
+        .aoeSiginBase_top_searchBase_btn{width: 50px; height: 36px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;}
+        .aoeSiginBase_top_searchBase_btn{background: var(--heavier-orange); font-size: 11px; line-height: 33px;}
+        .aoeSiginBase_top_searchBase_btn{color: var(--text-color); cursor: pointer; font-weight: 550;}
+        .aoeSiginBase_top_searchBase_btn:hover{background: rgb(134, 87, 0); color: #fff;}
+
+        .aoeSiginBase_top_itemsBAse{width: 700px; height: 36px; display: flex; justify-content: start;}
+        .aoeSiginBase_items{width: fit-content; height: 36px; cursor: pointer; border-radius: 20px; user-select: none;}
+        .aoeSiginBase_items{transition-property: all; transition-duration: 0.2; text-decoration: none; margin-right: 40px;}
+        .aoeSiginBase_items:hover{background: var(--ligher-orange);}
+        /* .aoeSiginBase_items:hover{background: #fff;} */
+        .aoeSiginBase_items_txt{padding: 5px 20px; line-height: 32px; font-weight: 800; color: #1B1B1B; text-decoration: none;}
+        /* .aoeSiginBase_items:active{background: #1B1B1B;}
+        .aoeSiginBase_items:active .aoeSiginBase_items_txt{color: rgb(229, 149, 0);} */
+        
+        
+
+        .aoeSiginBase_top_signBase{width: 230px; height: 36px; margin-right: 30px; display: flex; justify-content: space-between;}
+        .signseperate{width: 5px; height: 36px; background: orange; user-select: none;}
+        .signCommon{width: auto; height: 36px; background: var(--ligher-orange); border-radius: 10px; cursor: pointer; user-select: none;}
+        .signCommon:hover{background: #fff; box-shadow: var(--box-Shadow);}
+
+        
+    </style>
+
+    <!-- aoe_bottom -->
+    <style>
+        .aoe_bottom{background: var(--main-color); transform: translateY(17px);}
+        .aoe_bottom{width: 100%; height: 500px; z-index: 5; position: relative;}
+        .aoe_bottom_img{width: 100%; height: 500px; position: absolute; top: 0; left: 0; z-index: 0; opacity: 0.1;}
+        .aoe_bottom_text_base{width: 90%; height: 400px; top: 45px; left: 80px; z-index: 5; position: absolute; display: flex; flex-direction: column;}
+        .aoe_bottom_text_base_link{color: #fff; font-size: 18px; font-weight: 600; text-decoration: none;}
+        .aoe_bottom_text_base_link{width: fit-content; margin: 5px 0;}
+        .aoe_bottom_text_base_link:hover{color: #1B1B1B;}
+    </style>
+
+<!-- aoe_1st_item -->
+<style>
+
+    .Store_buyGameitems_text_base{background: var(--main-color);}
+    
+    .Store_buyGame_base{height: auto; display: flex; flex-direction: column;}
+    .Store_buyGame_base_items{width: 100%; height: 600px; margin: 20px 0; box-shadow: var(--box-Shadow);}
+    .Store_buyGame_base_items{display: flex; flex-direction: row;}
+
+    .Store_buyGame_base_items_img{width: 410px !important; height: 600px !important;}
+    .Store_buyGameitems_text_base{width: 689px; height: 600px;}
+
+    .Store_buyGameitems_text_base_container{width: 649px; height: 560px; margin: 20px 20px;}
+    .Store_buyGameitems_text_base_container_half{width: 100%; height: auto;}
+
+    
+
+    .lightcolor{color: var(--text-color); filter: brightness(1.2);}
+    .Store_buyGameitems_text_container{margin: 5px 0; width: fit-content; height: auto;}
+    .Store_buyGameitems_textcontainer_topic{font-size: var(--text-sise); color: var(--text-color); filter: brightness(0.6);}
+    .Store_buyGameitems_textcontainer_text{font-size: var(--text-sise); color: var(--text-color);}
+    .Maintheme_btn_contianer{width: 95%; height: auto; display: flex; justify-content: end; margin-top: 50px;}
+
+    .Store_buyGame_base_items:hover .Store_buyGameitems_text_base_container_half{filter: brightness(0.8);}
+    .Store_buyGame_base_items:hover .Maintheme_btn{filter: brightness(0.9);}
+</style>
+
+<!-- icons_base -->
+<style>
+
+    .icons_base{height: auto; margin-bottom: 50px;}
+    .icons_base_row_container{width: 100%;  display: flex; flex-direction: column;}
+    .icons_base_row_container{transition: height .4s ease-in-out; overflow: hidden;}
+    .icons_base_row_container{height: 210px;}
+    .Unit_base{height: 230px;}
+    /* .Resources_base{height: 630px;} */
+    
+    /* .icons_base_row{height: 1470px;} */
+    .aoe_common_base_title{font-size: 20px;}
+    .top_container{width: 100%; height: auto; display: flex; justify-content: space-between;}
+
+    .icons_base_row{height: 210px; margin-bottom: 30px;}
+    .icons_base_row{width: 100%; display: flex; flex-direction: column;}
+    .icons_base_item_container{width: 100%; height: 220px;  display: flex; justify-content: space-between;}
+    .icons_base_row_ViewMore{width: 100%; height: 20px; display: flex; justify-content: end;}
+
+    .icons_base_item{width: 180px; height: 210px; display: flex; flex-direction: column; cursor: pointer;}
+    .icons_base_itemImg_contain{width: 180px; height: 180px; cursor: pointer; overflow: hidden;}
+    .icons_base_item_img{width: 180px; height: 180px; transition: transform 0.3s ease-in;}
+    .icons_base_item:hover .icons_base_item_img{transform: scale(1.1);}
+
+    .icons_base_itemDec_contain{width: 180px; height: 20px; display: flex; justify-content: space-between; margin-top: 5px;}
+    .icons_base_item_name{width: fit-content; height: auto; color: var(--heavier-orange);}
+    .icons_base_item_name{font-size: var(--text-sise); font-family: var(--special-font);}
+    .icons_base_item_price{width: fit-content; height: auto; font-size: var(--text-sise); font-weight: 600; color: (--black-);}
+
+    .icons_base_row_ViewMore_textbase{margin-top: 45px;}
+    .icons_base_row_ViewMore_textbase{width: 90px; height: 20px; display: flex; justify-content: space-between; cursor: pointer;}
+    .icons_base_row_ViewMore_text{width: fit-content; height: auto; cursor: pointer; text-decoration: underline;}
+    
+    .icons_base_row_ViewMore_arro{width: fit-content; height: auto; font-size: var(--text-sise);}
+
+    .icons_base_row_ViewMore_textbase:hover .icons_base_row_ViewMore_text{color: var(--heavier-orange);}
+    .icons_base_row_ViewMore_textbase:hover .icons_base_row_ViewMore_arro{color: var(--heavier-orange);}
+</style>
+
+<!-- aoeSiginBase_container_Cart -->
+<style>
+
+    .aoeSiginBase_container_Cart{height: auto;}
+    .aoeSiginBase_container_Cart_container{height: 50px;}
+
+    .aoeSiginBase_container_Cart{background: var(--main-color); display: flex; justify-content: space-between;}
+    
+    /* .aoeSiginBase_container_Cart{height: 50px;} */
+    .aoeSiginBase_container_Cart{width: 100%; box-shadow: var(--box-Shadow); z-index: 50;}
+    .aoeSiginBase_container_Cart{position: sticky; top: 0; left: 0; position: -webkit-sticky; margin-top: 100px;}
+    .aoeSiginBase_container_Cart{align-items: center;}
+
+    .aoeSiginBase_container_Cart_container{margin: 20px 0 20px 60px; height: ;}
+    .aoeSiginBase_container_Cart_container{width: 1400px; background: transparent; transition: 0.3s ease-out;} 
+    .aoeSiginBase_container_Cart_container{border-radius: 50px; user-select: none; display: flex; flex-direction: row;}
+
+    .aoeSiginBase_container_Cart_container_btn{border-top-right-radius: 50px; border-bottom-right-radius: 50px;}
+    .aoeSiginBase_container_Cart_container_btn{width: 50px; height: 48px; background: var(--heavier-orange);}
+    .aoeSiginBase_container_Cart_container_btn{text-align: center; font-size: 40px; font-weight: 900; cursor: pointer;}
+    .aoeSiginBase_container_Cart_container_btn{text-shadow: 1px 1px gray; transition: 0.3s ease-out;}
+    .aoeSiginBase_container_Cart_container_btn:hover{text-shadow: 3px 3px var(--ligher-orange); filter: brightness(1.2);}
+
+    .aoeSiginBase_container_Cart_container_info{width: 1350px; overflow: hidden; border-top-left-radius: 50px; border-bottom-left-radius: 50px;}
+
+    /* .aoeSiginBase_container_info_container{width: 100%; height: 100%; border-radius: 50px; overflow: hidden;} */
+    .aoeSiginBase_container_info_container_top{width: 100%; height: 50px; display: flex; flex-direction: row; background: var(--white-);}
+    .aoeSiginBase_container_info_container_top{align-items: center;}
+    .aoeSiginBase_container_info_container_mainbase{width: 100%; height: 100%; background: var(--ligher-orange);}
+
+
+    .info_container_top_common{width: fit-content; padding: 10px 40px; font-size: 20px; cursor: pointer;}
+    .info_container_top_common{font-weight: 900; font-family: var(--special-font); user-select: none;}
+    .info_container_top_common:hover{filter: brightness(0.9)}
+
+    .info_container_top_common_seperate{width: 2px; background: #1B1B1B; height: 30px;}
+    .info_name{width: 250px;}
+    .info_icon{width: 50px;}
+    .info_price{width: 50px;}
+    .info_number{width: 150px;}
+
+    .aoeSiginBase_container_info_container_mainbase{overflow-x: scroll;}
+    .aoeSiginBase_container_Cart_container{transition: height 0.3s;}
+
+    .cart-row{height: auto; width: 100%; display: flex; flex-direction: row;}
+    .info_images{width: 40px; height: 40px;}
+    .cart-quantity-input{height: 34px; width: 50px; border-radius: 5px; border: 1px solid #56CCF2; background-color: #eee;}
+    .cart-quantity-input{color: var(--heavier-orange); padding: 0; text-align: center; font-size: var(--text-sise);}
+    .btn-danger{ color: white; background: var(--main-color); border: none; border-radius: .3em; font-weight: bold; cursor: pointer; padding: 5px 10px;}
+    .btn-danger:hover{background: var(--ligher-orange);}
+
+    .cart-total-title {font-weight: bold;font-size: 1.5em;color: var(--main-color); margin-right: 20px;}
+
+    .cart-total-price {color: #333;font-size: 1.1em;}
+</style>
+
+<!-- viewmore_arrow -->
+<script type="text/javascript">
+    function VieWMoRe(){
+        let viewArrow = document.getElementById("ViewMore_arrow");
+        let viewContain = document.getElementById("icons_base_row_container");
+        
+        if(viewContain.style.height == "210px"){
+            viewContain.style.height = "1470px";
+            viewArrow.style.transform = 'rotate(180deg)';
+        }
+        else{
+            viewContain.style.height = "210px";
+            viewArrow.style.transform = 'rotate(0)';
+        }
+
+    }
+
+    function VieWMoRe2(){
+        let viewArrow = document.getElementById("ViewMore_arrow");
+        let viewContain = document.getElementById("Resources_base");
+        
+        if(viewContain.style.height == "210px"){
+            viewContain.style.height = "690px";
+            viewArrow.style.transform = 'rotate(180deg)';
+        }
+        else{
+            viewContain.style.height = "210px";
+            viewArrow.style.transform = 'rotate(0)';
+        }
+
+    }
+
+    function VieWMoRe3(){
+        let viewArrow = document.getElementById("ViewMore_arrow");
+        let viewContain = document.getElementById("Unit_base");
+        
+        if(viewContain.style.height == "230px"){
+            viewContain.style.height = "770px";
+            viewArrow.style.transform = 'rotate(180deg)';
+        }
+        else{
+            viewContain.style.height = "230px";
+            viewArrow.style.transform = 'rotate(0)';
+        }
+
+    }
+</script>
+
+
+
+<!-- opencart -->
+<script>
+    function CartPop(){
+        let CartContainer = document.getElementById('Cart_container');
+        if(CartContainer.style.height == "50px"){CartContainer.style.height = "300px";
+        }else{CartContainer.style.height = "50px";}
+    }
+</script>
+
+
+<!-- <script>
+    if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+} else {
+    ready()
+}
+
+function ready() {
+    var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+        var button = removeCartItemButtons[i]
+        button.addEventListener('click', removeCartItem)
+    }
+
+    var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+    for (var i = 0; i < quantityInputs.length; i++) {
+        var input = quantityInputs[i]
+        input.addEventListener('change', quantityChanged)
+    }
+
+    var addToCartButtons = document.getElementsByClassName('shop-item-button')
+    for (var i = 0; i < addToCartButtons.length; i++) {
+        var button = addToCartButtons[i]
+        button.addEventListener('click', addToCartClicked)
+    }
+
+    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+}
+
+function purchaseClicked() {
+    alert('Thank you for your purchase')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild)
+    }
+    updateCartTotal()
+}
+
+function removeCartItem(event) {
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+    updateCartTotal()
+}
+
+function quantityChanged(event) {
+    var input = event.target
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+    }
+    updateCartTotal()
+}
+
+function addToCartClicked(event) {
+    var button = event.target
+    var shopItem = button.parentElement.parentElement
+    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
+    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
+    var imageSrc = shopItem.getElementsByClassName('icons_base_item_img')[0].src
+    addItemToCart(title, price, imageSrc)
+    updateCartTotal()
+}
+
+function addItemToCart(title, price, imageSrc) {
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('cart-row')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    var cartItemNames = cartItems.getElementsByClassName('info_name')
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText == title) {
+            alert('This item is already added to the cart')
+            return
+        }
+    }
+    var cartRowContents = `
+        <div class="info_container_top_common info_name">${title}</div>
+        <div class="info_container_top_common info_icon">
+            <img src="${imageSrc}" alt="" class="info_images">
+        </div>
+        <div class="info_container_top_common info_price">${price}</div>
+        <div class="info_container_top_common info_number">
+            <input class="cart-quantity-input" type="number" value="1">
+            <button class="btn btn-danger" type="button">REMOVE</button>
+        </div>`
+    cartRow.innerHTML = cartRowContents
+    cartItems.append(cartRow)
+    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+}
+
+function updateCartTotal() {
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    var total = 0
+    for (var i = 0; i < cartRows.length; i++) {
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('info_price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        var price = parseFloat(priceElement.innerText.replace('$', ''))
+        var quantity = quantityElement.value
+        total = total + (price * quantity)
+    }
+    total = Math.round(total * 100) / 100
+    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+}
+</script> -->
+
+</head>
+
+
+
+
+<body>
+    <div class="aoeSiginBase_MAINcontainer_imgbase">
+        <img style="user-select: none;" src="Images/FontPage_Images/aoe_bg.png" alt="" class="aoeSiginBase_container_img">
+    </div>
+
+    <div class="aoeSiginBase_container">
+        <div class="aoeSiginBase_container_Cart cart-row">
+            <div id="Cart_container" class="aoeSiginBase_container_Cart_container">
+                <div class="aoeSiginBase_container_Cart_container_info">
+                    <div class="aoeSiginBase_container_info_container_top cart-row">
+                        <div class="info_container_top_common info_name">Name </div>
+                        <div class="info_container_top_common_seperate"></div>
+
+                        <div class="info_container_top_common info_icon">Icon</div>
+                        <div class="info_container_top_common_seperate"></div>
+
+                        <div class="info_container_top_common info_price">Price</div>
+                        <div class="info_container_top_common_seperate"></div>
+
+                        <div class="info_container_top_common info_number">Quantity</div>
+                        <div class="info_container_top_common_seperate"></div>
+                        <div style="margin-left: 10px;" class="cart-total">
+                            <strong class="cart-total-title">Total</strong>
+                            <span class="cart-total-price">$0</span>
+                        </div>
+                        <div style="padding: 0 20px; margin-left: 300px;" class="Maintheme_btn">
+                            <div class="Maintheme_btn_Text">Buy</div>
+                        </div>
+                    </div>
+                    <div id="container_mainbase" class="aoeSiginBase_container_info_container_mainbase cart-items">
+                        <!-- <div class="cart-row">
+                            <div class="info_container_top_common info_name">Age of Empires</div>
+                            <div class="info_container_top_common info_icon">
+                                <img src="Images/FontPage_Images/aoe_homepage_aoe1.jpg" alt="" class="info_images">
+                            </div>
+                            <div class="info_container_top_common info_price">$200</div>
+                            <div class="info_container_top_common info_number">
+                                <input class="cart-quantity-input" type="number" value="1">
+                                <button class="btn btn-danger" type="button">REMOVE</button>
+                            </div>
+                        </div>
+                        <div class="cart-row">
+                            <div class="info_container_top_common info_name">Age of Empires 2</div>
+                            <div class="info_container_top_common info_icon">
+                                <img src="Images/FontPage_Images/aoe_homepage_aoe2.jpg" alt="" class="info_images">
+                            </div>
+                            <div class="info_container_top_common info_price">$220</div>
+                            <div class="info_container_top_common info_number">
+                                <input class="cart-quantity-input" type="number" value="1">
+                                <button class="btn btn-danger" type="button">REMOVE</button>
+                            </div>
+                        </div>
+
+                        <div class="cart-row">
+                            <div class="info_container_top_common info_name">Castle</div>
+                            <div class="info_container_top_common info_icon">
+                                <img src="Images/StoreImg/aoe_storeImg_building_1.jpg" alt="" class="info_images">
+                            </div>
+                            <div class="info_container_top_common info_price">$10</div>
+                            <div class="info_container_top_common info_number">
+                                <input class="cart-quantity-input" type="number" value="1">
+                                <button class="btn btn-danger" type="button">REMOVE</button>
+                            </div>
+                        </div> -->
+
+                        
+                    </div>
+                </div>
+                <div class="aoeSiginBase_container_Cart_container_btn" onclick="CartPop()">+</div>
+            </div>
+            
+        </div>
+
+        
+        <div class="aoeSiginBase_top">
+            <a href="aoe_homepage.html" class="aoeSiginBase_top_Logo">
+                <img src="Images/FontPage_Images/aoe_logo_link.jpg" alt="" class="aoeSiginBase_top_Logo_img">
+            </a>
+            <div class="aoeSiginBase_top_searchBase">
+                <input type="text" name="" id="searchBar" class="aoeSiginBase_top_searchBase_searchbar">
+                <div id="searchBase_btn" class="aoeSiginBase_top_searchBase_btn" onclick="seaRchBtn()"><span style="margin-left: 5px;">Search</span></div>
+            </div>
+            <div class="aoeSiginBase_top_itemsBAse">
+                
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_homepage.html" class="aoeSiginBase_items_txt">🏡  Home Page</a>
+                </div>
+                <div class="aoeSiginBase_items choisen">
+                    <a href="aoe_srtore.html" class="aoeSiginBase_items_txt">🛒 Store</a>
+                </div>
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_minigames.html" class="aoeSiginBase_items_txt">🎮 Minigames</a>
+                </div>
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_aboutus.html" class="aoeSiginBase_items_txt">ⓘ ABout us</a>
+                </div>
+            </div>
+            <div class="aoeSiginBase_top_signBase">
+                <div class="signCommon signup">
+                    <a href="aoe_homepage.html" class="aoeSiginBase_items_txt">SIGN IN</a></div>
+                    <div class="signseperate"></div>
+                <div class="signCommon signin"><a href="aoe_signUp.html" class="aoeSiginBase_items_txt">SIGN UP</a></div>
+            </div>
+        </div>
+
+       
+
+        <div style="margin-top: 110px;"  class="aoeSiginBase_MAINcontainer_itemsbase">
+            <div class="aoe_common_base">
+                <div class="selectNone aoe_midBase_common Store_buyGame_base">
+                    <div class="selectNone Store_buyGame_base_items backgrOrangeChangeColor brighterPointer">
+                        <img src="Images/FontPage_Images/aoe_homepage_aoe1.jpg" alt="" class="Store_buyGame_base_items_img icons_base_item_img">
+                        <div class="Store_buyGameitems_text_base">
+                            <div class="Store_buyGameitems_text_base_container">
+                                <span class="aoe_common_base_title shop-item-title">Age of Empires</span>
+                                <div class="Store_buyGameitems_text_base_container_half">
+                                    <div class="aoe_common_base_title lightcolor">MINIMUM:</div>
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">OS: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Windows 10 64bit</span>
+                                    </div>
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Processor: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Intel Core 2 Duo or AMD Athlon 64x2 5600+</span>
+                                    </div>
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Memory: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">4 GB RAM</span>
+                                    </div>
+    
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Graphics: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">NVIDIA® GeForce® GT 420 or ATI™ Radeon™ HD 6850 or Intel® HD Graphics 4000 or better with 2 GB VRAM</span>
+                                    </div>
+    
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">DirectX: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Version 11</span>
+                                    </div>
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Network: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Broadband Internet connection</span>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 20px;" class="Store_buyGameitems_text_base_container_half">
+                                   
+                                    <div class="aoe_common_base_title lightcolor">RECOMMENDED:</div>
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">OS: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Windows 10 64bit</span>
+                                    </div>
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Processor: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">2.4 Ghz i5 or greater or AMD equivalent</span>
+                                    </div>
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Memory: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">8 GB RAM</span>
+                                    </div>
+    
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Graphics: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Nvidia® GTX 650 or AMD HD 5850 or better</span>
+                                    </div>
+    
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">DirectX: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Version 11</span>
+                                    </div>
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Network: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Broadband Internet connection</span>
+                                    </div>
+                                </div>
+                                <div class="Maintheme_btn_contianer">
+                                    <div class="Maintheme_btn shop-item-button"><span class="Maintheme_btn_Text">Add to cart</span></div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="selectNone Store_buyGame_base_items backgrOrangeChangeColor brighterPointer">
+                        <img src="Images/FontPage_Images/aoe_homepage_aoe2.jpg" alt="" class="Store_buyGame_base_items_img icons_base_item_img">
+                        <div class="Store_buyGameitems_text_base">
+                            <div class="Store_buyGameitems_text_base_container">
+                                <span class="aoe_common_base_title shop-item-title">Age of Empires 2</span>
+                                <div class="Store_buyGameitems_text_base_container_half">
+                                    <div class="aoe_common_base_title lightcolor">MINIMUM:</div>
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">OS: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Windows 10 64bit</span>
+                                    </div>
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Processor: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Intel Core 2 Duo or AMD Athlon 64x2 5600+</span>
+                                    </div>
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Memory: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">4 GB RAM</span>
+                                    </div>
+    
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Graphics: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">NVIDIA® GeForce® GT 420 or ATI™ Radeon™ HD 6850 or Intel® HD Graphics 4000 or better with 2 GB VRAM</span>
+                                    </div>
+    
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">DirectX: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Version 11</span>
+                                    </div>
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Network: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Broadband Internet connection</span>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 20px;" class="Store_buyGameitems_text_base_container_half">
+                                    <div class="aoe_common_base_title lightcolor">RECOMMENDED:</div>
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">OS: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Windows 10 64bit</span>
+                                    </div>
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Processor: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">2.4 Ghz i5 or greater or AMD equivalent</span>
+                                    </div>
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Memory: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">8 GB RAM</span>
+                                    </div>
+    
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Graphics: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Nvidia® GTX 650 or AMD HD 5850 or better</span>
+                                    </div>
+    
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">DirectX: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Version 11</span>
+                                    </div>
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Network: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Broadband Internet connection</span>
+                                    </div>
+                                </div>
+                                <div class="Maintheme_btn_contianer">
+                                    <div class="Maintheme_btn shop-item-button"><span class="Maintheme_btn_Text">Add to cart</span></div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="selectNone Store_buyGame_base_items backgrOrangeChangeColor brighterPointer">
+                        <img src="Images/FontPage_Images/aoe_homepage_aoe3.png" alt="" class="Store_buyGame_base_items_img icons_base_item_img">
+                        <div class="Store_buyGameitems_text_base">
+                            <div class="Store_buyGameitems_text_base_container">
+                                <span class="aoe_common_base_title shop-item-title">Age of Empires 3</span>
+                                <div class="Store_buyGameitems_text_base_container_half">
+                                    <div class="aoe_common_base_title lightcolor">MINIMUM:</div>
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">OS: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Windows 10 64bit</span>
+                                    </div>
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Processor: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Intel Core 2 Duo or AMD Athlon 64x2 5600+</span>
+                                    </div>
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Memory: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">4 GB RAM</span>
+                                    </div>
+    
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Graphics: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">NVIDIA® GeForce® GT 420 or ATI™ Radeon™ HD 6850 or Intel® HD Graphics 4000 or better with 2 GB VRAM</span>
+                                    </div>
+    
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">DirectX: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Version 11</span>
+                                    </div>
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Network: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Broadband Internet connection</span>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 20px;" class="Store_buyGameitems_text_base_container_half">
+                                    <div class="aoe_common_base_title lightcolor">RECOMMENDED:</div>
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">OS: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Windows 10 64bit</span>
+                                    </div>
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Processor: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">2.4 Ghz i5 or greater or AMD equivalent</span>
+                                    </div>
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Memory: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">8 GB RAM</span>
+                                    </div>
+    
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Graphics: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Nvidia® GTX 650 or AMD HD 5850 or better</span>
+                                    </div>
+    
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">DirectX: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Version 11</span>
+                                    </div>
+    
+                                    <div class="Store_buyGameitems_text_container">
+                                        <span class="Store_buyGameitems_textcontainer_topic">Network: </span>
+                                        <span class="Store_buyGameitems_textcontainer_text">Broadband Internet connection</span>
+                                    </div>
+                                </div>
+                                <div class="Maintheme_btn_contianer shop-item-button">
+                                    <div class="Maintheme_btn"><span class="Maintheme_btn_Text">Add to cart</span></div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="selectNone aoe_midBase_common icons_base">
+                    <div class="top_container">
+                        <div class="aoe_Bigtitle">Building</div>
+                        <div class="icons_base_row_ViewMore">
+                            <div class="icons_base_row_ViewMore_textbase" onclick="VieWMoRe()">
+                                <span class="icons_base_row_ViewMore_text">View more</span>
+                                <span id="ViewMore_arrow" class="icons_base_row_ViewMore_arro">▽</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="icons_base_row_container" class="icons_base_row_container">
+                        <div id="icons_base_row" class="icons_base_row">
+                            <div class="icons_base_item_container">
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_1.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Castle</div>
+                                        <div class="icons_base_item_price shop-item-price">$10</div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_2.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Stable</div>
+                                        <div class="icons_base_item_price shop-item-price">$20</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_3.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Market</div>
+                                        <div class="icons_base_item_price shop-item-price">$6.5</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_4.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Archery Range</div>
+                                        <div class="icons_base_item_price shop-item-price">$1</div>
+                                    </div>
+                                </div>
+    
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_5.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">House</div>
+                                        <div class="icons_base_item_price shop-item-price">$2</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div id="icons_base_row" class="icons_base_row">
+                            <div class="icons_base_item_container">
+    
+                                <!--
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_5.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">House</div>
+                                        <div class="icons_base_item_price shop-item-price">$2</div>
+                                    </div>
+                                </div> -->
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_6.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Church 1</div>
+                                        <div class="icons_base_item_price shop-item-price">$10.5</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_7.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Church 2</div>
+                                        <div class="icons_base_item_price shop-item-price">$60</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_8.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Dock</div>
+                                        <div class="icons_base_item_price shop-item-price">$6.5</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_9.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Mansion</div>
+                                        <div class="icons_base_item_price shop-item-price">$1</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_10.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">House</div>
+                                        <div class="icons_base_item_price shop-item-price">$2</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="icons_base_row" class="icons_base_row">
+                            <div class="icons_base_item_container">
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_11.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Tent 1</div>
+                                        <div class="icons_base_item_price shop-item-price">$10.5</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_12.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Tent 2</div>
+                                        <div class="icons_base_item_price shop-item-price">$60</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_13.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Mill</div>
+                                        <div class="icons_base_item_price shop-item-price">$6.5</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_14.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Mansion</div>
+                                        <div class="icons_base_item_price shop-item-price">$1</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_15.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Tower</div>
+                                        <div class="icons_base_item_price shop-item-price">$2</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div id="icons_base_row" class="icons_base_row">
+                            <div class="icons_base_item_container">
+                            <div class="icons_base_item shop-item-button">
+                                <div class="icons_base_itemImg_contain">
+                                    <img src="Images/StoreImg/aoe_storeImg_building_16.jpg" alt="" class="icons_base_item_img">
+                                </div>
+                                <div class="icons_base_itemDec_contain">
+                                    <div class="icons_base_item_name shop-item-title">Barracks</div>
+                                    <div class="icons_base_item_price shop-item-price">$10.5</div>
+                                </div>
+                            </div>
+                            <div class="icons_base_item shop-item-button">
+                                <div class="icons_base_itemImg_contain">
+                                    <img src="Images/StoreImg/aoe_storeImg_building_17.jpg" alt="" class="icons_base_item_img">
+                                </div>
+                                <div class="icons_base_itemDec_contain">
+                                    <div class="icons_base_item_name shop-item-title">Castle</div>
+                                    <div class="icons_base_item_price shop-item-price">$60</div>
+                                </div>
+                            </div>
+                            <div class="icons_base_item shop-item-button">
+                                <div class="icons_base_itemImg_contain">
+                                    <img src="Images/StoreImg/aoe_storeImg_building_18.jpg" alt="" class="icons_base_item_img">
+                                </div>
+                                <div class="icons_base_itemDec_contain">
+                                    <div class="icons_base_item_name shop-item-title">Lumber camp</div>
+                                    <div class="icons_base_item_price shop-item-price">$6.5</div>
+                                </div>
+                            </div>
+                            <div class="icons_base_item shop-item-button">
+                                <div class="icons_base_itemImg_contain">
+                                    <img src="Images/StoreImg/aoe_storeImg_building_19.jpg" alt="" class="icons_base_item_img">
+                                </div>
+                                <div class="icons_base_itemDec_contain">
+                                    <div class="icons_base_item_name shop-item-title">House</div>
+                                    <div class="icons_base_item_price shop-item-price">$1</div>
+                                </div>
+                            </div>
+                            <div class="icons_base_item shop-item-button">
+                                <div class="icons_base_itemImg_contain">
+                                    <img src="Images/StoreImg/aoe_storeImg_building_20.jpg" alt="" class="icons_base_item_img">
+                                </div>
+                                <div class="icons_base_itemDec_contain">
+                                    <div class="icons_base_item_name shop-item-title">Mining camp</div>
+                                    <div class="icons_base_item_price shop-item-price">$2</div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+    
+                        <div id="icons_base_row" class="icons_base_row">
+                            <div class="icons_base_item_container">
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_21.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Mill</div>
+                                        <div class="icons_base_item_price shop-item-price">$10.5</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_22.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Castle</div>
+                                        <div class="icons_base_item_price shop-item-price">$60</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_23.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Archery Range</div>
+                                        <div class="icons_base_item_price shop-item-price">$6.5</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_24.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Barracks</div>
+                                        <div class="icons_base_item_price shop-item-price">$1</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_25.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Tent 3</div>
+                                        <div class="icons_base_item_price shop-item-price">$2</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div id="icons_base_row" class="icons_base_row">
+                            <div class="icons_base_item_container">
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_26.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Tower</div>
+                                        <div class="icons_base_item_price shop-item-price">$10</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_27.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Market</div>
+                                        <div class="icons_base_item_price shop-item-price">$20</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_28.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Castle</div>
+                                        <div class="icons_base_item_price shop-item-price">$6.5</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_29.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Library</div>
+                                        <div class="icons_base_item_price shop-item-price">$1</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_building_30.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">House</div>
+                                        <div class="icons_base_item_price shop-item-price">$2</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+    
+                    <div style="margin-top: 50px;" class="top_container">
+                        <div class="aoe_Bigtitle">Resources</div>
+                        <div class="icons_base_row_ViewMore">
+                            <div class="icons_base_row_ViewMore_textbase" onclick="VieWMoRe2()">
+                                <span class="icons_base_row_ViewMore_text">View more</span>
+                                <span id="ViewMore_arrow" class="icons_base_row_ViewMore_arro">▽</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Resources_base" class="icons_base_row_container Resources_base">
+                        
+                        <div id="icons_base_row" class="icons_base_row">
+                                <div class="icons_base_item_container">
+                                    <div class="icons_base_item shop-item-button">
+                                        <div class="icons_base_itemImg_contain">
+                                            <img src="Images/StoreImg/aoe_storeImg_icon_1.jpg" alt="" class="icons_base_item_img">
+                                        </div>
+                                        <div class="icons_base_itemDec_contain">
+                                            <div class="icons_base_item_name shop-item-title">100-Wood</div>
+                                            <div class="icons_base_item_price shop-item-price">$2</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="icons_base_item shop-item-button">
+                                        <div class="icons_base_itemImg_contain">
+                                            <img src="Images/StoreImg/aoe_storeImg_icon_2.jpg" alt="" class="icons_base_item_img">
+                                        </div>
+                                        <div class="icons_base_itemDec_contain">
+                                            <div class="icons_base_item_name shop-item-title">200-Food</div>
+                                            <div class="icons_base_item_price shop-item-price">$2</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="icons_base_item shop-item-button">
+                                        <div class="icons_base_itemImg_contain">
+                                            <img src="Images/StoreImg/aoe_storeImg_icon_3.jpg" alt="" class="icons_base_item_img">
+                                        </div>
+                                        <div class="icons_base_itemDec_contain">
+                                            <div class="icons_base_item_name shop-item-title">50-Gold/Coins</div>
+                                            <div class="icons_base_item_price shop-item-price">$4</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="icons_base_item shop-item-button">
+                                        <div class="icons_base_itemImg_contain">
+                                            <img src="Images/StoreImg/aoe_storeImg_icon_4.jpg" alt="" class="icons_base_item_img">
+                                        </div>
+                                        <div class="icons_base_itemDec_contain">
+                                            <div class="icons_base_item_name shop-item-title">20-Stone</div>
+                                            <div class="icons_base_item_price shop-item-price">$4</div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+    
+                        <div id="icons_base_row" class="icons_base_row">
+                                <div class="icons_base_item_container">
+                                    <div class="icons_base_item shop-item-button">
+                                        <div class="icons_base_itemImg_contain">
+                                            <img src="Images/StoreImg/aoe_storeImg_icon_1.jpg" alt="" class="icons_base_item_img">
+                                        </div>
+                                        <div class="icons_base_itemDec_contain">
+                                            <div class="icons_base_item_name shop-item-title">500-Wood</div>
+                                            <div class="icons_base_item_price shop-item-price">$7</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="icons_base_item shop-item-button">
+                                        <div class="icons_base_itemImg_contain">
+                                            <img src="Images/StoreImg/aoe_storeImg_icon_2.jpg" alt="" class="icons_base_item_img">
+                                        </div>
+                                        <div class="icons_base_itemDec_contain">
+                                            <div class="icons_base_item_name shop-item-title">500-Food</div>
+                                            <div class="icons_base_item_price shop-item-price">$7</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="icons_base_item shop-item-button">
+                                        <div class="icons_base_itemImg_contain">
+                                            <img src="Images/StoreImg/aoe_storeImg_icon_3.jpg" alt="" class="icons_base_item_img">
+                                        </div>
+                                        <div class="icons_base_itemDec_contain">
+                                            <div class="icons_base_item_name shop-item-title">100-Gold/Coins</div>
+                                            <div class="icons_base_item_price shop-item-price">$8</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="icons_base_item shop-item-button">
+                                        <div class="icons_base_itemImg_contain">
+                                            <img src="Images/StoreImg/aoe_storeImg_icon_4.jpg" alt="" class="icons_base_item_img">
+                                        </div>
+                                        <div class="icons_base_itemDec_contain">
+                                            <div class="icons_base_item_name shop-item-title">100-Stone</div>
+                                            <div class="icons_base_item_price shop-item-price">$8</div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+    
+                        <div id="icons_base_row" class="icons_base_row">
+                                <div class="icons_base_item_container">
+                                    <div class="icons_base_item shop-item-button">
+                                        <div class="icons_base_itemImg_contain">
+                                            <img src="Images/StoreImg/aoe_storeImg_icon_1.jpg" alt="" class="icons_base_item_img">
+                                        </div>
+                                        <div class="icons_base_itemDec_contain">
+                                            <div class="icons_base_item_name shop-item-title">1000-Wood</div>
+                                            <div class="icons_base_item_price shop-item-price">$10</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="icons_base_item shop-item-button">
+                                        <div class="icons_base_itemImg_contain">
+                                            <img src="Images/StoreImg/aoe_storeImg_icon_2.jpg" alt="" class="icons_base_item_img">
+                                        </div>
+                                        <div class="icons_base_itemDec_contain">
+                                            <div class="icons_base_item_name shop-item-title">1500-Food</div>
+                                            <div class="icons_base_item_price shop-item-price">$10</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="icons_base_item shop-item-button">
+                                        <div class="icons_base_itemImg_contain">
+                                            <img src="Images/StoreImg/aoe_storeImg_icon_3.jpg" alt="" class="icons_base_item_img">
+                                        </div>
+                                        <div class="icons_base_itemDec_contain">
+                                            <div class="icons_base_item_name shop-item-title">500-Gold/Coins</div>
+                                            <div class="icons_base_item_price shop-item-price">$10</div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="icons_base_item shop-item-button">
+                                        <div class="icons_base_itemImg_contain">
+                                            <img src="Images/StoreImg/aoe_storeImg_icon_4.jpg" alt="" class="icons_base_item_img">
+                                        </div>
+                                        <div class="icons_base_itemDec_contain">
+                                            <div class="icons_base_item_name shop-item-title">200-Stone</div>
+                                            <div class="icons_base_item_price shop-item-price">$10</div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        
+                    </div>
+                    
+    
+                    <div style="margin-top: 50px;" class="top_container">
+                        <div class="aoe_Bigtitle">Units</div>
+                        <div class="icons_base_row_ViewMore">
+                            <div class="icons_base_row_ViewMore_textbase" onclick="VieWMoRe3()">
+                                <span class="icons_base_row_ViewMore_text">View more</span>
+                                <span id="ViewMore_arrow" class="icons_base_row_ViewMore_arro">▽</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Unit_base" class="icons_base_row_container Unit_base">
+                        <div class="aoe_common_base_title">Ships</div>
+                        <div id="icons_base_row" class="icons_base_row">
+                            <div class="icons_base_item_container">
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_1.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Fishing ship</div>
+                                        <div class="icons_base_item_price shop-item-price">$50</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_6.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Cannon Galleon</div>
+                                        <div class="icons_base_item_price shop-item-price">$20</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_9.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Demolition Raft</div>
+                                        <div class="icons_base_item_price shop-item-price">$60.5</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_10.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">War Galley</div>
+                                        <div class="icons_base_item_price shop-item-price">$60</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_11.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Transport Ship</div>
+                                        <div class="icons_base_item_price shop-item-price">$25</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="aoe_common_base_title">House</div>
+                        <div id="icons_base_row" class="icons_base_row">
+                            <div class="icons_base_item_container">
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_2.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">SCout cavalry</div>
+                                        <div class="icons_base_item_price shop-item-price">$30</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_4.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Knight</div>
+                                        <div class="icons_base_item_price shop-item-price">$50</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_14.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Camel Scout</div>
+                                        <div class="icons_base_item_price shop-item-price">$30.5</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_7.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">War elephant</div>
+                                        <div class="icons_base_item_price shop-item-price">$20.5</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_8.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">War elephant</div>
+                                        <div class="icons_base_item_price shop-item-price">$20.5</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="aoe_common_base_title">Siege weapons</div>
+                        <div id="icons_base_row" class="icons_base_row">
+                            <div class="icons_base_item_container">
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_5.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Capped Ram</div>
+                                        <div class="icons_base_item_price shop-item-price">$30</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_12.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Knight</div>
+                                        <div class="icons_base_item_price shop-item-price">$50</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_13.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Siege Onager</div>
+                                        <div class="icons_base_item_price shop-item-price">$30.5</div>
+                                    </div>
+                                </div>
+                                <div class="icons_base_item shop-item-button">
+                                    <div class="icons_base_itemImg_contain">
+                                        <img src="Images/StoreImg/aoe_storeImg_unit_3.jpg" alt="" class="icons_base_item_img">
+                                    </div>
+                                    <div class="icons_base_itemDec_contain">
+                                        <div class="icons_base_item_name shop-item-title">Transport Cart</div>
+                                        <div class="icons_base_item_price shop-item-price">$20.5</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+    
+                <div class="aoe_bottom">
+                    <img src="Images/FontPage_Images/aoe_bottom_bgImg.jpg" alt="" class="aoe_bottom_img">
+                    <div class="aoe_bottom_text_base">
+                        <a href="" class="aoe_bottom_text_base_link">Facebook</a>
+                        <a href="" class="aoe_bottom_text_base_link">Twitter</a>
+                        <a href="" class="aoe_bottom_text_base_link">Steam</a>
+                        <a href="" class="aoe_bottom_text_base_link">Instagram</a>
+                        <a href="" class="aoe_bottom_text_base_link">Youtube</a>
+                        <a href="https://www.ageofempires.com/news/visual-look-at-aoe2de/" class="aoe_bottom_text_base_link">AOE Main Website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+    
+</body>
+</html>
+
+
+

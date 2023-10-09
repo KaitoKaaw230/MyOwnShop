@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age of Empires 2_Home page</title>
+    <link rel="stylesheet" href="MainBaseCss.css">
+    <link rel="shortcut icon" href="Images/FontPage_Images/aoe_logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body{overflow-x: hidden;}
+        .aoeSiginBase_container{width: 101%; height: 100%; transform: translate(-8px,-10px);}
+        
+        .aoeSiginBase_container{display: flex; flex-direction: column;}
+        .aoeSiginBase_MAINcontainer{width: 101%; height: auto; margin-top: 110px;}
+
+        .aoeSiginBase_MAINcontainer_imgbase{width: 100%; height: 100%; position: absolute; position: fixed;}
+        .aoeSiginBase_container_img{width: 1000px; height: 500px; position: absolute;}
+        /* .aoeSiginBase_container_img{position: sticky; position: -webkit-sticky;} */
+        .aoeSiginBase_container_img{z-index: 0; top: 230px; left: 290px; opacity: 0.12;}
+
+
+        .aoeSiginBase_MAINcontainer_itemsbase{width: 100%; height: auto; position: absolute;}
+
+        .aoe_midBase_common{width: 1100px; margin-top: 50px; display: flex; flex-direction: column;}
+        .choisen{box-shadow: var(--box-Shadow); background: var(--ligher-orange); color: #1B1B1B;}
+        .aoe_common_base{width: 100%; height: auto; margin-top: 120px; z-index: 5}
+        .aoe_common_base{display: flex; flex-direction: column; align-items: center; justify-content: center;}
+    </style>
+
+    <!-- signin_common -->
+    <style>
+        .aoeSiginBase_top{background: var(--main-color); width: 100%; height: 100px; position: fixed; align-items: center;}
+        .aoeSiginBase_top{box-shadow: var(--box-Shadow); display: flex; justify-content: space-between;}
+
+        .aoeSiginBase_top_Logo{width: 180px; height: 100px; transform: translateX(-105px); transition: transform 0.6s; user-select: none;}
+        .aoeSiginBase_top_Logo_img{width: 180px; height: 100px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;}
+        .aoeSiginBase_top_Logo:hover{transform: translateX(0);}
+
+        .aoeSiginBase_top_searchBase{width: 250px; height: 36px; background: rgb(255, 200, 97); border-radius: 50px;}
+        .aoeSiginBase_top_searchBase{display: flex; justify-content: start; align-items: center; user-select: none;}
+
+        .aoeSiginBase_top_searchBase_searchbar{width: 200px; height: 36px; background: transparent; border: rgb(170, 111, 0);}
+        .aoeSiginBase_top_searchBase_searchbar{padding-left: 10px; color: #1B1B1B; border: none; outline: none;}
+        .aoeSiginBase_top_searchBase_searchbar{border-top-left-radius: 50px; border-bottom-left-radius: 50px;}
+
+        .aoeSiginBase_top_searchBase_btn{width: 50px; height: 36px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;}
+        .aoeSiginBase_top_searchBase_btn{background: var(--heavier-orange); font-size: 11px; line-height: 33px;}
+        .aoeSiginBase_top_searchBase_btn{color: var(--text-color); cursor: pointer; font-weight: 550;}
+        .aoeSiginBase_top_searchBase_btn:hover{background: rgb(134, 87, 0); color: #fff;}
+
+        .aoeSiginBase_top_itemsBAse{width: 700px; height: 36px; display: flex; justify-content: start;}
+        .aoeSiginBase_items{width: fit-content; height: 36px; cursor: pointer; border-radius: 20px; user-select: none;}
+        .aoeSiginBase_items{transition-property: all; transition-duration: 0.2; text-decoration: none; margin-right: 40px;}
+        .aoeSiginBase_items:hover{background: var(--ligher-orange);}
+        /* .aoeSiginBase_items:hover{background: #fff;} */
+        .aoeSiginBase_items_txt{padding: 5px 20px; line-height: 32px; font-weight: 800; color: #1B1B1B; text-decoration: none;}
+        /* .aoeSiginBase_items:active{background: #1B1B1B;}
+        .aoeSiginBase_items:active .aoeSiginBase_items_txt{color: rgb(229, 149, 0);} */
+        
+        
+
+        .aoeSiginBase_top_signBase{width: 230px; height: 36px; margin-right: 30px; display: flex; justify-content: space-between;}
+        .signseperate{width: 5px; height: 36px; background: orange; user-select: none;}
+        .signCommon{width: auto; height: 36px; background: var(--ligher-orange); border-radius: 10px; cursor: pointer; user-select: none;}
+        .signCommon:hover{background: #fff; box-shadow: var(--box-Shadow);}
+
+        
+    </style>
+
+    <!-- aoe_bottom -->
+    <style>
+        .aoe_bottom{background: var(--main-color); transform: translateY(17px);}
+        .aoe_bottom{width: 100%; height: 500px; z-index: 5; position: relative;}
+        .aoe_bottom_img{width: 100%; height: 500px; position: absolute; top: 0; left: 0; z-index: 0; opacity: 0.1;}
+        .aoe_bottom_text_base{width: 90%; height: 400px; top: 45px; left: 80px; z-index: 5; position: absolute; display: flex; flex-direction: column;}
+        .aoe_bottom_text_base_link{color: #fff; font-size: 18px; font-weight: 600; text-decoration: none;}
+        .aoe_bottom_text_base_link{width: fit-content; margin: 5px 0;}
+        .aoe_bottom_text_base_link:hover{color: #1B1B1B;}
+    </style>
+
+<!-- SignIn_container -->
+<style>
+    /* .SignIn_container{display: none;} */
+
+
+    .SignIn_container{width: 100%; height: 100%; position: fixed; top: 0; left: 0;}
+    .SignIn_container_bg{width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1;}
+    .SignIn_container_bg{background: black; opacity: 0.8;}
+    .SignIn_container_bs{width: 500px; height: 320px; position: absolute; top: 30%; left: 35%; z-index: 3;}
+    .SignIn_container_bs{background: #fff; border-radius: 10px; border-top: 20px solid var(--main-color);}
+    .SignIn_container_bs{display: flex; flex-direction: column;}
+
+    .SignIn_container_bs_title_base{width: 100%; height: auto; margin: 15px 0 5px 15px;}
+    .SignIn_container_bs_title{font-size: var(--title-size); color: var(--heavier-orange); font-weight: 800; text-transform: uppercase;}
+
+    .SignIn_container_bs_info_base{width: 100%; height: auto; margin: 2px 0 5px 15px; display: flex; flex-direction: column;}
+    .SignIn_container_bs_info_text{font-size: var(--text-sise); color: orange; font-weight: 550;}
+    .SignIn_container_bs_info_type{width: 200px; height: 26px; border-radius: 5px; margin: 2px 0 10px 0;}
+    .SignIn_container_bs_info_type{border: none; outline: none; background: var(--ligher-orange); padding-left: 10px; color: #1B1B1B; user-select: none;}
+
+    .SignIn_container_bs_confirm_base{width: 95%; height: auto; margin: 100px 0 5px 15px; }
+    .SignIn_container_bs_confirm_base{display: flex; justify-content: space-between; align-items: center;}
+    .SignIn_container_bs_confirm_text{font-size: var(--text-sise); color: darkgreen;}
+
+</style>
+
+<!-- aoe_fearture_base -->
+<style>
+    .aoe_common_base{width: 100%; height: auto; margin-top: 120px; z-index: 5}
+    .aoe_common_base{display: flex; flex-direction: column; align-items: center; justify-content: center;}
+
+    .aoe_midBase_common{width: 1100px; margin-top: 50px; display: flex; flex-direction: column;}
+    .feature_base{height: 800px;}
+
+    .feature_container{width: 100%; height: 710px; margin: 20px 0;}
+    .feature_container{display: flex; flex-direction: column;}
+
+
+
+    .feature_container_imageBase{width: 100%; height: 610px;}
+    /* .feature_container_imageBase{display: flex; flex-direction: row;} */
+    /* .feature_container_imageBase{overflow: hidden;} */
+
+    .aoe_items{width: 100%; height: 610px; display: flex; justify-content: start; flex-direction: row;}
+    .aoe_items_decreption{width: 400px; height: 610px; box-shadow: var(--box-Shadow);}
+    .aoe_items_decreption{background: var(--main-color); display: flex; flex-direction: column;}
+    .aoe1_Img{width: auto; height: 610px; box-shadow: var(--box-Shadow);}
+    .aoe2_Img{width: auto; height: 610px; box-shadow: var(--box-Shadow);}
+    .aoe3_Img{width: 700px; height: 400px; box-shadow: var(--box-Shadow);}
+    .aoe_items_imageContain{width: 700px; height: 610px; overflow: hidden;}
+    .aOe_1{}
+    .aOe_2{transform: translateY(-610px);}
+    .aOe_3{transform: translateY(-1220px);}
+    .aoe_ImgCommon{transition-property: all; transition-duration: 0.6s; box-shadow: var(--box-Shadow);}
+    .aoe1_Img{transform: translateX(198px);}
+    /* .aoe1_Img{transform: translateX(700px);} */
+
+    /* .aoe2_Img{transform: translateX(293px);} */
+    .aoe2_Img{transform: translateX(700px);}
+
+    .aoe3_Img{transform: translateX(700px);}
+
+    .aoe1_dec{}
+    .aoe2_dec{display: none;}
+    .aoe3_dec{display: none;}
+    .feature_container_btnBase{margin-top: 10px; width: 100%; height: 100px; display: flex; justify-content: center; background: var(--main-color);}
+    .feature_container_btnS{width: 200px; height: 100px; margin: 0 5px; cursor: pointer; user-select: none;}
+    .feature_container_btnS:hover{box-shadow: var(--box-Shadow);}
+    
+    .aoe_items_decreption_title{font-size: var(--title-size); color: #1B1B1B; font-family: var(--title-font);}
+    .aoe_items_decreption_title{letter-spacing: var(--title-lettspacing); margin: 10px 0 20px 10px; font-weight: 700;}
+
+    .aoe_items_decreption_text{color: rgb(255, 255, 255); margin: 10px 0 20px 10px; line-height: 20px; }
+
+</style>
+<!-- Mechanic -->
+<style>
+    .Mechanic{height: auto; margin-bottom: 100px;}
+    .Mechanic_container{overflow-y: scroll; box-shadow: var(--box-Shadow); margin-top: 10px;}
+    .Mechanic_container{width: 100%; height: 800px; background: var(--main-color);}
+
+    .Mechanic_title{font-size: var(--topic-size); color: var(--black-); text-transform: uppercase; font-family: var(--title-font);}
+    .Mechanic_title{width: fit-content; height: auto; margin: 25px 0 10px 20px; font-weight: 900;}
+    .Mechanic_text{font-size: var(--text-sise); color: var(--white-); font-weight: 600; margin: 0 0 10px 20px;}
+    .Mechanic_img{width: 700px; height: auto; margin: 0 0 10px 20px; box-shadow: var(--box-Shadow);}
+
+    .Mechanic_topic{font-size: var(--topic-size); color: brown; margin: 20px 0 10px 20px; font-weight: 550;}
+</style>
+
+<!-- icons -->
+<style>
+    .icons{height: auto; display: flex; flex-direction: column;}
+    .icons_itemx_contianer{display: flex; justify-content: space-between; flex-direction: row; margin-top: 15px;}
+    .icons_items{width: 240px; height: 100px; box-shadow: var(--box-Shadow); cursor: pointer;}
+    .icons_items:hover{transform: scale(1.1);}
+
+
+    .advertisement_base{}
+    .advertisement_container{width: 100%; height: auto; margin: 100px 0;}
+    .advertisement_base{width: 100%; height: auto; z-index: 1; opacity: 0.7;}
+
+    .advertisement_text_base{width: 1430px; height: 780px; display: flex; flex-direction: column;}
+    .advertisement_text_base{position: absolute; top: 2300px; left: 50px; z-index: 5;}
+
+    .advertisement_text_base_half{width: 100%; display: flex; justify-content: center;}
+    .half_1{height: 30%;}
+    .half_2{height: 70%;}
+    .marginchanege{width: 450px; height: 550px; box-shadow: var(--box-Shadow);}
+    .marginchanege:hover{transform: scale(1.1);}
+</style>
+</head>
+
+    <!-- searchbar -->
+    <script type="text/javascript">
+        function seaRchBtn(){
+            let FeatureBase = document.getElementById('feature_base');
+            let mEchanicBase = document.getElementById('Mechanic');
+            let iConsBase = document.getElementById('icons');
+            let adBAse = document.getElementById('advertisement');
+
+            var SeaBar = document.getElementById('searchBar').value;
+
+            if(SeaBar == 'Feature' || SeaBar == 'feature' || SeaBar == 'featured' || SeaBar == 'Recommeneded' || SeaBar == 'Recommen' || SeaBar == 'fea' || SeaBar == 'rec' || SeaBar == 'recommeneded'){
+                FeatureBase.style.display = 'flex';
+                mEchanicBase.style.display = 'none';
+                iConsBase.style.display = 'none';
+                adBAse.style.display = 'none';
+            }
+            else if(SeaBar == 'Mechanic' || SeaBar == 'mechanic' || SeaBar == 'me' || SeaBar == 'mech'){
+                mEchanicBase.style.display = 'flex';
+                FeatureBase.style.display = 'none';
+                iConsBase.style.display = 'none';
+                adBAse.style.display = 'none';
+            }
+            else if(SeaBar == 'icon' || SeaBar == 'icons' || SeaBar == 'ic'){
+                iConsBase.style.display = 'flex';
+                mEchanicBase.style.display = 'none';
+                FeatureBase.style.display = 'none';
+                adBAse.style.display = 'none';
+            }
+            else{alert('Sorry. No result match what u searched!')}
+        }
+    </script>
+
+<!-- signCommon -->
+<script type="text/javascript">
+    function SIn(){
+        let SignInBase = document.getElementById('SignIn_container');
+        var passValue = document.getElementById('pas').value;
+        var nameValue = document.getElementById('use').value;
+        
+        //SignInBase.style.display = 'none';
+        if(passValue == '1412'){
+            if(nameValue == ''){alert('Come on, Ur name pls!')}
+            else{
+                alert('welcome back ' + nameValue)
+                SignInBase.style.display = 'none';
+            }
+        }
+        else{alert('where is your pass??? Well it definitely not "1412", right?')}
+    }
+    function closeInstant(){
+        let SignInBase = document.getElementById('SignIn_container');
+        SignInBase.style.display = 'none';
+    }
+</script>
+
+<!-- homepage_img_custom -->
+<script type="text/javascript">
+    function chGImgaeAoe1(){
+        let aoe1Img = document.getElementById('aoe1_Img');
+        let aoe2Img = document.getElementById('aoe2_Img');
+        let aoe3Img = document.getElementById('aoe3_Img');
+
+        let aoe1Dec = document.getElementById('aoe1_dec');
+        let aoe2Dec = document.getElementById('aoe2_dec');
+        let aoe3Dec = document.getElementById('aoe3_dec');
+        
+        aoe1Img.style.transform = 'translateX(198px)';
+        aoe1Dec.style.display = 'block';
+
+        aoe2Img.style.transform = 'translateX(700px)';
+        aoe3Img.style.transform = 'translateX(700px)';
+
+        aoe2Dec.style.display = 'none';
+        aoe3Dec.style.display = 'none';
+    }
+    function chGImgaeAoe2(){
+        let aoe1Img = document.getElementById('aoe1_Img');
+        let aoe2Img = document.getElementById('aoe2_Img');
+        let aoe3Img = document.getElementById('aoe3_Img');
+
+        let aoe1Dec = document.getElementById('aoe1_dec');
+        let aoe2Dec = document.getElementById('aoe2_dec');
+        let aoe3Dec = document.getElementById('aoe3_dec');
+        
+        aoe2Img.style.transform = 'translateX(293px)';
+        aoe2Dec.style.display = 'block';
+
+        aoe1Img.style.transform = 'translateX(700px)';
+        aoe3Img.style.transform = 'translateX(700px)';
+
+        aoe1Dec.style.display = 'none';
+        aoe3Dec.style.display = 'none';
+    }
+    function chGImgaeAoe3(){
+        let aoe1Img = document.getElementById('aoe1_Img');
+        let aoe2Img = document.getElementById('aoe2_Img');
+        let aoe3Img = document.getElementById('aoe3_Img');
+
+        let aoe1Dec = document.getElementById('aoe1_dec');
+        let aoe2Dec = document.getElementById('aoe2_dec');
+        let aoe3Dec = document.getElementById('aoe3_dec');
+        
+        aoe3Img.style.transform = 'translateX(0)';
+        aoe3Dec.style.display = 'block';
+
+        aoe1Img.style.transform = 'translateX(700px)';
+        aoe2Img.style.transform = 'translateX(700px)';
+
+        aoe1Dec.style.display = 'none';
+        aoe2Dec.style.display = 'none';
+    }
+</script>
+
+<body>
+
+    <div class="aoeSiginBase_MAINcontainer_imgbase">
+        <img style="user-select: none;" src="Images/FontPage_Images/aoe_bg.png" alt="" class="aoeSiginBase_container_img">
+    </div>
+
+    <div class="aoeSiginBase_container">
+        <div class="aoeSiginBase_top">
+            <a href="aoe_homepage.html" class="aoeSiginBase_top_Logo">
+                <img src="Images/FontPage_Images/aoe_logo_link.jpg" alt="" class="aoeSiginBase_top_Logo_img">
+            </a>
+            <div class="aoeSiginBase_top_searchBase">
+                <input type="text" name="" id="searchBar" class="aoeSiginBase_top_searchBase_searchbar">
+                <div id="searchBase_btn" class="aoeSiginBase_top_searchBase_btn" onclick="seaRchBtn()"><span style="margin-left: 5px;">Search</span></div>
+            </div>
+            <div class="aoeSiginBase_top_itemsBAse">
+                
+                <div class="aoeSiginBase_items choisen">
+                    <a href="aoe_homepage.html" class="aoeSiginBase_items_txt">🏡  Home Page</a>
+                </div>
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_srtore.html" class="aoeSiginBase_items_txt">🛒 Store</a>
+                </div>
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_minigames.html" class="aoeSiginBase_items_txt">🎮 Minigames</a>
+                </div>
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_aboutus.html" class="aoeSiginBase_items_txt">ⓘ ABout us</a>
+                </div>
+            </div>
+            <div class="aoeSiginBase_top_signBase">
+                <div class="signCommon signup">
+                    <a href="" class="aoeSiginBase_items_txt">SIGN IN</a></div>
+                    <div class="signseperate"></div>
+                <div class="signCommon signin"><a href="aoe_signUp.html" class="aoeSiginBase_items_txt">SIGN UP</a></div>
+            </div>
+        </div>
+
+        <div class="aoe_common_base">
+            <div id="feature_base" class="selectNone aoe_midBase_common feature_base">
+                <div class="selectNone aoe_common_base_title">FEATURED & RECOMMENDED</div>
+                <div class="selectNone feature_container">
+                    <div class="selectNone feature_container_imageBase">
+                        <div id="aOe_1" class="selectNone aoe_items aOe_1">
+                            <div class="selectNone aoe_items_imageContain">
+                                <img id="aoe1_Img" src="Images/FontPage_Images/aoe_homepage_aoe1.jpg" alt="" class="selectNone aoe_ImgCommon aoe1_Img">
+                            </div>
+                            <div id="aoe1_dec" class="selectNone aoe_items_decreption aoe1_dec">
+                                <div class="aoe_items_decreption_title">AOE - Age of Empires</div>
+                                <div class="aoe_items_decreption_text">Age of Empires is a series of historical real-time strategy video games, originally developed by Ensemble Studios and published by Xbox Game Studios. The first game was Age of Empires, released in 1997. Nine total games within the series have been released so far as of October 28, 2021.</div>
+                            </div>
+                        </div>
+                        <div id="aOe_2" class="aoe_items aOe_2">
+                            <div class="selectNone aoe_items_imageContain">
+                                <img id="aoe2_Img" src="Images/FontPage_Images/aoe_homepage_aoe2.jpg" alt="" class="selectNone aoe_ImgCommon aoe2_Img">
+                            </div>
+                            <div id="aoe2_dec" class="selectNone aoe_items_decreption aoe2_dec">
+                                <div class="aoe_items_decreption_title">AOE2 - Age of Empires 2</div>
+                            </div>
+                        </div>
+                        <div id="aOe_3" class="selectNone aoe_items aOe_3">
+                            <div class="selectNone aoe_items_imageContain">
+                                <img id="aoe3_Img" src="Images/FontPage_Images/aoe_homepage_aoe3.png" alt="" class="selectNone aoe_ImgCommon aoe3_Img">
+                            </div>
+                            <div id="aoe3_dec" class="selectNone aoe_items_decreption aoe3_dec">
+                                <div class="aoe_items_decreption_title">AOE3 - Age of Empires 3</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="feature_container_btnBase">
+                        <img src="Images/FontPage_Images/aoe_homepage_aoe1.jpg" alt="" class="feature_container_btnS" onclick="chGImgaeAoe1()">
+                        <img src="Images/FontPage_Images/aoe_homepage_aoe2.jpg" alt="" class="feature_container_btnS" onclick="chGImgaeAoe2()">
+                        <img src="Images/FontPage_Images/aoe_homepage_aoe3.png" alt="" class="feature_container_btnS" onclick="chGImgaeAoe3()">
+                    </div>
+                </div>
+            </div>
+
+            <div id="Mechanic" class="selectNone aoe_midBase_common Mechanic">
+                <div class="selectNone aoe_common_base_title">Game Mechanic</div>
+                <div class="selectNone Mechanic_container">
+                    <div class="Mechanic_title">map</div>
+                    <div class="Mechanic_text">In AoE3 maps, there are a lot of treasures scattered around the map. Some of these are protected by guardians, most offer resources in the early game, others provide units or even upgrades. Depending on the gain of the treasure, it will be more difficult to take it based on the guardians.
+                        I think this is an excellent mechanic, it can be very good adherence to the game and it would give it a touch of realism.</div>
+                    <img src="Images/FontPage_Images/aoe_homepage_mechanic_img_1.png" class="" alt="" class="Mechanic_img">
+                    <img src="Images/FontPage_Images/aoe_homepage_mechanic_img_2.png" class="" alt="" class="Mechanic_img">
+
+                    <div class="Mechanic_title">resources</div>
+                    <div class="Mechanic_text">Resources are the supplies required for any player running a civilization that form a key gameplay element in the Age of Empires series. Resources are generally gathered by Villagers, but there are also other methods of resource-gathering, such as trade or resource-generating buildings.<br>
+                        Several resource-gathering methods may overlap with each other. For instance, the Factory in Age of Empires III can produce any of the non-export resources, while Rice Paddies in The Asian Dynasties feature the ability to toggle between the production of food or coin. AI-controlled teams playing on the hardest difficulty receive extra resources and/or a bonus in the speed of collecting them.</div>
+                    <div class="Mechanic_topic">Food</div>
+                    <div class="Mechanic_text">Food is the basic resource in all of the games. It represents stored food stocks, and can be gathered through a variety of methods:</div>
+                    <div class="Mechanic_text">Fishing: ALL - Fish is available on water maps where fishing ships can gather from. Also, in I and II, there is Shore Fish that Villagers can fish for.</div>
+                    <div class="Mechanic_text">Hunting: ALL - Early food source. In II, Hunters can carry a higher than normal amount of food.
+                        Livestock: II, M, III, ON, IV - Includes standard herdable animals, as well as the livestock that can be produced in III.
+                        Berry Bushes: ALL - Defines food in Age of Empires. The oldest food gathering method, it has been in the tutorials even before hunting was.
+                        Farming: ALL - Most basic food gathering after the normal stocks are empty. Also useful because the player could throw the Farms up near drop-off points and not have to worry about resource trips taking up time.
+                        Trickle: II, M, III, ON - Certain buildings, Home City Cards, and improvements provide a slow trickle of resources to the player's stockpile, such as the Plenty Vault, the Feitoria, Babylonian Gardens, the Factory, or the Ship of Fingernails Relic.
+                        Treasure: III - Guarded by Treasure Guardians; also has wood, coin, or units.
+                        Trading Posts: III - Trading Posts placed in Trade Routes can be ordered to provide food.</div>
+
+                    <div class="Mechanic_topic">Wood</div>
+                    <div class="Mechanic_text">Wood is the other abundant resource in Age of Empires. Found on every map, it is needed for almost every building and chopped from every tree. For example, the trees in I have a standard 40 wood, trees in II have 100 wood, trees in III have 300 wood, etc etc etc. Other ways of obtaining wood are:</div>
+                    <div class="Mechanic_text">Trickle: II, M, III - Certain buildings, Home City Cards, and improvements provide a slow trickle of resources to the player's stockpile, such as the Plenty Vault, the Feitoria, or the Factory.</div>
+                    <div class="Mechanic_text">Treasure: III - Guarded by Treasure Guardians; also has food, coin, or units.</div>
+                    <div class="Mechanic_text">Trading Posts: III - Trading Posts placed in trade routes can be ordered to provide wood.</div>
+
+                    <div class="Mechanic_topic">Gold/Coin</div>
+                    <div class="Mechanic_text">Gold, called coin in III, is usually the limiting resource. Found on maps just like food and wood, gold comes in several forms</div>
+
+                    <div class="Mechanic_topic">Stone</div>
+                    <div class="Mechanic_text">The resource of stone is available only in I, II, ON and IV and is gathered from Stone Mines respectively containing 250 stone and 350 stone (1,000 in ON). It was dropped in M, mainly because it was the most underutilized of the resources, with its main use centered around the construction of towers, walls, Castles, and Wonders. It is rarely used for any units or technologies (unless they serve to improve buildings), and the rarest resource in terms of total quantity placed on the map. It's also the most expensive resource in the Market.</div>
+                    <img src="Images/FontPage_Images/aoe_homepage_mechanic_img_3(wood).jpg" alt="" class="Mechanic_img">
+                    <img src="Images/FontPage_Images/aoe_homepage_mechanic_img_4.jpg" alt="" class="Mechanic_img">
+                </div>
+            </div>
+
+            <div id="icons" class="selectNone aoe_midBase_common icons">
+                <div class="selectNone aoe_common_base_title">Icons</div>
+                <div class="icons_itemx_contianer">
+                    <img src="Images/FontPage_Images/aoe_homepage_icon_img_1.jpg" title="Wood" alt="" class="icons_items">
+                    <img src="Images/FontPage_Images/aoe_homepage_icon_img_2.jpg" title="Food" alt="" class="icons_items">
+                    <img src="Images/FontPage_Images/aoe_homepage_icon_img_3.jpg" title="Gold/Coins" alt="" class="icons_items">
+                    <img src="Images/FontPage_Images/aoe_homepage_icon_img_4.jpg" title="Stone" alt="" class="icons_items">
+                </div>
+            </div>
+
+            
+            <div id="advertisement" class="advertisement_container">
+                <img src="Images/FontPage_Images/aoe_homepage_advertisement_img.jpg" alt="" class="advertisement_base">
+                <div class="advertisement_text_base">
+                    <div class="advertisement_text_base_half half_1">
+                        <div style="margin-top: 20px;" class="aoe_Bigtitle">Find your interest</div>
+                    </div>
+                    <div class="advertisement_text_base_half half_2">
+                        <a style="width: 450px; height: 280px; margin: 0 20px;" href="aoe_srtore.html"><img src="Images/FontPage_Images/aoe_homepage_aoe1.jpg" alt="" class="marginchanege"></a>
+                        <a style="width: 450px; height: 280px; margin: 0 20px;" href="aoe_srtore.html"><img src="Images/FontPage_Images/aoe_homepage_aoe2.jpg" alt="" class="marginchanege"></a>
+                        <a style="width: 450px; height: 280px; margin: 0 20px;" href="aoe_srtore.html"><img src="Images/FontPage_Images/aoe_homepage_aoe3.png" alt="" class="marginchanege"></a>
+                        
+                    </div>
+                </div>
+            </div>
+        
+            <div class="aoe_bottom">
+                <img src="Images/FontPage_Images/aoe_bottom_bgImg.jpg" alt="" class="aoe_bottom_img">
+                <div class="aoe_bottom_text_base">
+                    <a href="" class="aoe_bottom_text_base_link">Facebook</a>
+                    <a href="" class="aoe_bottom_text_base_link">Twitter</a>
+                    <a href="" class="aoe_bottom_text_base_link">Steam</a>
+                    <a href="" class="aoe_bottom_text_base_link">Instagram</a>
+                    <a href="" class="aoe_bottom_text_base_link">Youtube</a>
+                    <a href="https://www.ageofempires.com/news/visual-look-at-aoe2de/" class="aoe_bottom_text_base_link">AOE Main Website</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="SignIn_container" class="SignIn_container">
+        <div class="SignIn_container_bg"></div>
+        <div class="SignIn_container_bs">
+            <div class="SignIn_container_bs_title_base">
+                <span class="SignIn_container_bs_title">Sign in to use our service</span>
+            </div>
+            <div class="SignIn_container_bs_info_base">
+                <span class="SignIn_container_bs_info_text">Password:</span>
+                <input type="password" name="" id="pas" class="SignIn_container_bs_info_type" placeholder="Type your password...">
+
+                <span class="SignIn_container_bs_info_text">User name:</span>
+                <input type="text" name="" id="use" class="SignIn_container_bs_info_type"  placeholder="Type your User name...">
+            </div>
+            <div class="SignIn_container_bs_confirm_base">
+                <div class="SignIn_container_bs_confirm_text">If u <span style="cursor: pointer;" onclick="closeInstant()">have</span> not had an account yet! Sign up <a href="aoe_signUp.html" class="aoe_link">here</a>.</div>
+                <div class="Maintheme_btn" onclick="SIn()">
+                    <span class="Maintheme_btn_Text">Confirm</span></div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,158 @@
+
+
+/* <button onclick="window.location.href='payment.html'" class="payment btn btn-dark btn-lg download-button" type="button">Payment</button> */
+
+
+/* © ♬ ☂ ☯ ∞ ✿ ✡ ♨ ⓘ 𝐢 🅘 𝕚 𝔦 🄸 ⒤ 🅸 🏠 🏡 🏘 */
+
+/* -----------------------------------EXAMPLE------- */
+
+.bg_ex{background: linear-gradient(90deg,rgba(3,77,112,0),#034d70 15% 85%,rgba(3,77,112,0));
+    background-clip: padding-box;
+    filter: none;}
+
+
+
+/* --------------------------------------------------------------------------------- */
+:root{
+    --white-color: #fff;
+    
+    --main-color: #ff9900;
+    --title-color: rgb(0, 135, 23);
+    --text-color: rgb(203, 255, 203);
+    --ligher-orange: rgb(255, 223, 162);
+    --heavier-orange: rgb(195, 127, 0);
+
+    --black-: #1b1b1b;
+    --white-: #fff;
+
+    --background-linear: linear-gradient( to left, var(--ligher-orange), var(--main-color), var(--heavier-orange));
+    --sameorange-linear: linear-gradient( to left, var(--heavier-orange), var(--heavier-orange), var(--heavier-orange));
+
+    --title-size: 30px;
+    --topic-size: 20px;
+    --text-sise: 17px;
+    --title-lettspacing: 1px;
+
+    --title-font: "Gill Sans", sans-serif;
+    --special-font: 'Lobster', cursive;
+    --text-font: cursive;
+    --box-Shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+}
+@keyframes orangeRemain{
+    from{background: var(--background-linear);}
+    to{background: var(--sameorange-linear);}
+}
+@keyframes changeOrangecolor{
+    0%{}
+    25%{}
+    50%{}
+    100%{}
+}
+
+
+@keyframes aboutImage {
+
+    0%,
+    100% {
+        transform: scale(.9);
+        border-radius: var(--border-radius-hover);
+    }
+
+    50% {
+        transform: scale(.8);
+        border-radius: var(--border-radius);
+    }
+}
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0rem);
+    }
+
+    50% {
+        transform: translateY(-7rem);
+    }
+}
+
+    ::-webkit-scrollbar {
+        height: 12px;
+        width: 16px;
+        background: rgba(0,0,0,0);
+        z-index: 12;
+        overflow: visible;
+    }
+    ::-webkit-scrollbar-corner {
+    background: #202020;
+}
+    ::-webkit-scrollbar-thumb {
+        width: 10px;
+        background-color: #434953;
+        border-radius: 10px;
+        z-index: 12;
+        border: 4px solid rgba(0,0,0,0);
+        background-clip: padding-box;
+        transition: background-color .32s ease-in-out;
+        margin: 4px;
+        min-height: 32px;
+        min-width: 32px;
+    }
+    ::selection {
+        background: #54a5d4;
+        text-shadow: 1px 1px 2px rgba(0,0,0,.6666666667);
+        color: #fff;
+    }
+
+    /* .buyNow_btn{animation: colorBackground 15s infinite;} */
+    @keyframes colorBackground {
+         0% {background-color: cyan;}
+         30%{background-color: purple;}
+         50%{background-color: lightgreen;}
+         70% {background-color: rgb(255, 71, 71);}
+         90%{background-color: cyan;}
+    }
+
+
+
+
+.animtionBorder{
+    animation: aboutImage 4s linear infinite; 
+    animation: float 4s linear infinite;
+    transition: all .2s linear;
+}
+
+.backgrOrangeChangeColor{background: var(--background-linear); user-select: none; cursor: pointer;}
+
+.brighterPointer:hover{filter: brightness(1.2);}
+
+.aoe_common_base_title{width: fit-content; height: auto; font-weight: 900; font-size: var(--title-size);}
+.aoe_common_base_title{color: var(--heavier-orange); text-transform: uppercase;}
+
+.aoe_Bigtitle{font-size: 50px; color: rgb(91, 0, 0); font-weight: 900; text-transform: uppercase;}
+.aoe_Bigtitle{letter-spacing: 2px; font-family: 'Montserrat', sans-serif; text-shadow: 4px 4px rgb(184, 1, 1);}
+
+.aoe_link{color: var(--main-color); text-decoration: none;}
+.aoe_link:hover{color: var(--heavier-orange);}
+
+.selectNone{user-select: none;}
+
+.Maintheme_btn{width: fit-content; height: auto; background: var(--main-color); color: #fff;}
+.Maintheme_btn{border-radius: 5px; cursor: pointer; user-select: none;}
+.Maintheme_btn:hover{background: var(--ligher-orange);}
+.Maintheme_btn_Text{padding: 5px 10px; line-height: 30px;}
+.Maintheme_btn:hover .Maintheme_btn_Text{color: var(--text-color); filter: brightness(0.6);}
+/* body{overflow-x: hidden;} */
+
+/* 
+font-family: 'Lobster', cursive;
+font-family: 'Patrick Hand', cursive;
+
+font-family: 'Roboto Mono', monospace;
+
+font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto Slab', serif;
+font-family: 'Saira', sans-serif; */
+
+
+/* <script type="text/javascript"></script> */

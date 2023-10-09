@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age of Empires_About us</title>
+    <link rel="stylesheet" href="MainBaseCss.css">
+    <link rel="shortcut icon" href="Images/FontPage_Images/aoe_logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body{overflow-x: hidden;}
+        .aoeSiginBase_container{width: 101%; height: 100%; transform: translate(-8px,-10px);}
+        
+        .aoeSiginBase_container{display: flex; flex-direction: column;}
+        .aoeSiginBase_MAINcontainer{width: 101%; height: auto; margin-top: 110px;}
+
+        .aoeSiginBase_MAINcontainer_imgbase{width: 100%; height: 100%; position: absolute; position: fixed;}
+        .aoeSiginBase_container_img{width: 1000px; height: 500px; position: absolute;}
+        /* .aoeSiginBase_container_img{position: sticky; position: -webkit-sticky;} */
+        .aoeSiginBase_container_img{z-index: 0; top: 230px; left: 290px; opacity: 0.12;}
+
+
+        .aoeSiginBase_MAINcontainer_itemsbase{width: 100%; height: auto; position: absolute;}
+
+        .aoe_midBase_common{width: 1100px; margin-top: 50px; display: flex; flex-direction: column;}
+        .choisen{box-shadow: var(--box-Shadow); background: var(--ligher-orange); color: #1B1B1B;}
+        .aoe_common_base{width: 100%; height: auto; margin-top: 120px; z-index: 5}
+        .aoe_common_base{display: flex; flex-direction: column; align-items: center; justify-content: center;}
+    </style>
+
+    <!-- signin_common -->
+    <style>
+        .aoeSiginBase_top{background: var(--main-color); width: 100%; height: 100px; position: fixed; align-items: center;}
+        .aoeSiginBase_top{box-shadow: var(--box-Shadow); display: flex; justify-content: space-between;}
+
+        .aoeSiginBase_top_Logo{width: 180px; height: 100px; transform: translateX(-105px); transition: transform 0.6s; user-select: none;}
+        .aoeSiginBase_top_Logo_img{width: 180px; height: 100px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;}
+        .aoeSiginBase_top_Logo:hover{transform: translateX(0);}
+
+        .aoeSiginBase_top_searchBase{width: 250px; height: 36px; background: rgb(255, 200, 97); border-radius: 50px;}
+        .aoeSiginBase_top_searchBase{display: flex; justify-content: start; align-items: center; user-select: none;}
+
+        .aoeSiginBase_top_searchBase_searchbar{width: 200px; height: 36px; background: transparent; border: rgb(170, 111, 0);}
+        .aoeSiginBase_top_searchBase_searchbar{padding-left: 10px; color: #1B1B1B; border: none; outline: none;}
+        .aoeSiginBase_top_searchBase_searchbar{border-top-left-radius: 50px; border-bottom-left-radius: 50px;}
+
+        .aoeSiginBase_top_searchBase_btn{width: 50px; height: 36px; border-top-right-radius: 50px; border-bottom-right-radius: 50px;}
+        .aoeSiginBase_top_searchBase_btn{background: var(--heavier-orange); font-size: 11px; line-height: 33px;}
+        .aoeSiginBase_top_searchBase_btn{color: var(--text-color); cursor: pointer; font-weight: 550;}
+        .aoeSiginBase_top_searchBase_btn:hover{background: rgb(134, 87, 0); color: #fff;}
+
+        .aoeSiginBase_top_itemsBAse{width: 700px; height: 36px; display: flex; justify-content: start;}
+        .aoeSiginBase_items{width: fit-content; height: 36px; cursor: pointer; border-radius: 20px; user-select: none;}
+        .aoeSiginBase_items{transition-property: all; transition-duration: 0.2; text-decoration: none; margin-right: 40px;}
+        .aoeSiginBase_items:hover{background: var(--ligher-orange);}
+        /* .aoeSiginBase_items:hover{background: #fff;} */
+        .aoeSiginBase_items_txt{padding: 5px 20px; line-height: 32px; font-weight: 800; color: #1B1B1B; text-decoration: none;}
+        /* .aoeSiginBase_items:active{background: #1B1B1B;}
+        .aoeSiginBase_items:active .aoeSiginBase_items_txt{color: rgb(229, 149, 0);} */
+        
+        
+
+        .aoeSiginBase_top_signBase{width: 230px; height: 36px; margin-right: 30px; display: flex; justify-content: space-between;}
+        .signseperate{width: 5px; height: 36px; background: orange; user-select: none;}
+        .signCommon{width: auto; height: 36px; background: var(--ligher-orange); border-radius: 10px; cursor: pointer; user-select: none;}
+        .signCommon:hover{background: #fff; box-shadow: var(--box-Shadow);}
+
+         
+    </style>
+
+
+    <!-- aoe_bottom -->
+    <style>
+        .aoe_bottom{background: var(--main-color); transform: translateY(17px);}
+        .aoe_bottom{width: 100%; height: 500px; z-index: 5; position: relative;}
+        .aoe_bottom_img{width: 100%; height: 500px; position: absolute; top: 0; left: 0; z-index: 0; opacity: 0.1;}
+        .aoe_bottom_text_base{width: 90%; height: 400px; top: 45px; left: 80px; z-index: 5; position: absolute; display: flex; flex-direction: column;}
+        .aoe_bottom_text_base_link{color: #fff; font-size: 18px; font-weight: 600; text-decoration: none;}
+        .aoe_bottom_text_base_link{width: fit-content; margin: 5px 0;}
+        .aoe_bottom_text_base_link:hover{color: #1B1B1B;}
+    </style>
+
+<!-- SignIn_container -->
+<style>
+    .SignIn_container{display: none;}
+
+
+    .SignIn_container{width: 100%; height: 100%; position: fixed; top: 0; left: 0;}
+    .SignIn_container_bg{width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1;}
+    .SignIn_container_bg{background: black; opacity: 0.8;}
+    .SignIn_container_bs{width: 500px; height: 320px; position: absolute; top: 30%; left: 35%; z-index: 3;}
+    .SignIn_container_bs{background: #fff; border-radius: 10px; border-top: 20px solid var(--main-color);}
+    .SignIn_container_bs{display: flex; flex-direction: column;}
+
+    .SignIn_container_bs_title_base{width: 100%; height: auto; margin: 15px 0 5px 15px;}
+    .SignIn_container_bs_title{font-size: var(--title-size); color: var(--heavier-orange); font-weight: 800; text-transform: uppercase;}
+
+    .SignIn_container_bs_info_base{width: 100%; height: auto; margin: 2px 0 5px 15px; display: flex; flex-direction: column;}
+    .SignIn_container_bs_info_text{font-size: var(--text-sise); color: orange; font-weight: 550;}
+    .SignIn_container_bs_info_type{width: 200px; height: 26px; border-radius: 5px; margin: 2px 0 10px 0;}
+    .SignIn_container_bs_info_type{border: none; outline: none; background: var(--ligher-orange); padding-left: 10px; color: #1B1B1B; user-select: none;}
+
+    .SignIn_container_bs_confirm_base{width: 95%; height: auto; margin: 100px 0 5px 15px; }
+    .SignIn_container_bs_confirm_base{display: flex; justify-content: space-between; align-items: center;}
+    .SignIn_container_bs_confirm_text{font-size: var(--text-sise); color: darkgreen;}
+
+</style>
+
+<!-- aoe_1st_item -->
+<style>
+    .aoe_midBase_common_container_items{background: var(--black-);}
+
+    .matrixGame{height: 600px;}
+
+    .aoe_Bigtitle_base{width: 100%; height: fit-content; text-align: center;}
+
+    .aoe_midBase_common_container{width: 100%; height: 510px; display: flex; justify-content: space-between;}
+    .aoe_midBase_common_items{width: 260px; height: 500px; cursor: pointer; background: var(--heavier-orange);}
+    .aoe_midBase_common_items{position: relative; overflow: hidden;}
+
+    .aoe_midBase_common_items_img{width: 100%; height: 100%; position: absolute; z-index: 0;}
+    .aoe_midBase_common_items_img{transition: scale 0.4s ease-in-out; }
+
+    .aoe_midBase_commonItems_fontgrBase{width: 100%; height: 100%; position: relative;}
+    .aoe_midBase_commonItems_fontgrBase{display: none; transition-property: all; transition-duration: 2s;}
+
+    .aoe_midBase_commonItems_fontgrBase_bg{width: 100%; height: 100%; background: var(--black-); opacity: 0.7;}
+    .aoe_midBase_commonItems_fontgrBase_bg{position: absolute; z-index: 5;}
+
+    .aoe_midBase_commonItems_fontgrBase_textBase{width: 100%; height: 40%; background: var(--black-);}
+    .aoe_midBase_commonItems_fontgrBase_textBase{position: absolute; z-index: 10; bottom: 0; opacity: 0.7;} 
+
+
+    .aoe_common_base_title_container{width: 90%; height: 90%; margin: 12px 12px;}
+    .editedtitle{font-size: 16px; color: var(--white-); letter-spacing: 3px;}
+    .smalltext{font-size: 10px; margin-top: 8px; margin-left: 7px;}
+    .smallerText{font-size: 6px; margin-left: 7px; margin-right: 7px;}
+
+    .aoe_common_base_text{font-size: 14px; color: #c8c8c8; margin-top: 5px;}
+    .aoe_common_base_text{}
+
+    
+    .aoe_midBase_common_items:hover .aoe_midBase_commonItems_fontgrBase{display: flex;}
+    .aoe_midBase_common_items:hover .aoe_midBase_common_items_img{scale: 1.14;}
+
+
+    .aoe_midBase_common_container_items{width: 250px; height: 250px; position: relative; cursor: pointer;}
+    .aoeMidBase_commoncontainer_items_popBase{width: 100%; height: 100%; position: absolute; z-index: 5;}
+    .aoe_midBase_common_container_items{overflow: hidden;}
+    .aoeMidBase_commoncontainer_items_popBase{transform: translateX(250px);}
+    .aoeMidBase_commoncontainer_items_popBase{transition: transform 0.4s ease-in-out;}
+    .aoeMidBase_commoncontainer_items_popBase{}
+
+    .commonPosition{position: absolute; right: 0;}
+    .aoeMidBase_commoncontainer_items_popBase_bg{width: 100%; height: 100%; z-index: 1; background: var(--black-); opacity: 0.7;}
+
+    .aoeMidBase_items_popBase_textBase{width: 100px; height: 100%; background: black; z-index: 6;}
+
+    .aoeMidBase_commoncontainer_items_popBase_img{width: 100%; height: 100%; position: absolute; top: 0; z-index: 0;}
+    .aoeMidBase_commoncontainer_items_popBase_img{transition: opacity 0.4s ease-in-out; transition: scale 0.4s ease-in-out;}
+
+    .aoe_midBase_common_container_items:hover .aoeMidBase_commoncontainer_items_popBase{transform: translateX(0);}
+    .aoe_midBase_common_container_items:hover .aoeMidBase_commoncontainer_items_popBase_img{opacity: 0.7; scale: 1.1;}
+</style>
+
+</head>
+
+
+<body>
+    <div class="aoeSiginBase_MAINcontainer_imgbase">
+        <img src="Images/FontPage_Images/aoe_bg.png" alt="" class="aoeSiginBase_container_img">
+    </div>
+
+    <div class="aoeSiginBase_container">
+        
+        <div class="aoeSiginBase_top">
+            <a href="aoe_homepage.html" class="aoeSiginBase_top_Logo">
+                <img src="Images/FontPage_Images/aoe_logo_link.jpg" alt="" class="aoeSiginBase_top_Logo_img">
+            </a>
+            <div class="aoeSiginBase_top_searchBase">
+                <input type="text" name="" id="searchBar" class="aoeSiginBase_top_searchBase_searchbar">
+                <div id="searchBase_btn" class="aoeSiginBase_top_searchBase_btn" onclick="seaRchBtn()"><span style="margin-left: 5px;">Search</span></div>
+            </div>
+            <div class="aoeSiginBase_top_itemsBAse">
+                
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_homepage.html" class="aoeSiginBase_items_txt">🏡  Home Page</a>
+                </div>
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_srtore.html" class="aoeSiginBase_items_txt">🛒 Store</a>
+                </div>
+                <div class="aoeSiginBase_items">
+                    <a href="aoe_minigames.html" class="aoeSiginBase_items_txt">🎮 Minigames</a>
+                </div>
+                <div class="aoeSiginBase_items choisen">
+                    <a href="aoe_aboutus.html" class="aoeSiginBase_items_txt">ⓘ ABout us</a>
+                </div>
+            </div>
+            <div class="aoeSiginBase_top_signBase">
+                <div class="signCommon signup">
+                    <a href="" class="aoeSiginBase_items_txt">SIGN IN</a></div>
+                    <div class="signseperate"></div>
+                <div class="signCommon signin"><a href="aoe_signUp.html" class="aoeSiginBase_items_txt">SIGN UP</a></div>
+            </div>
+        </div>
+
+        <div class="aoeSiginBase_MAINcontainer">
+
+            <div class="aoeSiginBase_MAINcontainer_itemsbase">
+                <div class="aoe_common_base">
+                    <div class="selectNone aoe_midBase_common matrixGame">
+                        <div class="aoe_Bigtitle_base">
+                            <div style="margin-bottom: 10px;" class="aoe_Bigtitle">What are we?</div>
+                        </div>
+                        <div class="aoe_midBase_common_container">
+                            <div class="aoe_midBase_common_items">
+                                <img src="Images/FontPage_Images/aoe_aboutUs_img1.jpg" alt="" class="aoe_midBase_common_items_img">
+                                <div class="aoe_midBase_commonItems_fontgrBase">
+                                    <div class="aoe_midBase_commonItems_fontgrBase_bg"></div>
+                                    <div class="aoe_midBase_commonItems_fontgrBase_textBase">
+                                        <div class="aoe_common_base_title_container">
+                                            <div class="editedtitle aoe_common_base_title">Nostalgia Game</div>
+                                            <div class="aoe_common_base_text">The original Age of Empires II and its 2000 expansion pack, The Conquerors, were later released as The Gold Edition. Age of Empires II is often considered one of the greatest games ever made.</div>
+                                            <div class="aoe_common_base_text">An updated high-definition graphics version of the game, Age of Empires II: HD Edition, was released in 2013.</div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="aoe_midBase_common_items">
+                                <img src="Images/FontPage_Images/aoe_aboutUs_img2.jpg" alt="" class="aoe_midBase_common_items_img">
+                                <div class="aoe_midBase_commonItems_fontgrBase">
+                                    <div class="aoe_midBase_commonItems_fontgrBase_bg"></div>
+                                    <div class="aoe_midBase_commonItems_fontgrBase_textBase">
+                                        <div class="aoe_common_base_title_container">
+                                            <div class="editedtitle aoe_common_base_title">Games/Items Store</div>
+                                            <div class="aoe_common_base_text">Game stores are highly specialized shops selling entertainment products to a targeted niche. Spanning a range of niches, from video games to living room games to role playing games, well-managed game stores can attract a very loyal customer base.</div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="aoe_midBase_common_items">
+                                <img src="Images/FontPage_Images/aoe_aboutUs_img3.jpg" alt="" class="aoe_midBase_common_items_img">
+                                <div class="aoe_midBase_commonItems_fontgrBase">
+                                    <div class="aoe_midBase_commonItems_fontgrBase_bg"></div>
+                                    <div class="aoe_midBase_commonItems_fontgrBase_textBase">
+                                        <div class="aoe_common_base_title_container">
+                                            <div class="editedtitle aoe_common_base_title">Mini games</div>
+                                            <div class="aoe_common_base_text">A minigame (also spelled mini game and mini-game, sometimes called a subgame or microgame) is a short game often contained within another video game.</div>
+                                            <div class="aoe_common_base_text">Here we have Matrix, Puzzle, ColorGame,..etc..</div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="aoe_midBase_common_items">
+                                <img src="Images/FontPage_Images/aoe_aboutUs_img4.jpg" alt="" class="aoe_midBase_common_items_img">
+                                <div class="aoe_midBase_commonItems_fontgrBase">
+                                    <div class="aoe_midBase_commonItems_fontgrBase_bg"></div>
+                                    <div class="aoe_midBase_commonItems_fontgrBase_textBase">
+                                        <div class="aoe_common_base_title_container">
+                                            <div class="editedtitle aoe_common_base_title">Fun experience</div>
+                                            <div class="aoe_common_base_text">Hope you have fun with the game !!!</div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div style="margin-top: 200px; height: 350px;" class="selectNone aoe_midBase_common matrixGame">
+                        <div class="aoe_Bigtitle_base">
+                            <div style="margin-bottom: 10px;" class="aoe_Bigtitle">who are we?</div>
+                        </div>
+                        <div class="aoe_midBase_common_container demoBg">
+                            <div class="aoe_midBase_common_container_items">
+                                <div class="aoeMidBase_commoncontainer_items_popBase">
+                                    <!-- <div class="aoeMidBase_commoncontainer_items_popBase_bg commonPosition"></div> -->
+                                    
+                                    <div class="aoeMidBase_items_popBase_textBase commonPosition">
+                                        <div class="smalltext editedtitle aoe_common_base_title">Nostalgia Game</div>
+                                        <div class="smallerText aoe_common_base_text">"The purpose of our lives is to be happy." - Sham Meshel</div>
+                                    </div>
+                                </div>
+                                <img src="Images/FontPage_Images/aoe_aboutUs_characters_img1.jpg" alt="" class="aoeMidBase_commoncontainer_items_popBase_img">
+                            </div>
+                            <div class="aoe_midBase_common_container_items">
+                                <div class="aoeMidBase_commoncontainer_items_popBase">
+                                    <!-- <div class="aoeMidBase_commoncontainer_items_popBase_bg commonPosition"></div> -->
+                                    
+                                    <div class="aoeMidBase_items_popBase_textBase commonPosition">
+                                        <div class="smalltext editedtitle aoe_common_base_title">Nostalgia Game</div>
+                                        <div class="smallerText aoe_common_base_text">"The purpose of our lives is to be happy." - Sham Meshel</div>
+                                    </div>
+                                </div>
+                                <img src="Images/FontPage_Images/aoe_aboutUs_characters_img2.jpg" alt="" class="aoeMidBase_commoncontainer_items_popBase_img">
+                            </div>
+                            <div class="aoe_midBase_common_container_items">
+                                <div class="aoeMidBase_commoncontainer_items_popBase">
+                                    <!-- <div class="aoeMidBase_commoncontainer_items_popBase_bg commonPosition"></div> -->
+                                    
+                                    <div class="aoeMidBase_items_popBase_textBase commonPosition">
+                                        <div class="smalltext editedtitle aoe_common_base_title">Nostalgia Game</div>
+                                        <div class="smallerText aoe_common_base_text">"The purpose of our lives is to be happy." - Sham Meshel</div>
+                                    </div>
+                                </div>
+                                <img src="Images/FontPage_Images/aoe_aboutUs_characters_img3.jpg" alt="" class="aoeMidBase_commoncontainer_items_popBase_img">
+                            </div>
+                            <div class="aoe_midBase_common_container_items">
+                                <div class="aoeMidBase_commoncontainer_items_popBase">
+                                    <!-- <div class="aoeMidBase_commoncontainer_items_popBase_bg commonPosition"></div> -->
+                                    
+                                    <div class="aoeMidBase_items_popBase_textBase commonPosition">
+                                        <div class="smalltext editedtitle aoe_common_base_title">Nostalgia Game</div>
+                                        <div class="smallerText aoe_common_base_text">"The purpose of our lives is to be happy." - Sham Meshel</div>
+                                    </div>
+                                </div>
+                                <img src="Images/FontPage_Images/aoe_aboutUs_characters_img4.jpg" alt="" class="aoeMidBase_commoncontainer_items_popBase_img">
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="aoe_bottom">
+                        <img src="Images/FontPage_Images/aoe_bottom_bgImg.jpg" alt="" class="aoe_bottom_img">
+                        <div class="aoe_bottom_text_base">
+                            <a href="" class="aoe_bottom_text_base_link">Facebook</a>
+                            <a href="" class="aoe_bottom_text_base_link">Twitter</a>
+                            <a href="" class="aoe_bottom_text_base_link">Steam</a>
+                            <a href="" class="aoe_bottom_text_base_link">Instagram</a>
+                            <a href="" class="aoe_bottom_text_base_link">Youtube</a>
+                            <a href="https://www.ageofempires.com/news/visual-look-at-aoe2de/" class="aoe_bottom_text_base_link">AOE Main Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
